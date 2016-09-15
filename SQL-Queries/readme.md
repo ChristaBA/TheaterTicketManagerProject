@@ -1,0 +1,1 @@
+Any SQL queries we create for testing, creating, deleting, maintaining, etc. the database will go here. Any notes or comments about the database will also be placed here in the "Notes and Comments" folder.
