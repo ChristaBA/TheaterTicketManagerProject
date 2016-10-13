@@ -1,0 +1,43 @@
+.nav {
+	float: left;
+	width: 100%;
+	height: 10%;
+	background-color: #0066ff;
+}
+
+.mainWindow {
+	float: left;
+	width: 100%;
+	height: 90%;
+	background-color: #6600ff;
+}
+
+.messageBox{
+	float: left;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+}
+
+.ticketBox{
+	float: left;
+	width: 100%;
+	height: 80%;
+}
+
+.ticketForm{
+	margin: auto;
+	width: 30%;
+	background-color: #0066ff;
+}
+
+.loginDisplay{
+	float: left;
+}
+
+.login{
+	float: left;
+}
+body{
+	margin: 0px;
+}
