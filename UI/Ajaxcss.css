@@ -1,0 +1,144 @@
+.nav {
+	float: left;
+	width: 100%;
+	height: 10%;
+	background-color: #0066ff;
+}
+
+.mainWindow {
+	float: left;
+	width: 100%;
+	height: 90%;
+	background-color: #6600ff;
+}
+
+.messageBox{
+	float: left;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+}
+
+.ticketBox{
+	float: left;
+	width: 100%;
+	height: 80%;
+}
+
+.ticketForm{
+	margin: auto;
+	width: 30%;
+	background-color: #0066ff;
+}
+
+.loginDisplay{
+	float: left;
+}
+
+.login{
+	float: left;
+}
+body{
+	margin: 0px;
+background-color:black;
+
+
+
+}
+img{
+   display:block;
+   left: 30%;
+   margin:auto;
+   width: 20%;
+    border-radius: 8px;
+    
+}
+
+h1{
+    
+    
+    text-align: center;
+    font-size:50px;
+    color:azure;
+}
+h1.one{
+    
+    border-style: solid;
+    border-color: red;
+    border-radius: 5px;
+    text-align: center;
+    font-size:50px;
+    color:azure;
+    
+    
+    
+}
+
+
+h1.two{
+    border-style: solid;
+    border-color: red;
+    text-align: center;
+    font-size:50px;
+    color:azure;
+}
+.LoginButton{
+   position:absolute;
+top:0%;
+   
+   
+   
+left:90%;
+    
+background-color:#66ff66;/* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+      margin: 4px 2px;
+    cursor: pointer;
+}
+.TicketButton{
+    
+     position:absolute;
+     bottom:5%;
+     left:45%;
+     background-color: #0066ff; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+          margin: 4px 2px;
+        cursor: pointer;
+}
+    
+.left {
+  border: solid 5px red;
+  float: left;
+}
+
+.right {
+  border: solid 5px blue;
+  float: right;
+}
+.center{
+    
+  border: solid 5px blue;
+    
+}  
+
+    
+    
+
+
+
+    
+    
+    
+    
