@@ -221,9 +221,9 @@ body{
             
             
             
-         <input type="button" class="TicketButton1" value="Civic Center Play House" onclick="location='CivicHall'" />
+         <input type="button" class="TicketButton1" value="Civic Center Play House" onclick="location='CivicHall.php'" />
        
-        <input type="button" class="TicketButton2" value="Civic Center Hall" onclick="location='CivicPlayHouse'" />
+        <input type="button" class="TicketButton2" value="Civic Center Hall" onclick="location='CivicPlayHouse.php'" />
         
 
             
