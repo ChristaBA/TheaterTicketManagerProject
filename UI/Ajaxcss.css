@@ -1,0 +1,238 @@
+
+.logininput{
+    
+   	width:100%;
+    background-color:white;
+    text-align:center;
+        list-style:none;
+        padding:20px 0px 0px 20px;
+	color:#ffffff;
+    
+    
+    
+    
+}  
+    
+    
+    
+    
+body{
+    background-color:black;
+    margin:0;
+    padding:0;
+    font-family:'Arial',serif;
+    
+    
+    
+    
+    
+}
+
+.nav {
+	width:100%;
+    background-color:white;
+    text-align:center;
+        list-style:none;
+        padding:20px 0px 0px 20px;
+	color:#ffffff;
+	
+}
+.nav > li{
+    display:inline-block;
+    padding:0px 50px 10px 15px;
+   font-size: 25px;
+    
+    
+}
+.nav > li>a:hover{
+    
+    
+    color:#0066ff;
+    
+}
+.nav > li > a{
+    text-decoration:none;
+    color:black;
+    
+}  
+.Banner{
+        
+      width:100%;
+     
+      display:block;
+        
+        
+    }       
+    .Banner > .Banner-img{
+        
+        
+         width:100%;
+      display:block;
+        height:20%
+        
+        
+    }   
+    .logo{
+        color:black;
+        float:left;
+        padding-left: 25px;
+        font-size:20px;
+        font-weight:bold;
+        
+        
+        
+    }   
+    .logo >a{
+        
+        
+        text-decoration:none;
+        color:black;
+    }   
+     
+.mainWindow {
+	float: left;
+	width: 100%;
+	height: 90%;
+	background-color:white;
+}
+
+.messageBox{
+	float: left;
+	width: 100%;
+	height: 20%;
+	text-align: center;
+}
+
+.ticketBox{
+	float: left;
+	width: 100%;
+	height: 100%;
+}
+
+.ticketForm{
+	margin: auto;
+	width: 30%;
+	background-color: #0066ff;
+}
+
+.loginDisplay{
+	float: left;
+            
+}
+
+.login{
+	float: left;
+        color:white;
+}
+
+
+h1{
+   color:black;
+   text-align:center;
+    font-size:50px;
+  background-color:grey;
+}
+h2
+{
+    text-align:left;
+    font-size:50px;
+    color:black;
+    }
+h3{
+    
+    text-align:right;
+    font-size:50px;
+    color:black;
+    
+    
+ }
+
+h1.one{
+    
+    border-style: solid;
+    border-color: red;
+    border-radius: 5px;
+   
+    text-align: center;
+    font-size:50px;
+ 
+    
+    
+    
+}
+
+
+h1.two{
+    border-style: solid;
+    border-color: red;
+    
+      border-radius: 5px;
+    text-align: center;
+    font-size:50px;
+  
+}
+
+
+
+.LoginButton{
+    position:absolute;
+    
+    background-color:#66ff66;/* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.Button{
+    float:right;
+     position:absolute;
+     bottom:5%;
+     left:45%;
+     background-color:#66ff66;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+}
+
+
+
+.left {
+  border:dotted 10px red;
+  float: left;
+}
+
+.right {
+  border: dotted 10px red;
+  float: right;
+}
+.center{
+    
+  border: solid 5px blue;
+    
+}  
+
+
+
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
