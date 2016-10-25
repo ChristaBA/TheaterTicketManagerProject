@@ -11,7 +11,7 @@
          <div id="main">
        <body style="background:#E66C6C">
          <input type="button" value="Create Database" onclick="location='myDB.php'" />
-         <form action="DataInsert.php" method="post">
+         <form action="AccountInsert.phpInsert.php" method="post">
     <p>
         <label for="firstName">First Name:</label>
         <input type="text" name="firstname" id="firstName">
@@ -32,10 +32,72 @@
         <label for="accountType">Account Type:</label>
         <input type="number" name="acc" id="accountType">
     </p>
+      <p>
+        <label for="companyName">Company Name:</label>
+        <input type="text" name="companyName" id="companyName">
+    </p>
     <input type="submit" value="Submit">
 </form>
          <h2>Alice In Wonderland</h2>
           <img src="AliceInWonderland-Behance-M1.jpg" alt="AliceInWonderland" style="width:600px;height:800px;">
-    
+      <form action="ShowInsert.php" method="post">
+    <p>
+        <label for="showName">Show Name:</label>
+        <input type="text" name="showname" id="showName">
+    </p> 
+    <p>
+       <label for="statDate">Start Date:</label>
+       <input type="date" name="startDate" id="startDate">
+    </p>
+    <p>
+        <label for="endDate">End Date:</label>
+       <input type="date" name="endDate" id="endDate">
+    </p>
+    <p>
+        <label for="location">Location:</label>
+        <input type="text" name="location" id="location">
+    </p>
+    <input type="submit" value="Submit">
+</form>
+          
+          <form action="SeasonTicketInsert.php" method="post">
+    <p>
+       <label for="firstName">First Name:</label>
+        <input type="text" name="firstname" id="firstName">
+    </p>
+    <p>
+        <label for="lastName">Last Name:</label>
+        <input type="text" name="lastname" id="lastName">
+    </p>
+    <p>
+        <label for="ticketnumbe">Ticket Number:</label>
+       <input type="text" name="ticketNumber" id="ticketNumber">
+    </p>
+    <p>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+    </p>
+     <p>
+        <label for="phonenumber">Phone Number:</label>
+        <input type="number" name="phoneNumber" id="phoneNumber">
+    </p>
+     <p>
+        <label for="seat">Seat:</label>
+        <input type="text" name="seat" id="seat">
+    </p>
+    <p>
+        <label for="day">Day:</label>
+        <input type="text" name="day" id="day">
+    </p>
+    <p>
+        <label for="time">Time:</label>
+        <input type="text" name="time" id="time">
+    </p>
+    <p>
+        <label for="address">Address:</label>
+        <input type="text" name="address" id="address">
+    </p>
+    <input type="submit" value="Submit">
+</form>
     </body>
 </html>
