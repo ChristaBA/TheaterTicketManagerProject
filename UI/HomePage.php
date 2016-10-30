@@ -4,7 +4,7 @@
 		
                  <meta charset="utf-8">
 		
-                <title> Huntsville Theaters</title>
+                <title> Huntsville Civic Center</title>
               
         </head>
 
@@ -27,7 +27,7 @@ body{
     background-color:white;
     text-align:center;
         list-style:none;
-        padding:20px 0px 0px 20px;
+        padding:20px 0px 0px 0px;
 	color:#ffffff;
 	
 }
@@ -85,29 +85,18 @@ body{
      
     h1{
     border-style: solid;
+    background:white;
     border-color: red;
     border-radius: 5px;
     text-align: center;
     font-size:50px;
-    color:white;
+    color:Black;
      font-family:'Arial',serif;   
         
         
         
     }
-     .Venue-img1{
-       float:left;
-        width:30%;
-     display:inline-block;
-        
-    }
-   .Venue-img2{
-        float:right;
-         width:30%;
-     display:inline-block;
-        
-        
-    }
+   
     .Button{
     
      position:absolute;
@@ -127,57 +116,32 @@ body{
 
 .TicketButton1{
     
-    position:absolute;
-     bottom:0%;
-     left:20%;
+    
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
      background-color:white;
       border: none;
       color: black;
       padding: 15px 32px;
       text-align: center;
       text-decoration: none;
-      display: inline-block;
+   
       font-size: 16px;
-      margin: 4px 2px;
+    
       cursor: pointer;
     
     
     
 }
-.TicketButton2{
-    position:absolute;
-     bottom:0%;
-     left:60%;
-     background-color:white;
-      border: none;
-      color: black;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-    
-    
-    
-    
-}
+
 .TickButton1:hover{
-    color:#0066ff;
+    color:#66ff66;
     
     
 }
 
- .left {
-  border:dotted 10px red;
-  float: left;
-}
 
-.right {
-  border: dotted 10px red;
-  float: right;
-}
     
         </style>
         
@@ -204,16 +168,25 @@ body{
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-            <h1>Our Venues</h1>   
+            <h1>Now Showing</h1>   
            
-          
-            <img class ="left" src ="civic hall.jpg">
-                
-                <img class ="right" src ="civic hall.jpg">
-        
-           
-       
             
+          
+            <img src ="hamlet.jpg" style ="float:left; width:20%; height:60%;margin-right:4%;margin-left:2%;border:3px solid white;">
+            <img src ="wizardofoz (Small).jpg" style ="float:left; width:20%; height:60%;margin-right:4%;border:3px solid white;">
+            <img src ="hamlet.jpg" style ="float:left; width:20%; height:60%;margin-right:4%;border:3px solid white;">
+             <img src ="hamlet.jpg" style ="float:left; width:20%; height:60%;margin-right:4%;border:3px solid white;">
+             <br>
+                <img src ="hamlet.jpg" style ="float:left; width:20%; height:60%;margin-right:4%;margin-left:2%;border:3px solid white;">
+                 <img src ="hamlet.jpg" style ="float:left; width:20%; height:60%;margin-right:4%;border:3px solid white;">
+                  <img src ="hamlet.jpg" style ="float:left; width:20%; height:60%;margin-right:4%;border:3px solid white;">
+                   <img src ="hamlet.jpg" style ="float:left; width:20%; height:60%;margin-right:4%;border:3px solid white;">
+                  <p style="clear: both;">
+                      <br>
+       
+             <input type="button" class="TicketButton1" value="Get Tickets!" onclick="location='CivicHall.php'" />
+       
+      
         
             </body>
        
@@ -221,9 +194,7 @@ body{
             
             
             
-         <input type="button" class="TicketButton1" value="Civic Center Play House" onclick="location='CivicHall.php'" />
-       
-        <input type="button" class="TicketButton2" value="Civic Center Hall" onclick="location='CivicPlayHouse.php'" />
+        
         
 
             
