@@ -4,19 +4,21 @@
  
 
     
-    </head>
+
      <style>
-                  body{
-    background-color:black;
-    margin:0;
-    padding:0;
-    font-family:'Arial',serif;
-    
-    
-    
-    
-    
-}
+         
+         h1{
+             text-align:center;
+             color:white;
+             
+         }      
+         
+          body{
+                        
+                        
+               background-color:black;
+               } 
+         
 .nav {
 	width:100%;
     background-color:white;
@@ -77,27 +79,45 @@
         text-decoration:none;
         color:black;
     }   
-     
-    h1{
-        width:100%;
-      
-    
-    background:white;
-    
-    border-radius: 5px;
+               
+         
+         
+       
+                    
+  .button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
     text-align: center;
-    font-size:40px;
-    color:Black;
-     font-family:'Arial',serif;   
-        
-        
-        
-    }
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button1 {
+    background-color: white;
+    width:50%;
+    margin-left:25%;
+    margin-right:25%;
+    color: black;
+    border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+</style>         
+     </head>                   
                     
                     
-                    
-                    
-                </style>   
+                   
                 
     <body>
              <ul class ="nav">
@@ -121,17 +141,12 @@
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-        <div class ="mainWindow">
-            
-            
-            
-            
-            
-            
-        </div>
+      <h1>Administrator</h1>
+
         
-        
-        
+<button class="button button1">Create Group Super Visor</button>
+
         
        </body>
 </html>
+

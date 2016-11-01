@@ -1,15 +1,97 @@
 <html>
 	<head>
-            <link rel="stylesheet" type="text/css" href="Ajaxcss.css">
+           
 
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
                 <style>
-                    body{
-                        
-                        
-                        background-color:black;
-                    }
+                  body{
+    background-color:black;
+    margin:0;
+    padding:0;
+    font-family:'Arial',serif;
+    
+    
+    
+    
+    
+}
+.nav {
+	width:100%;
+    background-color:white;
+    text-align:center;
+        list-style:none;
+        padding:20px 0px 0px 0px;
+	color:#ffffff;
+	
+}
+.nav > li{
+    display:inline-block;
+    padding:0px 50px 10px 15px;
+   font-size: 25px;
+    
+    
+}
+.nav > li>a:hover{
+    
+    
+    color:#0066ff;
+    
+}
+.nav > li > a{
+    text-decoration:none;
+    color:black;
+    
+}  
+.Banner{
+        
+      width:100%;
+     
+      display:block;
+        
+        
+    }       
+    .Banner > .Banner-img{
+        
+        
+         width:100%;
+      display:block;
+        height:20%
+        
+        
+    }   
+    .logo{
+        color:black;
+        float:left;
+        padding-left: 25px;
+        font-size:20px;
+        font-weight:bold;
+        
+        
+        
+    }   
+    .logo >a{
+        
+        
+        text-decoration:none;
+        color:black;
+    }   
+     
+    h1{
+        width:100%;
+      
+    
+    background:white;
+    
+    border-radius: 5px;
+    text-align: center;
+    font-size:40px;
+    color:Black;
+     font-family:'Arial',serif;   
+        
+        
+        
+    }
                     
                     
                     
@@ -77,11 +159,19 @@
                 
                 <div id="TopBanner" class="logininput">
 		<form id="loginForm" class="login">
-			<label>Username:</label><input type="text" name="userName"><br>
+			<label>Username:</label><input type="text" name="username"><br>
 			<label>Password:</label><input type="password" name="password"><br>
-			<button  class = "LoginButton" type="log in" id="btnLogIn">Log In</button>
+			<button  class = "LoginButton" type="button" id="btnLogIn" >Log In</button>
 		</form>
+                  
+                    
+                    
+                    
 		<article id="loginDisplay" class="loginDisplay"></article>
         </div>
+         <input type="button"  value="Admin" onclick="location='Admin.php'" />       
+         <br>
+         <br>
+           <input type="button"  value="Super User" onclick="location='GroupSuper.php'" />    
 	</body>
-</html>
+</html> 
