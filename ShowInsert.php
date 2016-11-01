@@ -10,7 +10,6 @@ if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
 $showname = filter_input(INPUT_POST,"showname");
-$tmpName = $_FILES['showImage']['tmp_name'];
 $startDate = filter_input(INPUT_POST,"startDate");
 $endDate = filter_input(INPUT_POST,"endDate");
 $location = filter_input(INPUT_POST,"location");

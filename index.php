@@ -1,3 +1,20 @@
+<?php
+          
+          $servername = "localhost:3306";
+            $username = "root";
+            $password = "";
+            $dbname = "testdatabase";
+
+$link =  mysqli_connect($servername, $username, $password, $dbname);
+if ($link->connect_error) {
+    die("Connection failed: " . $link->connect_error);
+} 
+
+$query = "SELECT * FROM showname";
+$result1 = mysqli_query($link, $query);
+
+?>
+
 <!DOCTYPE.html>
 <html>
     <head>
@@ -11,7 +28,16 @@
          <div id="main">
        <body style="background:#E66C6C">
          <input type="button" value="Create Database" onclick="location='myDB.php'" />
-         <form action="AccountInsert.phpInsert.php" method="post">
+         
+         <select>
+             <?php while($row1 = mysqli_fetch_array($result1)):;?>
+             <option><?php echo $row1[0];?></option>
+             <?php endwhile;?>
+         </select>
+          
+         
+         
+         <form action="AccountInsert.php" method="post">
     <p>
         <label for="firstName">First Name:</label>
         <input type="text" name="firstname" id="firstName">
@@ -99,5 +125,8 @@
     </p>
     <input type="submit" value="Submit">
 </form>
+          
+          
+         
     </body>
 </html>

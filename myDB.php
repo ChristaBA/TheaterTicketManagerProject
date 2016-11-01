@@ -40,8 +40,7 @@ $linkShow = mysqli_connect($servername, $username, $password, $dbname);
 
  // Attempt create table query execution
 $showTable = "CREATE TABLE IF NOT EXISTS showName (
-         showname VARCHAR(30) NOT NULL, 
-         showImage blob       NOT NULL,
+         showname VARCHAR(30) NOT NULL,
          startdate VARCHAR(30) NOT NULL, 
          enddate VARCHAR(50), 
          location VARCHAR(50)
