@@ -21,7 +21,6 @@ body {
 a {
 	color: #b71a4c;
 }
-
 .nav {
 	width:100%;
     background-color:white;
@@ -83,15 +82,15 @@ a {
         color:black;
     }   
      
-
 .stage-indicator {
-	width: 828px;
+	width: 640px;
 	margin: 5px 32px 15px 32px;
 	background-color: #f6f6f6;	
 	color: #adadad;
 	text-align: center;
 	padding: 3px;
-	border-radius: 5px;
+	border-radius: 20px;
+	margin-left: 188px;
 }
 /*.wrapper {
 	width: 100%;
@@ -99,7 +98,7 @@ a {
   margin-top:150px;
 }*/
 .container {
-	width: 1200px;
+	width: 1300px;
 	text-align: left;
 }
 .booking-details {
@@ -134,7 +133,6 @@ div.seatCharts-row {
 }
 div.seatCharts-seat.available {
 	background-color: #B9DEA0;
-
 }
 div.seatCharts-seat.available.premium-orchestra {
 	background-color: #3a78c3;
@@ -142,7 +140,6 @@ div.seatCharts-seat.available.premium-orchestra {
 div.seatCharts-seat.available.balcony {
 	background-color: #993ac3;
 }
-
 div.seatCharts-seat.focused {
 	background-color: #76B474;
 }
@@ -154,7 +151,7 @@ div.seatCharts-seat.unavailable {
 }
 div.seatCharts-container {
 	border-right: 1px dotted #adadad;
-	width: 900px;
+	width: 1000px;
 	padding: 20px;
 	float: left;
 }
@@ -182,7 +179,6 @@ span.seatCharts-legendDescription {
 	overflow-x: none;
 	width: 170px;
 }
-
 </style>
 </head>
 
@@ -250,27 +246,24 @@ span.seatCharts-legendDescription {
 					$total = $('#total'),
 					sc = $('#seat-map').seatCharts({
 					map: [
-						'fffffffffffff_fffffffffffff',
-						'fffffffffffff_fffffffffffff',
-						'fffffffffffff_fffffffffffff',
-						'fffffffffffff_fffffffffffff',
-						'fffffffffffff_fffffffffffff',
-						'fffffffffffff_fffffffffffff',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
-						'eeeeeeeeeeeee_eeeeeeeeeeeee',
+						'_____ff_fffffffffffffff_ff_____',
+						'___ffff_fffffffffffffff_ffff___',
+						'___ffff_fffffffffffffff_ffff___',
+						'__fffff_fffffffffffffff_fffff__',
+						'_ffffff_fffffffffffffff_ffffff_',
+						'_ffffff_fffffffffffffff_ffffff_',
+						'fffffff_fffffffffffffff_fffffff',
+						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
+						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
+						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
+						'_eeeeee_eeeeeeeeeeeeeee_eeeeee_',
+						'_eeeeee_eeeeeeeeeeeeeee_eeeeee_',
 						'',
-						'bbbbbbbbbbbbb_bbbbbbbbbbbbb',
-						'bbbbbbbbbbbbb_bbbbbbbbbbbbb',
-						'bbbbbbbbbbbbb_bbbbbbbbbbbbb',
-						'bbbbbbbbbbbbb_bbbbbbbbbbbbb',
+						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
+						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
+						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
+						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
+						
 					],
 					seats: {
 						f: {
@@ -342,18 +335,15 @@ span.seatCharts-legendDescription {
 						}
 					}
 				});
-
 				//this will handle "[cancel]" link clicks
 				$('#selected-seats').on('click', '.cancel-cart-item', function () {
 					//let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
 					sc.get($(this).parents('li:first').data('seatId')).click();
 				});
-
 				//let's pretend some seats have already been booked
 				sc.get(['1_2','1_3','1_12','1_13','2_15','2_16','2_17','2_18','3_14','4_1', '7_1', '7_2']).status('unavailable');
 		
 		});
-
 		function recalculateTotal(sc) {
 			var total = 0;
 		
@@ -366,18 +356,15 @@ span.seatCharts-legendDescription {
 		}
 		
 		</script><script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36251023-1']);
   _gaq.push(['_setDomainName', 'jqueryscript.net']);
   _gaq.push(['_trackPageview']);
-
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
-
 </script>
 
 
