@@ -256,12 +256,12 @@ input[type=submit]:hover {
                     <form id="loginForm">
 			<label class ="label">Username:</label><input type="text" name="userName"><br>
 			<label class ="label">Password:</label><input type="text" name="password"><br>
-			<button  class = "button button1" type="button" id="btnLogIn">Log In</button>
-                        <button  class = "button button2" type="button" id="Cancel">Cancel</button>
+			
                         
                     
                     </form>
-		
+		<button  class = "button button1" type="button" id="btnLogIn">Log In</button>
+                       <button class="button button2" onclick="location='HomePage.php'">Log out</button>
         </div>
 	</body>
 </html>

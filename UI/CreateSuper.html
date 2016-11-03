@@ -1,23 +1,23 @@
+
 <html>
-    
-    <head>
- 
-<title>Administrator</title>
-    
-    
-     <style>
-       body{
+	<head>
+            
+            <title>Create Group SuperVisor</title>
+		
+                
+
+                <style>
+                   body{
     background-color:black;
     margin:0;
     padding:0;
     font-family:'Arial',serif;
-    }
     
     
     
     
-
- 
+    
+}
 .nav {
 	width:100%;
     background-color:white;
@@ -77,8 +77,9 @@
         
         text-decoration:none;
         color:black;
-    } 
-     h1{
+    }   
+     
+    h1{
         width:100%;
       
     
@@ -93,7 +94,45 @@
         
         
     }
-      .button {
+input[type=text], select {
+    width: 70%;
+    margin-left:25%;
+    margin-right:25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 70%;
+    margin-left:25%;
+    margin-right:25%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+.Login {
+    
+    width:50%;
+    height:50%;
+    margin-right:25%;
+    margin-left:25%;
+    border-radius: 5px;
+    background-color:white;
+    padding: 10px;
+}
+  .button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -106,11 +145,11 @@
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-     width:40%;
-    
+    width:20%;
+
       }
 .button1 {
-    margin-left:30%;
+    margin-left:25%;
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
@@ -118,63 +157,38 @@
 .button1:hover {
     background-color: #4CAF50;
     color: white;
-}
+}                  
+     
 .button2 {
     background-color: white;
     color: black;
-    border: 2px solid #008CBA;
+    border: 2px solid #f44336;
 }
 .button2:hover {
-    background-color: #008CBA;
-    color: white;
+    background-color: #f44336;
+    color: white; 
 }
-.button3 {
-    margin-left:30%;
-    background-color: white;
-    color: black;
-    border: 2px solid yellow;
-}
-.button3:hover {
-    background-color: yellow;
-    color: black;
-}
-.button4 {
-    background-color: white;
-    color: black;
-    border: 2px solid orange;
-}
-.button4:hover {
-    background-color:orange;
-}
-.button5 {
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
-}
-.button5:hover {
-    background-color: #555555;
-    color: white;
-}              
- .button6 {
-     margin-left:30%;
-    background-color: white;
-    color: black;
-    border: 2px solid #555555;
-}
-.button6:hover {
-    background-color: red;
-    color: white;
-}                    
+
+.label{
+ 
+ margin-left:auto;
+ 
+ 
+ }
                   
-                    
                 </style>   
-                </head>
-    <body>
-             <ul class ="nav">
-               <div class="logo"> 
+                
+              
+                
+                
+	</head>
+	<body>
+
+           <ul class ="nav">
+               <div class="logo">
                     <a href ="HomePage.php">Civic Center Entertainment</a>
                    
-                  
+                   
                    
                </div>
         
@@ -191,11 +205,22 @@
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-        <h1>Administrator</h1>
-
-
-
-<button class="button button3" onclick="location='CreateSuper.html'">Create Group Supervisor</button>
-<button class="button button6" onclick="location='Employeelogin.php'">Cancel</button>
-       </body>
+                
+                <h1>Create Super Visor</h1>  
+                
+                
+                <div class ="Login">
+                    <form id="CreateShowForm">
+			<label class ="label">Username:</label><input type="text" name="userName"><br>
+			<label class ="label">Password:</label><input type="text" name="password"><br>
+                        <label class ="label">Email:</label><input type="text" name="Email"><br>
+                         <label class ="label">Company Name:</label><input type="text" name="CompanyName"><br>
+			
+                        
+                    
+                    </form>
+                        <button  class = "button button1" type="button" id="btnCreate">Create</button>
+                        <button  class = "button button2" type="button" onclick="location='Employeelogin'">Cancel</button>
+        </div>
+	</body>
 </html>
