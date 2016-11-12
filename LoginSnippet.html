@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="UI/AjaxTest.css">
+
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+	</head>
+	<body>
+	<script>
+	$(document).ready(function() {
+            
+			$("#btnLogIn").click(function() {
+				var data = $("#loginForm").serializeArray();
+                                
+                                $.post("LoginCheck.php", data, function(response) {
+                                        $("#loginDisplay").html("<h1>"+response+"<\h1");
+                                        
+				});
+			});
+	});
+		</script>
+	<header id="TopBanner" class="nav">
+		<form id="loginForm" class="login">
+			<label>Username:</label><input type="text" name="userName"><br>
+			<label>Password:</label><input type="password" name="password"><br>
+			<button type="button" id="btnLogIn">Log In</button>
+		</form>
+		<article id="loginDisplay" class="loginDisplay"></article>
+	</header>
+	</body>
+</html>
