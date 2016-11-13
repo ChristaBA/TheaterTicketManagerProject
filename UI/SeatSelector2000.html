@@ -217,6 +217,17 @@ span.seatCharts-legendDescription {
 <div class="jquery-script-clear"></div>
 </div>
 </div>
+
+<select id="opts" onchange="showForm()">
+    <option value="0">Select Date/Time</option>
+    <option value="1">June 1, 7pm</option>
+    <option value="2">June 2, 8pm</option>
+    <option value="3">June 6, 6pm</option>
+    <option value="4">June 7, 2pm</option>
+</select>
+
+<div id="schart" style="display:none">
+
 <div class="wrapper">
   <div class="container">
   <!--<h2>Theater Manager Ticket Selecter</h2> -->
@@ -239,6 +250,7 @@ span.seatCharts-legendDescription {
 	  </div>
 
   </div>
+</div>
 </div>
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="jquery.seat-charts.js"></script> 
