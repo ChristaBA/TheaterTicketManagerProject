@@ -412,7 +412,17 @@ span.seatCharts-legendDescription {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-
+<script type="text/javascript">
+    function showForm() {
+        var selopt = document.getElementById("opts").value;
+		if (selopt != 0) {
+            document.getElementById("schart").style.display = "block";
+        };
+		if (selopt == 0) {
+            document.getElementById("schart").style.display = "none";
+        };
+    }
+</script>
 
 </body>
 </html>
