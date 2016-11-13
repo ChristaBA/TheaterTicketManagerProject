@@ -1,123 +1,68 @@
-<DOCTYPE html>
 <html>
 	<head>
-		       <meta charset="utf-8">
+		 
+                 <meta charset="utf-8">
 		
                 <title> Huntsville Civic Center</title>
               <?php
-          
+
           $servername = "localhost:3306";
             $username = "root";
             $password = "";
             $dbname = "testdatabase";
-            
 $link =  mysqli_connect($servername, $username, $password, $dbname);
-
-
-
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
-
+  session_start();
+    $var_value = $_SESSION['varname'];
 //$query = "SELECT  Poster From showname";
-$query = "SELECT  Company FROM showname";
+$query = "SELECT  showname,startdate,enddate,location,Poster,Company FROM showname WHERE Company = '$var_value'";
+
+
+
+
+
+ 
 $result1 = mysqli_query($link, $query);
 ?>
-    <?php            
-      $companyarray = array();        
-      
-     $index =0;  
-      
+               
+                <?php            
+              //while($row =  mysqli_fetch_array($result1))
  while($row = $result1->fetch_assoc())    
  {
- 
-$companyarray[$index]=$row;
+     
+  $showname =$row["showname"];
+  $StartDate =$row["startdate"];
+  $enddate =$row["enddate"];
+  $location =$row["location"];
 
-$index++;
   
    //echo "id: " . $row["showname"]. " - Name: " . $row["startdate"]. " " . $row["enddate"]. "<br>";
-
-   
-    
-    
-    
+   //$companyname =$row["Company"];
+    //echo'<img  src=' . $row["$Poster"] . ' width="60" height="60" alt="word" />';
+  ///echo "img src='",$row['Poster'],"' width='175' height='200' />";
  }
+  
  
- //echo implode("",$companyarray[0]);
- //$companya =  $companyarray[0];
-   // $companyname = $companyarray[1];
- session_start();
-                               
- if($companyarray[0]==null)
- {
-     $companya = "NO SHOW";
- }
-     else 
-     {
-      $companya=  implode(" ",$companyarray[0]);
-      
-     }
- if($companyarray[1]==null)
- {
-     $companyb = "NO SHOW";
- }
-     else 
-     {
-      $companyb=  implode(" ",$companyarray[1]);
-     }
- 
-     if($companyarray[2]==null)
- {
-     $companyc = "NO SHOW";
- }
-     else 
-     {
-      $companyc=  implode(" ",$companyarray[2]);
-     }
-      
-     if($companyarray[3]==null)
- {
-     $companyd = "";
- }
-     else 
-     {
-      $companyd=  implode(" ",$companyarray[3]);
-     }
-      
-     if(array_key_exists(4, $companyarray))
- {
-     $companye=  implode(" ",$companyarray[4]);
- }
-     else 
-     {
-      $companye = " NO SHOW  ";
-     }
-     
-      if(array_key_exists(5, $companyarray))
-    {  
-     $companyf=  implode(" ",$companyarray[5]);
-    }
-     else 
-     {
-    $companyf = "NO SHOW";
-     }
-   //$companyb=  implode(" ",$companyarray[1]);
-   //$companyc=  implode(" ",$companyarray[2]);
-   //$companyd=   implode(" ",$companyarray[3]);
-   //$companye=   implode(" ",$companyarray[4]);g
-  //$companyf=   implode(" ",$companyarray[5]);
- 
-   
-     $_SESSION['varname'] = $companya;
-     
-     ?>          
-              
   
 
+          
+      
 
 
-        <STYLE>
-body{
+    
+    
+     
+ 
+?>
+              
+        
+
+        <style>
+
+            
+  body{
     background-color:black;
     margin:0;
     padding:0;
@@ -206,9 +151,9 @@ body{
     }
     h1.one{
         
-             width:80%;
+                width:100%;
       
-    margin-left:10%;
+    
     background:white;
     
     border-radius: 5px;
@@ -219,8 +164,10 @@ body{
         
         
         
-        
     }
+        
+        
+    
      .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -234,11 +181,11 @@ body{
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
     cursor: pointer;
-     width:10%;
+     width:80%;
    
       }
 .button1 {
-     margin-left:20%;
+     margin-left:10%;
   background-color: white;
     color: black;
     border: 2px solid #555555;
@@ -248,6 +195,8 @@ body{
     color: white;
 }
 .button2 {
+    width:50%;
+    margin-left:25%;
    background-color: white;
     color: black;
     border: 2px solid #555555;
@@ -316,21 +265,21 @@ body{
     color: white;
 }
 .Shows{
-   width:40%;
+   width:20%;
    background-color:#cccccc;
-    height:80%;
+    height:60%;
     display:inline-block;
-     margin-left:5%; 
+     margin-left:10%; 
     opacity:0.2%;
     
     
 } 
 .Shows1{
     float:right;
-    margin-right:5%;
-    width:40%;
+    margin-right:10%;
+    width:35%;
     background-color:#cccccc;
-    height:80%;
+    height:75%;
     opacity: 0.2%;
     
     
@@ -347,36 +296,17 @@ body{
     
 }
         </style>
-           </head> 
+         </head>
+
         <body>
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </script>
-
+       
            <ul class ="nav">
                <div class="logo">
                     <a href ="HomePage.php">Civic Center Entertainment</a>
                  </div>  
                   <li><a href ="Aboutus.php">About US</a></li>
                   <li><a href ="Contact.php">Contact</a></li>
-                  <li><a href ="Help_Home.html">Help<a/></li>
+                  <li><a href ="helppage.php">Help</a></li>
                   <li><a href ="Employeelogin.php">Login</a></li> 
                  </ul>  
                
@@ -384,69 +314,28 @@ body{
               <div class ="Banner">
               <img class ="Banner-img" src="hunstville banner.jpg">
               
-               </div>     
-                   
-             
-                
-               
-           
-            
-            <h1>Showing this week</h1>   
-          
-            
+              </div>
+            <h1><?php echo  $var_value?></h1><br>
+            <h1>Showing this Season</h1>
             <div class ="Shows">
-                  <h1>CompanyA</h1>
-                <h1 class="one">Civic Playhouse</h1> 
+                <h1 class = one><?php echo  $StartDate?></h1>
+           <img src ="Hamlet (Small).jpg" style ="float:left; width:80%; height:80%;margin-right:0%;margin-left:10%;border:3px solid black;">
+           <button class="button button1" onclick="location='SeatSelector.html'">Show Times</button>
+            
+            </div>
+  
+                <p style="clear: both;">
+             
+             <br>
+             
+                <div class ="Footer">
+                    
+                   <button class ="button button2" onclick="location='CreateSeasonTicket.hrml'">Get Season Tickets</button>
+                    
+                    
+                </div>
               
-            <img src ="Hamlet (Small).jpg" style ="float:left; width:60%; height:80%;margin-right:2%;margin-left:20%;border:3px solid black;">
-             
-            </div>
-            <div class ="Shows1">
-                <h1>CompanyB</H1>
-                <h1 class ="one">Civic Concert Hall</h1>
-                
-                <img src ="macbeth.jpg" style ="float:left; width:60%; height:80%;margin-right:2%;margin-left:20%;border:3px solid black;">
-         
-            </div>
-            
-            
-          
-             
-   
-                  <p style="clear: both;">
-                     
-       
-         
-            
-            <br> 
-                  <h1>Current Companys In Production</h1>
-                  <div class =" footer">
-<button class="button button1"onclick ="location='CompanyA.php'" id="companya"><?php echo $companya ?></button>
-<button class="button button2"onclick ="location='CompanyB.php'"  id="companyb"><?php echo $companyb ?></button>
-<button class="button button3" onclick="location='CompanyC.php'"id="companyc"><?php echo $companyc ?></button>
-<button class="button button4" onclick="location='CompanyD.php'"id="companyd"> <?php echo $companyd ?></button>  
- <button class="button button5" onclick="location='CompanyE.html'"id="companye"><?php echo $companye ?></button>
-
-
                
-                  </div>
-                 
-        
-            </body>
-       
-            
-            
-            
-            
-        
-        
-
-            
-         
-                     
-              
-              
-                
-
-
+        </body>
 </html>
+         
