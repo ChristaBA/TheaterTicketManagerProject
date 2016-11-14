@@ -36,6 +36,7 @@ $result1 = mysqli_query($link, $query);*/
          <br>
          <input type="button" value="Export File" onclick="location='upload.php'" />
          <br>
+          <input type="button" value="Show Image" onclick="location='display_Images.php'" />
          <br>
           <form action="ShowInsert.php" method="post"  enctype="multipart/form-data">
     <p>
