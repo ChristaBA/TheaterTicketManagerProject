@@ -7,4 +7,26 @@
  */
 
 session_start();
-$_SESSION[$_POST['varname']] = $_POST[''];
+
+if(isset($_POST['companyName']))
+{
+    $company =$_POST['companyName'];
+    $_SESSION['varname'] = $company;
+} 
+
+if(isset($_POST['showName']))
+{
+    $showname =$_POST['showName'];
+    $_SESSION['showname'] =$showname;
+    
+}
+//echo "value passed in is ".$company;
+
+//echo "Session is set to" . $_SESSION['varname'];
+
+//$showname =$_POST['showName'];
+//$_SESSION['showname'] =$showname;
+///echo "Session is set to" . $_SESSION['showname'];
+
+
+//$_SESSION['varname'] = $_POST['data'];

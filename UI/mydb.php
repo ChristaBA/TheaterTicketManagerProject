@@ -44,7 +44,6 @@ $showTable = "CREATE TABLE IF NOT EXISTS showName (
          startdate VARCHAR(30) NOT NULL, 
          enddate VARCHAR(50), 
          location VARCHAR(50),
-         Company VARCHAR(50),
          image LONGBLOB NOT NULL
          )";
 if (mysqli_query($linkShow, $showTable)){
@@ -68,10 +67,12 @@ $seasonTicketTable = "CREATE TABLE IF NOT EXISTS seasonTicket (
          seat VARCHAR(30),
          day VARCHAR(30),
          time VARCHAR(30),
-         address VARCHAR(50)
+         address VARCHAR(50),
+         company VARCHAR(50)
          )";
 if (mysqli_query($linkSeasonTicket, $seasonTicketTable)){
     echo "Table seasonTicket created successfully. ";
+    
 } else {
     echo "ERROR: Could not able to execute $seasonTicketTable. " . mysqli_error($linkSeasonTicket);
 }
@@ -79,7 +80,7 @@ if (mysqli_query($linkSeasonTicket, $seasonTicketTable)){
 // Close connection
 mysqli_close($linkSeasonTicket);
         // personid INT(4)UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-$linkTest = mysqli_connect($servername, $username, $password, $dbname);
+/*$linkTest = mysqli_connect($servername, $username, $password, $dbname);
 
  // Attempt create table query execution
 $linkTestTable = "CREATE TABLE IF NOT EXISTS tablename (
@@ -96,5 +97,5 @@ if (mysqli_query($linkTest, $linkTestTable)){
 }
 
 // Close connection
-mysqli_close($linkTest);
+mysqli_close($linkTest);*/
         // personid INT(4)UNSIGNED AUTO_INCREMENT PRIMARY KEY, 

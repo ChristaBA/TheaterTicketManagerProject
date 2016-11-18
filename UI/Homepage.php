@@ -5,7 +5,7 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
                 <title> Huntsville Civic Center</title>
               <?php
-          
+           session_start();
           $servername = "localhost:3306";
             $username = "root";
             $password = "";
@@ -20,7 +20,7 @@ if ($link->connect_error) {
 } 
 
 //$query = "SELECT  Poster From showname";
-$query = "SELECT  Company FROM showname";
+$query = "SELECT DISTINCT Company FROM showname";
 $result1 = mysqli_query($link, $query);
 ?>
     <?php            
@@ -46,7 +46,7 @@ $index++;
  //echo implode("",$companyarray[0]);
  //$companya =  $companyarray[0];
    // $companyname = $companyarray[1];
- session_start();
+
                                
  if($companyarray[0]==null)
  {
@@ -114,7 +114,7 @@ $index++;
     }
      else 
      {
-          $companyf = "NO SHOW";
+          $companyf = "NO SHOW ";
    
 
      }
@@ -143,11 +143,11 @@ $index++;
    //$companyd=   implode(" ",$companyarray[3]);
    //$companye=   implode(" ",$companyarray[4]);g
   //$companyf=   implode(" ",$companyarray[5]);
- 
+ //session_unset();
    
-   //$_SESSION['varname'] = $companyb;
-   //   $_SESSION['varname'] = $companya;
-    $_SESSION['varname'] = $companyc;
+  // $_SESSION['varname'] = $companyd;
+    // $_SESSION['varname'] = $companyd;
+    //$_SESSION['varname'] = $companyd;
      ?>          
               
   
@@ -395,29 +395,58 @@ body{
 	$(document).ready(function() {
 			//Adds an event listener to the Ticket Submit button that waits until it's clicked
 		
+                
 			$("#companya").click(function() {
 			console.log("Log in button clicked");
-                        
-                         window.location = "CompanyA.php";
+                           var data = {companyName: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
+			
+				
+			});
+                         
 			
 				
 			});
                         $("#companyb").click(function() {
 			console.log("Log in button clicked");
+                        
+                      var data = {companyName: $(this).attr("value")};
+                       //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                                
-        
-                                window.location = "CompanyA.php";
-                         
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
 			
 				
 			});
+                    });
                          $("#companyc").click(function() {
 			console.log("Log in button clicked");
 			//window.location = "http://stackoverflow.com";
                                 
         
-                                window.location = "CompanyA.php";
+                                   var data = {companyName: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
+			
+				
+			});
                          
 			
 				
@@ -427,7 +456,18 @@ body{
 			//window.location = "http://stackoverflow.com";
                                 
         
-                                window.location = "CompanyA.php";
+                                   var data = {companyName: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
+			
+				
+			});
                          
 			
 				
@@ -437,7 +477,18 @@ body{
 			//window.location = "http://stackoverflow.com";
                                 
         
-                                window.location = "CompanyA.php";
+                                 var data = {companyName: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
+			
+				
+			});
                          
 			
 				
@@ -446,10 +497,24 @@ body{
 			console.log("Log in button clicked");
 			//window.location = "http://stackoverflow.com";
                                 
-        
-                                window.location = "CompanyA.php";
-                         
+                             var data = {companyName: $(this).attr("value")};
+                              
+                              
+                             
+                                  
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
 			
+				
+			});
+                         
+                              
 				
 			});
                         $("#companyg").click(function() {
@@ -457,7 +522,18 @@ body{
 			//window.location = "http://stackoverflow.com";
                                 
         
-                                window.location = "CompanyA.php";
+                                  var data = {companyName: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
+			
+				
+			});
                          
 			
 				
@@ -467,13 +543,24 @@ body{
 			//window.location = "http://stackoverflow.com";
                                 
         
-                                window.location = "CompanyA.php";
+                                   var data = {companyName: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+                       $.post("sessionset.php", data, function(response) {
+					
+				
+                                //console.log(response);
+                              window.location = "CompanyA.php";
+                       
+			
+				
+			});
                          
 			
 				
 			});
     
-    
+                         
     
     });
 		</script>
@@ -548,14 +635,15 @@ body{
             <br> 
                   <h1>Current Companys In Production</h1>
                   <div class =" footer">
-<button class="button button1"  id="companya"><?php echo $companya ?></button>
-<button class="button button1"  id="companyb"><?php echo $companyb ?></button>
-<button class="button button1" id="companyc"><?php echo $companyc ?></button>
-<button class="button button1" id="companyd"> <?php echo $companyd ?></button>  
- <button class="button button1" id="companye"><?php echo $companye ?></button>
-<button class="button button1" id="companyf"><?php echo $companyf ?></button>
-<button class="button button1" id="companyg"> <?php echo $companyg ?></button>  
- <button class="button button1" id="companyh"><?php echo $companyh ?></button>
+<button class="button button1"  id="companya"value = "<?php echo $companya?>"><?php echo $companya ?></button>
+<button class="button button1"  id="companyb"value = "<?php echo $companyb?>"><?php echo $companyb ?></button>
+<button class="button button1"  id="companyc"value = "<?php echo $companyc?>"><?php echo $companyc ?></button>
+<button class="button button1"  id="companyd"value = "<?php echo $companyd?>"><?php echo $companyd ?></button>
+<button class="button button1"  id="companye"value = "<?php echo $companye?>"><?php echo $companye ?></button>
+<button class="button button1"  id="companyf"value = "<?php echo $companyf?>"><?php echo $companyf ?></button>
+<button class="button button1"  id="companyg"value = "<?php echo $companyg?>"><?php echo $companyg ?></button>
+<button class="button button1"  id="companyh"value = "<?php echo $companyh?>"><?php echo $companyh ?></button>
+
 
                
                   </div>

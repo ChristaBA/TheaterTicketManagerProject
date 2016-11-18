@@ -143,7 +143,7 @@ input[type=submit]:hover {
 .Login {
     
     width:50%;
-    height:70%;
+    height:90%;
     margin-right:25%;
     margin-left:25%;
     border-radius: 5px;
@@ -195,7 +195,7 @@ input[type=submit]:hover {
  }
  .fileContainer {
     overflow: hidden;
-   margin-left:30%;
+   margin-left:10%;
 }
 
 .fileContainer [type=file] {
@@ -268,9 +268,55 @@ input[type=submit]:hover {
                     <form action="ShowInsert.php" method="post" id="createshow" enctype="multipart/form-data" >
 			<label class ="label">Show Name:</label><input type="text" name="showname"><br>
 			<label class ="label">Start Date:</label><input type="text" name="startDate"><br>
-                        <label class ="label">End Date:</label><input type="text" name="endDate"><br>
+                       
                         <label class ="label">Location:</label><input type="text" name="location"><br>
-                         
+                        
+   
+    
+   
+<label class ="label ">Select Day: </label><select name='day' id='dayddl'>
+<option value='1'>Monday</option>
+<option value='2'>Tuesday</option>
+<option value='3'>Wednesday</option>
+<option value='4'>Thursday</option>
+<option value='5'>Friday</option>
+<option value='6'>Saturday</option>
+<option value='7'>Sunday</option>
+        </select>
+ 
+<label class ="label ">Select Month: </label><select name='month' id='dayddl'>
+<option value='1'>Jan</option>
+<option value='2'>Feb</option>
+<option value='3'>Mar</option>
+<option value='4'>Apr</option>
+<option value='5'>May</option>
+<option value='6'>Jun</option>
+        
+<option value='7'>Jul</option>
+<option value='8'>Aug</option>
+<option value='9'>Sep</option>
+<option value='10'>Oct</option>
+<option value='11'>Nov</option>
+<option value='12'>Dec</option>
+
+</select>
+
+<label class ="label ">Select Year: </label><select name='year' id='dayddl'>
+<option value='2016'>2016</option>
+<option value='2017'>2017</option>
+<option value='2018'>2018</option>
+<option value='2019'>2019</option>
+<option value='2020'>2020</option>
+<option value='2021'>2021</option>
+        
+<option value='2022'>2022</option>
+<option value='2023'>2023</option>
+<option value='2024'>2024</option>
+<option value='2025'>2025</option>
+
+
+</select>
+
                         <!--<label class ="label">Poster Img:</label><input type="text" name="PosterUrl"><br>-->
                          <label class ="label">Company Name:</label><input type="text" name="Company"><br>
                      <label class ="fileContainer">Upload Poster: </label><input type="file" name="fileToUpload"><br>

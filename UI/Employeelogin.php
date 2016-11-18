@@ -104,7 +104,17 @@ input[type=text], select {
     border-radius: 4px;
     box-sizing: border-box;
 }
-
+input[type=password], select {
+    width: 70%;
+    margin-left:25%;
+    margin-right:25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
 input[type=submit] {
     width: 70%;
     margin-left:25%;
@@ -189,7 +199,11 @@ input[type=submit]:hover {
     
     
   }
-    
+ h3{
+      color:#f44336;
+      float:right;
+      
+  }
     
 }
                 </style>   
@@ -285,7 +299,7 @@ input[type=submit]:hover {
                 <div class ="Login" >
                     <form id="loginForm">
 			<label class ="label">Username:</label><input type="text" name="userName"><br>
-			<label class ="label">Password:</label><input type="text" name="password"><br>
+			<label class ="label">Password:</label><input type="password" name="password"><br>
 			
                         
                     
