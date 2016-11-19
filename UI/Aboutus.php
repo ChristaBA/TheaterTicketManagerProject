@@ -102,21 +102,16 @@
               
           </div>   
         <div class="mainWindow">
-            <h1>Nisl Interdum Sed</h1>
-
-<p>Litora volutpat facilisis bibendum mi. Curae; posuere. Nascetur sagittis tellus tristique ad lobortis ac facilisis hymenaeos nisl cursus ridiculus conubia enim. Est in donec nibh senectus mi molestie cras, nonummy fames nam commodo magnis facilisi dignissim montes condimentum senectus metus convallis tortor Nec vitae hac litora dui sociis justo lorem proin nostra nam Ac netus tempus habitasse felis ullamcorper.</p>
-
-<p>Sollicitudin odio potenti felis. Blandit ultricies facilisi suscipit ipsum libero molestie condimentum condimentum facilisi ligula. Habitant dis morbi tellus erat eros consectetuer ornare, imperdiet in pellentesque enim fermentum gravida nunc maecenas. Parturient malesuada libero, sociosqu ridiculus. Lacus tempus vestibulum nam velit lectus eros porttitor id mi. Velit cum blandit ac diam id. Primis eros posuere placerat lacus habitasse. Vitae interdum. Mus sapien imperdiet egestas urna convallis. Velit hendrerit. Facilisi pharetra class orci. Sapien facilisi nulla nascetur fringilla. Vitae. Consectetuer vel convallis accumsan egestas tempus fermentum magna torquent nonummy vestibulum.</p>
-
-<h2>Egestas</h2>
-<p>Ipsum in. Nisi lectus ac habitant Quisque ornare semper lectus congue. Mauris risus viverra primis massa lacus phasellus. Sociosqu. Ante dapibus commodo est. Interdum taciti ridiculus tempor tincidunt magnis. Cum taciti parturient est porttitor sodales potenti cubilia vestibulum senectus cum ultrices iaculis hac Urna sapien feugiat. Lacinia Ornare, pellentesque fusce, vivamus purus.</p>
-            
-            
-            
-            
-            
-            
-            
+            <h1>CS 499 Senior Project</h1>
+             <h2>Theater Ticket Manager</h2>
+             
+             <p>This software manages tickets and their sales. </p>
+            <h3>Group Members</h3>
+            <p>Vatsal Patel </p>
+             <p>Javin Langley </p>
+             <p>Ben Christad </p>
+             <p>Kyle Wagner</p>
+        
         </div>
        </body>
 </html>
