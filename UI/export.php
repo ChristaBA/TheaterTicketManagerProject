@@ -30,7 +30,7 @@ $output = fopen('php://output', 'w');
 $link = mysqli_connect($servername, $username, $password, $dbname);
 
 //$rows = mysqli_query($link, 'SELECT firstname, lastname,  ticketnumber, email, phonenumber, seat, day, time, address, company FROM seasonticket');
-$companySelect = 'whatEver';
+//$companySelect = 'whatEver';
 $rows = mysqli_query($link, "SELECT firstname, lastname,  ticketnumber, email, phonenumber, seat, day, "
         . "time, address, company FROM seasonticket WHERE company = '$companySelect'");
 

@@ -63,7 +63,7 @@ $seasonTicketTable = "CREATE TABLE IF NOT EXISTS seasonTicket (
          lastname VARCHAR(30) NOT NULL, 
          ticketnumber VARCHAR(50), 
          email VARCHAR(50), 
-         phonenumber INT(4),
+         phonenumber INT(10),
          seat VARCHAR(30),
          day VARCHAR(30),
          time VARCHAR(30),

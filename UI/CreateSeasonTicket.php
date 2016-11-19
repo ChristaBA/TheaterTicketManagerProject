@@ -1,22 +1,23 @@
 <html>
     
     <head>
- 
-
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<title>Create Season Ticket</title>
     
-    </head>
+    
      <style>
-                 body{
+       body{
     background-color:black;
     margin:0;
     padding:0;
     font-family:'Arial',serif;
+    }
     
     
     
     
-    
-}
+
+ 
 .nav {
 	width:100%;
     background-color:white;
@@ -76,9 +77,8 @@
         
         text-decoration:none;
         color:black;
-    }   
-     
-    h1{
+    } 
+     h1{
         width:100%;
       
     
@@ -93,7 +93,7 @@
         
         
     }
-          .button {
+      .button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -167,11 +167,99 @@
     background-color: red;
     color: white;
 }                    
-                                   
-                    
+  .label{
+ 
+ margin-left:10%
+ 
+ 
+ }
+ .fileContainer {
+    overflow: hidden;
+   margin-left:10%;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+  .Footer{
+  height:10%;
+  width:100%;
+  background-color:white;
+    
+    
+    
+    
+    
+}                   
+input[type=text], select {
+    width: 70%;
+    margin-left:0%;
+    margin-right:0%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 70%;
+    margin-left:0%;
+    margin-right:0%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=number], select {
+    width: 70%;
+    margin-left:0%;
+    margin-right:0%;
+    padding: 12px 20px;
+    margin: 0px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.Login {
+    
+    width:50%;
+    height:100%;
+    margin-right:25%;
+    margin-left:25%;
+    border-radius: 5px;
+    background-color:white;
+    padding: 10px;
+}                   
                 </style>   
-                
+                </head>
     <body>
+                    <script>
+	$(document).ready(function() {
+			//Adds an event listener to the Ticket Submit button that waits until it's clicked
+		
+	     $("#btnCreateSeasonTicket").click(function() {
+         $("#CreateSeasonTicket").submit();
+              
+    });
+    });
+		</script>
              <ul class ="nav">
                <div class="logo">
                     <a href ="HomePage.php">Civic Center Entertainment</a>
@@ -185,7 +273,7 @@
              
                 <li><a href ="Aboutus.php">About US</a></li>
               <li><a href ="Contact.php">Contact</a></li>
-               <li><a href ="helppage.php">Help<a/></li>
+               <li><a href ="helppage.php">Help</a></li>
                <li><a href ="Employeelogin.php">Login</a></li>
                
            </ul>
@@ -193,19 +281,45 @@
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-        <div class =" mainwindow">
-            
-            
-            <h1>Season Ticket Manager</h1>
-          <button class="button button1" id ="exportbtn"value="Import File" onclick="location='import.php'">Import Season Ticket list</button>
-
-<button class="button button2" id ="importbtn" value="Export File" onclick="location='export.php'">Export Season Ticket List</button>  
-  <button class="button button2" id ="importbtn" value="Seasonticket" onclick="location='CreateSeasonTicket.php'">Create Season Ticket</button>            
-            
-            
-        </div>
-        
-        
-        
-       </body>
-</html>
+        <div class ="login">
+        <form action="SeasonTicketInsert.php" id="CreateSeasonTicket" method="post">
+    <p>
+       <label class ="label">First Name:</label>
+        <input type="text" name="firstname" id="firstName">
+    </p>
+    <p>
+        <label class="label">Last Name:</label>
+        <input type="text" name="lastname" id="lastName">
+    </p>
+    <p>
+        <label class="label">Ticket Number:</label>
+       <input type="text" name="ticketNumber" id="ticketNumber">
+    </p>
+    <p>
+        <label class="label">Email:</label>
+        <input type="text" name="email" id="email">
+    </p>
+     <p>
+        <label class="label">Phone Number:</label>
+        <input type="number" name="phoneNumber" id="phoneNumber">
+    </p>
+     <p>
+        <label class="label">Seat:</label>
+        <input type="text" name="seat" id="seat">
+    </p>
+    <p>
+        <label class="label">Day:</label>
+        <input type="text" name="day" id="day">
+    </p>
+    <p>
+        <label class="label">Time:</label>
+        <input type="text" name="time" id="time">
+    </p>
+    <p>
+        <label class="label">Address:</label>
+        <input type="text" name="address" id="address">
+    </p>
+    
+</form>   
+        <button  class = "button button1" type ="submit" value ="Submit"  id="btnCreateSeasonTicket">Create Season Ticket</button>
+</div>
