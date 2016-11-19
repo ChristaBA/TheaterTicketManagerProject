@@ -395,10 +395,15 @@ body{
            </head> 
         <body>
 <script>
+    
 //All Jquery is supposed to go inside this function
 	$(document).ready(function() {
+                        console.log("ready() called");
 			//Adds an event listener to the Ticket Submit button that waits until it's clicked
-		
+                        $.post("CreateAdmin.php", function(response){
+                            console.log("Foo");
+                           console.log(response); 
+                        });
                 
 			$("#companya").click(function() {
 			console.log("Log in button clicked");
