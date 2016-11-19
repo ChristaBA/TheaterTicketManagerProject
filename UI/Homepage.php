@@ -52,13 +52,13 @@ if (!$result1) {
     echo "Database Error";
 }
                                
- if($companyarray[0]==null)
+ if(array_key_exists(0, $companyarray))
  {
-     $companya = "NO SHOW";
+  $companya=  implode(" ",$companyarray[0]);
  }
      else 
      {
-      $companya=  implode(" ",$companyarray[0]);
+         $companya = "NO SHOW";
       
      }
  if(array_key_exists(1, $companyarray))
