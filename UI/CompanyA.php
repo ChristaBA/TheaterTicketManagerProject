@@ -22,7 +22,7 @@ $showquery = "SELECT DISTINCT showname FROM showname"
 $picquery = "SELECT DISTINCT image FROM showname WHERE Company = '$var_value'";
 $Sdatequery ="SELECT startdate FROM showname WHERE Company = '$var_value'";
 $Edatequery ="SElECT DISTINCT endate FROM showname WHERE Company = '$var_value'"; 
-$Lquery ="SElECT DISTINCT location FROM showname WHERE Company = '$var_value'";
+$Lquery ="SElECT location FROM showname WHERE Company = '$var_value'";
 
  
 $result1 = mysqli_query($link, $showquery);
@@ -201,7 +201,7 @@ $index2++;
     //$_SESSION['location'] = $companyb;
      //$_SESSION['startdate'] = $companyb;
       //$_SESSION['varname'] = $companyb;
- 
+ $index4 =0;
  if(array_key_exists(0, $picturearray))
  {
       $img=  implode(" ",$picturearray[0]);
@@ -371,7 +371,140 @@ $index3++;
  $sdate8 = "NO SHOW";
          
      }
+while($row = $result5->fetch_assoc())    
+ {
+     
 
+  /*$showname =$row["showname"];
+  $StartDate =$row["startdate"];
+  $enddate =$row["enddate"];
+  $location =$row["location"];
+  //$img =$row['image'];
+  */
+    $locationarray[$index4]= $row;
+$index4++;
+  
+ }    
+     
+ 
+ 
+ 
+ 
+ if(array_key_exists(0,  $locationarray))
+ {
+      $location1 =  implode(" ", $locationarray[0]);
+     
+ }
+     else 
+     {
+     
+      $location1  = "NO SHOW";
+     }
+ if(array_key_exists(1,  $locationarray))
+ {
+    
+     $location2 = implode(" ", $locationarray[1]);
+ }
+     else 
+     {
+      $location2  = "NO SHOW";
+     }
+  if(array_key_exists(2,  $locationarray))
+ {
+     $location3  =  implode(" ", $locationarray[2]);
+     
+ }
+     else 
+     {
+     
+     $location3 = "NO SHOW";
+     }
+ if(array_key_exists(3,  $locationarray))
+ {
+    
+     $location4  = implode(" ", $locationarray[3]);
+ }
+     else 
+     {
+     $location4  = "NO SHOW";
+     }
+    if(array_key_exists(4,  $locationarray))
+ {
+   $location5  =  implode(" ", $locationarray[4]);
+     
+ }
+     else 
+     {
+     
+   $location5  = "NO SHOW";
+     }
+ if(array_key_exists(5,  $locationarray))
+ {
+    
+     $location6  = implode(" ", $locationarray[5]);
+ }
+     else 
+     {
+   $location6  = "NO SHOW";
+     }
+  if(array_key_exists(6,  $locationarray))
+ {
+  $location7  =  implode(" ", $locationarray[6]);
+     
+ }
+     else 
+     {
+     
+     $location7  = "NO SHOW";
+     }
+ if(array_key_exists(7,  $locationarray))
+ {
+    
+     $location8  = implode(" ", $locationarray[7]);
+ }
+     else 
+     {
+   $location8  = "NO SHOW";
+     }
+ 
+      if(array_key_exists(8,  $locationarray))
+ {
+      $location9 =  implode(" ", $locationarray[8]);
+     
+ }
+     else 
+     {
+     
+     $location9  = "NO SHOW";
+     }
+ if(array_key_exists(9,  $locationarray))
+ {
+    
+      $location10  = implode(" ", $locationarray[9]);
+ }
+     else 
+     {
+     $location10  = "NO SHOW";
+     }
+  if(array_key_exists(10,  $locationarray))
+ {
+      $location11  =  implode(" ", $locationarray[10]);
+     
+ }
+     else 
+     {
+     
+      $location11  = "NO SHOW";
+     }
+ if(array_key_exists(11,  $locationarray))
+ {
+    
+      $location12  = implode(" ", $locationarray[11]);
+ }
+     else 
+     {
+    $location12  = "NO SHOW";
+     }
 
   
     
@@ -834,6 +967,7 @@ $index3++;
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname2?></h1>
+                <h1 class = one><?php echo  $location2?></h1>
                 <h1 class = one><?php echo  $sdate2?></h1>
                 
                 
@@ -845,6 +979,7 @@ $index3++;
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname3?></h1>
+                <h1 class = one><?php echo  $location3?></h1>
                 <h1 class = one><?php echo  $sdate3?></h1>
                 
                 
@@ -856,6 +991,7 @@ $index3++;
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname4?></h1>
+                 <h1 class = one><?php echo  $location4?></h1>
                 <h1 class = one><?php echo  $sdate4?></h1>
                 
                 
@@ -866,6 +1002,7 @@ $index3++;
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname5?></h1>
+                 <h1 class = one><?php echo  $location5?></h1>
                 <h1 class = one><?php echo  $sdate5?></h1>
                 
                 
@@ -877,6 +1014,7 @@ $index3++;
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname6?></h1>
+                 <h1 class = one><?php echo  $location6?></h1>
                 <h1 class = one><?php echo  $sdate6?></h1>
                 
                 
@@ -888,6 +1026,7 @@ $index3++;
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname7?></h1>
+                 <h1 class = one><?php echo  $location7?></h1>
                 <h1 class = one><?php echo  $sdate7?></h1>
                 
                 
@@ -899,6 +1038,7 @@ $index3++;
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname8?></h1>
+                 <h1 class = one><?php echo  $location8?></h1>
                 <h1 class = one><?php echo  $sdate8?></h1>
                 
                 
