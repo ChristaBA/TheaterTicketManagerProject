@@ -22,12 +22,14 @@ if ($link->connect_error) {
 //$query = "SELECT  Poster From showname";
 $query = "SELECT DISTINCT Company FROM showname";
 $result1 = mysqli_query($link, $query);
-?>
-    <?php            
+echo $result1;          
       $companyarray = array();        
       
      $index =0;  
-      
+if (!$result1) {
+    echo "Database Error Please add shows for this error to disappear";
+}
+else{
  while($row = $result1->fetch_assoc())    
  {
  
@@ -40,13 +42,15 @@ $index++;
    
     
     
-    
+ }   
  }
  
  //echo implode("",$companyarray[0]);
  //$companya =  $companyarray[0];
    // $companyname = $companyarray[1];
-
+if (!$result1) {
+    echo "Database Error";
+}
                                
  if($companyarray[0]==null)
  {
@@ -590,7 +594,7 @@ body{
                  </div>  
                   <li><a href ="Aboutus.php">About US</a></li>
                   <li><a href ="Contact.php">Contact</a></li>
-                  <li><a href ="Help_Home.html">Help<a/></li>
+                  <li><a href ="Helppage.php">Help<a/></li>
                   <li><a href ="Employeelogin.php">Login</a></li> 
                  </ul>  
                
