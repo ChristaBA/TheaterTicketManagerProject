@@ -1,24 +1,31 @@
+<?php 
+ include "connection.php";
+session_start();
+    $var_value =  $_SESSION['Companyname'];
+
+
+
+?>
 
 <html>
     
     <head>
- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<title>Administrator</title>
+ 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     
-    
+    </head>
      <style>
-       body{
+                 body{
     background-color:black;
     margin:0;
     padding:0;
     font-family:'Arial',serif;
-    }
     
     
     
     
-
- 
+    
+}
 .nav {
 	width:100%;
     background-color:white;
@@ -78,8 +85,9 @@
         
         text-decoration:none;
         color:black;
-    } 
-     h1{
+    }   
+     
+    h1{
         width:100%;
       
     
@@ -94,7 +102,7 @@
         
         
     }
-      .button {
+          .button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -111,7 +119,7 @@
     
       }
 .button1 {
-    margin-left:30%;
+     margin-left:10%;
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
@@ -121,7 +129,6 @@
     color: white;
 }
 .button2 {
-    margin-left:30%;
     background-color: white;
     color: black;
     border: 2px solid #008CBA;
@@ -141,21 +148,22 @@
     color: black;
 }
 .button4 {
-    margin-left:30%;
     background-color: white;
     color: black;
     border: 2px solid orange;
+    margin-left:30%;
 }
 .button4:hover {
     background-color:orange;
 }
 .button5 {
+    margin-left:30%;
     background-color: white;
     color: black;
-    border: 2px solid #555555;
+    border: 2px solid orange;
 }
 .button5:hover {
-    background-color: #555555;
+    background-color: orange;
     color: white;
 }              
  .button6 {
@@ -168,14 +176,7 @@
     background-color: red;
     color: white;
 }                    
- .Footer{
-  height:10%;
-  width:100%;
-  background-color:white;
-    
-    
-  }
-   .Login {
+ .Login {
     
     width:90%;
     height:100%;
@@ -185,24 +186,25 @@
     background-color:white;
     padding: 10px;
 }                                  
-   
                     
                 </style>   
-                </head>
+                
     <body>
-        <script>
-        $(document).ready(function() {
+         <script>
+            $(document).ready(function() {
                 $.post("getSeasonTickets.php", function(response){
                    $("#AccountDisplay").html(response);
                    //console.log(response);
                 });
             });
-            </script>
-             <ul class ="nav">
-               <div class="logo"> 
+            
+       </script>
+       
+      <ul class ="nav">
+               <div class="logo">
                     <a href ="HomePage.php">Civic Center Entertainment</a>
                    
-                  
+                   
                    
                </div>
         
@@ -211,7 +213,7 @@
              
                 <li><a href ="Aboutus.php">About US</a></li>
               <li><a href ="Contact.php">Contact</a></li>
-               <li><a href ="helppage.php">Help</a></li>
+               <li><a href ="helppage.php">Help<a/></li>
                <li><a href ="Employeelogin.php">Login</a></li>
                
            </ul>
@@ -219,16 +221,20 @@
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-        <h1>Manage Accounts</h1>
         
-        
-
+            
+            
+            <h1>Account Manager</h1> 
+       
+           
         <div class="Login" id ="AccountDisplay">
-            
-            
-            
-            
-        </div>
-             
-             
-             
+    
+    </div>
+        
+        
+       </body>
+</html>
+    
+
+
+

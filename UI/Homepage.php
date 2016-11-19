@@ -22,7 +22,7 @@ if ($link->connect_error) {
 //$query = "SELECT  Poster From showname";
 $query = "SELECT DISTINCT Company FROM showname";
 $result1 = mysqli_query($link, $query);
-echo $result1;          
+//echo $result1;          
       $companyarray = array();        
       
      $index =0;  
