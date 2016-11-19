@@ -43,7 +43,7 @@ $sql = "INSERT INTO worker (firstname, lastname, password, login, AccountType,  
 VALUES ('$first_name', '$last_name','$password_login', '$login_sql','$Account_type', '$company_Name')";
 if ($link->query($sql) === TRUE) {
     echo "Account Created, You are being redirected.";
-      header("refresh:3; url = index.php");
+      header("refresh:3; url = CreateSuper.html");
 } else {
     echo "Error: " . $sql . "<br>" . $link->error;
 }
