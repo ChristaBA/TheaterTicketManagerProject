@@ -94,6 +94,7 @@ $result1 = mysqli_query($link, $query);*/
     </p>
      <p>
         <label for="accountType">Account Type:</label>
+        <input type="number" name="accounttype" id="accountType">
     </p>
       <p>
         <label for="companyName">Company Name:</label>
