@@ -28,8 +28,8 @@ $seat_sql = mysqli_real_escape_string($link, $seat);
 $day_sql = mysqli_real_escape_string($link, $day);
 $time_sql = mysqli_real_escape_string($link, $time);
 $address_sql = mysqli_real_escape_string($link, $address);
-//$company_sql = mysqli_real_escape_string($link, $company);
-$company_sql = "whatEver";
+$company_sql = mysqli_real_escape_string($link, $company);
+//$company_sql = "whatEver";
 
 $mysqli_get_users = mysqli_query($link,"SELECT * FROM seasonticket where email = '$email_sql' " );
 $get_rows = mysqli_affected_rows($link);
@@ -37,7 +37,7 @@ if($get_rows >= 1)
 {
     echo "email exists: please pick a different email.";
     echo "You are be redirected.";
-    header("refresh:3, url = ManageSeasonTicket.html");
+    header("refresh:3, url = ManageSeasonTicket.php");
 }
 else{
 $sql = "INSERT INTO seasonticket (firstname, lastname,  ticketnumber, email, phonenumber, seat, day, time, address, company)
@@ -45,7 +45,7 @@ VALUES ('$first_name', '$last_name','$ticket_Number', '$email_sql', $phone_Numbe
 if ($link->query($sql) === TRUE) {
     echo "New record created successfully";
     echo "You are be redirected.";
-    header("refresh:3, url = ManageSeasonTicket.html");
+    header("refresh:3, url = ManageSeasonTicket.php");
 } else {
     echo "Error: " . $sql . "<br>" . $link->error;
 }

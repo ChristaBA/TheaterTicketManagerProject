@@ -319,7 +319,10 @@ input[type=number], select {
         <label class="label">Address:</label>
         <input type="text" name="address" id="address">
     </p>
-    
+    <p>
+        <label class="label">Company:</label>
+        <input type="text" name="company" id="address">
+    </p>
 </form>   
         <button  class = "button button1" type ="submit" value ="Submit"  id="btnCreateSeasonTicket">Create Season Ticket</button>
 </div>

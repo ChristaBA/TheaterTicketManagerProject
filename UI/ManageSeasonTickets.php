@@ -1,8 +1,17 @@
+<?php 
+ include "connection.php";
+session_start();
+    $var_value =  $_SESSION['Companyname'];
+
+
+
+?>
+
 <html>
     
     <head>
  
-
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     
     </head>
      <style>
@@ -167,11 +176,28 @@
     background-color: red;
     color: white;
 }                    
-                                   
+ .Login {
+    
+    width:90%;
+    height:100%;
+    
+    margin-left:5%;
+    border-radius: 5px;
+    background-color:white;
+    padding: 10px;
+}                                  
                     
                 </style>   
                 
     <body>
+         <script>
+            $(document).ready(function() {
+                $.post("getSeasonTickets.php", function(response){
+                   $("#seasonTicketDisplay").html(response);
+                   //console.log(response);
+                });
+            });
+            </script>
              <ul class ="nav">
                <div class="logo">
                     <a href ="HomePage.php">Civic Center Entertainment</a>
@@ -193,19 +219,20 @@
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-        <div class =" mainwindow">
+        
             
             
             <h1>Season Ticket Manager</h1>
-          <button class="button button1" id ="exportbtn"value="Import File" onclick="location='import.php'">Import Season Ticket list</button>
+            
+            
+            <button class="button button1" id ="exportbtn"value="Import File" onclick="location='import.php'">Import Season Ticket list</button>
 
 <button class="button button2" id ="importbtn" value="Export File" onclick="location='export.php'">Export Season Ticket List</button>  
-  <button class="button button2" id ="importbtn" value="Seasonticket" onclick="location='CreateSeasonTicket.php'">Create Season Ticket</button>            
+  <button class="button button1" id ="importbtn" value="Seasonticket" onclick="location='CreateSeasonTicket.php'">Create Season Ticket</button>            
+      <button class="button button2" id ="viewseasontickets" value="viewSeasonticket"onclick="location='ViewSeasonTickets.php'">View Season Tickets</button>          
             
-            
-        </div>
-        
-        
+       
+
         
        </body>
 </html>

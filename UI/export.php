@@ -1,5 +1,7 @@
 <?php
-
+session_start();
+    $var_value =  $_SESSION['Companyname'];
+    echo "Session is set to" . $_SESSION['Companyname'];
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -30,9 +32,9 @@ $output = fopen('php://output', 'w');
 $link = mysqli_connect($servername, $username, $password, $dbname);
 
 //$rows = mysqli_query($link, 'SELECT firstname, lastname,  ticketnumber, email, phonenumber, seat, day, time, address, company FROM seasonticket');
-//$companySelect = 'whatEver';
+$companySelect = 'helloWorld';
 $rows = mysqli_query($link, "SELECT firstname, lastname,  ticketnumber, email, phonenumber, seat, day, "
-        . "time, address, company FROM seasonticket WHERE company = '$companySelect'");
+        . "time, address, company FROM seasonticket WHERE company = '$var_value'");
 
 
 while ($row = mysqli_fetch_assoc($rows))

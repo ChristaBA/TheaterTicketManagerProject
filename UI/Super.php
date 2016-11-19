@@ -1,9 +1,20 @@
+<?php
+ include "connection.php";
+session_start();
+    $var_value =  $_SESSION['Companyname'];
+
+
+
+
+?>
+
+
 
 <html>
     
     <head>
- <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<title>Administrator</title>
+ 
+<title>Group Supervisor</title>
     
     
      <style>
@@ -111,7 +122,7 @@
     
       }
 .button1 {
-    margin-left:30%;
+     margin-left:10%;
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
@@ -140,21 +151,22 @@
     color: black;
 }
 .button4 {
-    margin-left:30%;
     background-color: white;
     color: black;
     border: 2px solid orange;
+    margin-left:30%;
 }
 .button4:hover {
     background-color:orange;
 }
 .button5 {
+    margin-left:30%;
     background-color: white;
     color: black;
-    border: 2px solid #555555;
+    border: 2px solid orange;
 }
 .button5:hover {
-    background-color: #555555;
+    background-color: orange;
     color: white;
 }              
  .button6 {
@@ -167,33 +179,16 @@
     background-color: red;
     color: white;
 }                    
- .Footer{
-  height:10%;
-  width:100%;
-  background-color:white;
-    
-    
-    
-    
-    
-}                 
+                    
                     
                 </style>   
                 </head>
     <body>
-           <script>
-            $(document).ready(function() {
-                $.post("getAccounts.php", function(response){
-                   $("#accountDisplay").html(response);
-                   //console.log(response);
-                });
-            });
-        </script>
              <ul class ="nav">
-               <div class="logo"> 
+               <div class="logo">
                     <a href ="HomePage.php">Civic Center Entertainment</a>
                    
-                  
+                   
                    
                </div>
         
@@ -210,17 +205,14 @@
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-        <h1>Manage Accounts</h1>
+        <h1>Group SuperVisor</h1>
         
-        
-        
-        <button class="button button3" onclick="location='CreateSuper.html'">View Accounts</button>
-        <div id ="accountDisplay">
-            
-            
-            
-            
-        </div>
-             
-             
-             
+<button class="button button1" onclick="location='CreateShow.php'">Create Show</button>
+
+<button class="button button2" onclick="location='ManageShow.php'">Manage Show</button>
+<button class="button button5" onclick="location='ManageSeasonTickets.php'">Manage Season Tickets</button>
+<br>
+<br>
+<button class="button button6" onclick="location='Employeelogin.php'">Log out</button>
+       </body>
+</html>

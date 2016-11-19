@@ -325,7 +325,7 @@ input[type=submit]:hover {
                     </form>
                         
                     <button  class = "button button1" type ="submit" value ="Submit"  id="btnCreateShow">Create Show</button>
-                          <button  class = "button button2" onclick="location='Super.html'">Cancel</button>
+                          <button  class = "button button2" onclick="location='Super.php'">Cancel</button>
                         
                     
                   

@@ -2,7 +2,7 @@
 <html>
     
     <head>
- 
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <title>Administrator</title>
     
     
@@ -181,6 +181,14 @@
                 </style>   
                 </head>
     <body>
+           <script>
+            $(document).ready(function() {
+                $.post("getAccounts.php", function(response){
+                   $("#accountDisplay").html(response);
+                   //console.log(response);
+                });
+            });
+        </script>
              <ul class ="nav">
                <div class="logo"> 
                     <a href ="HomePage.php">Civic Center Entertainment</a>
@@ -207,7 +215,7 @@
 
 
 <button class="button button3" onclick="location='CreateSuper.html'">Create Accounts</button>
-<button class="button button2" onclick="location='ManageAcounts.php'">Manage Accounts</button>
+<button class="button button2" onclick="location='ManageAccounts.php'">Manage Accounts</button>
 <button class="button button4" onclick="location='mydb.php'">Create Database</button>
 <br>
 <br>

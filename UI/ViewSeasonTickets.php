@@ -1,23 +1,31 @@
+<?php 
+ include "connection.php";
+session_start();
+    $var_value =  $_SESSION['Companyname'];
+
+
+
+?>
+
 <html>
     
     <head>
  
-<title>Group Supervisor</title>
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     
-    
+    </head>
      <style>
-       body{
+                 body{
     background-color:black;
     margin:0;
     padding:0;
     font-family:'Arial',serif;
-    }
     
     
     
     
-
- 
+    
+}
 .nav {
 	width:100%;
     background-color:white;
@@ -77,8 +85,9 @@
         
         text-decoration:none;
         color:black;
-    } 
-     h1{
+    }   
+     
+    h1{
         width:100%;
       
     
@@ -93,7 +102,7 @@
         
         
     }
-      .button {
+          .button {
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
@@ -167,12 +176,31 @@
     background-color: red;
     color: white;
 }                    
-                    
+ .Login {
+    
+    width:90%;
+    height:100%;
+    
+    margin-left:5%;
+    border-radius: 5px;
+    background-color:white;
+    padding: 10px;
+}                                  
                     
                 </style>   
-                </head>
+                
     <body>
-             <ul class ="nav">
+         <script>
+            $(document).ready(function() {
+                $.post("getSeasonTickets.php", function(response){
+                   $("#seasonTicketDisplay").html(response);
+                   //console.log(response);
+                });
+            });
+            
+       </script>
+       
+      <ul class ="nav">
                <div class="logo">
                     <a href ="HomePage.php">Civic Center Entertainment</a>
                    
@@ -185,7 +213,7 @@
              
                 <li><a href ="Aboutus.php">About US</a></li>
               <li><a href ="Contact.php">Contact</a></li>
-               <li><a href ="helppage.php">Help</a></li>
+               <li><a href ="helppage.php">Help<a/></li>
                <li><a href ="Employeelogin.php">Login</a></li>
                
            </ul>
@@ -193,13 +221,17 @@
               <img class ="Banner-img" src="hunstville banner.jpg">
               
           </div>
-        <h1>Group SuperVisor</h1>
-<button class="button button1" onclick="location='CreateShow.php'">Create Show</button>
-
-<button class="button button2" onclick="location='ManageShow.php'">Manage Show</button>
-<button class="button button5" onclick="location='ManageSeasonTickets.php'">Manage Season Tickets</button>
-<br>
-<br>
-<button class="button button6" onclick="location='Employeelogin.php'">Log out</button>
+        
+            
+            
+            <h1>Season Ticket Manager</h1> 
+       
+           
+        <div class="Login" id ="seasonTicketDisplay">
+    
+    </div>
+        
+        
        </body>
 </html>
+            
