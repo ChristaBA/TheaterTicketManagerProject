@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 
         echo "<div style ='font:11px/21px Arial,tahoma,sans-serif;color:#ff0000'> Import Done </div>";
         echo "<div style ='font:11px/21px Arial,tahoma,sans-serif;color:#ff0000'> You are being redirected.</div>";
-        header("refresh:3; url = index.php");
+        header("refresh:3; url = Super.html");
         //javin edit this. 
 
 	//view upload form
@@ -76,7 +76,7 @@ if (isset($_POST['submit'])) {
 
 	print "Upload new csv by browsing to file and clicking on Upload<br />\n";
 
-	print "<form enctype='multipart/form-data' action='upload.php' method='post'>";
+	print "<form enctype='multipart/form-data' action='import.php' method='post'>";
 
 	print "File name to import:<br />\n";
 
