@@ -194,10 +194,13 @@
               
           </div>
         <div class =" mainwindow">
+            
+            
+            <h1>Season Ticket Manager</h1>
           <button class="button button1" id ="exportbtn"value="Import File" onclick="location='import.php'">Import Season Ticket list</button>
 
 <button class="button button2" id ="importbtn" value="Export File" onclick="location='export.php'">Export Season Ticket List</button>  
-            
+  <button class="button button2" id ="importbtn" value="Export File" onclick="location='export.php'">Create Season Ticket</button>            
             
             
         </div>
