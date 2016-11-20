@@ -88,7 +88,9 @@ $linkTestTable = "CREATE TABLE IF NOT EXISTS Tickets (
          seatNumber VARCHAR(30) NOT NULL, 
          Price VARCHAR(30) NOT NULL,  
          ShowId VARCHAR(50), 
-         UniqueId VARCHAR(50)
+         UniqueId VARCHAR(50),
+         Status INT(10),
+         Pickup INT(10)
          )";
 if (mysqli_query($linkTest, $linkTestTable)){
     echo "Ticket Table created successfully. ";
