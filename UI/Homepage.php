@@ -509,9 +509,9 @@ body{
     color: white;
 }
 .Shows{
-   width:40%;
+   width:45%;
    background-color:#cccccc;
-    height:85%;
+    height:90%;
     display:inline-block;
      margin-left:2%; 
     opacity:0.2%;
@@ -520,10 +520,10 @@ body{
 } 
 .Shows1{
     float:right;
-    margin-right:5%;
-    width:40%;
+    margin-right:2%;
+    width:45%;
     background-color:#cccccc;
-    height:85%;
+    height:90%;
     opacity: 0.2%;
     
     
@@ -578,7 +578,7 @@ body{
         }
 				
 			});
-                        $("#companya").click(function() {
+                        $("#companyb").click(function() {
 			console.log("Log in button clicked");
                         
                       var data = {companyName: $(this).attr("value")};
@@ -589,16 +589,19 @@ body{
          
                         
                         
-                        
-                       $.post("sessionset.php", data, function(response) {
+                if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
+                         
+        }
                     });
                          $("#companyc").click(function() {
 			console.log("Log in button clicked");
@@ -608,17 +611,19 @@ body{
                                    var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
+                    if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
                          
-			
+        }
 				
 			});
                          $("#companyd").click(function() {
@@ -629,15 +634,19 @@ body{
                                    var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
+              if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
+                         
+        }
                          
 			
 				
@@ -650,17 +659,19 @@ body{
                                  var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
+                 if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
                          
-			
+        }
 				
 			});
                         $("#companyf").click(function() {
@@ -674,16 +685,19 @@ body{
                                   
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
+           if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
                          
+        }
                               
 				
 			});
@@ -695,16 +709,19 @@ body{
                                   var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
+       if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
                          
+        }
 			
 				
 			});
@@ -716,16 +733,19 @@ body{
                                    var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
+           if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
                          
+        }
 			
 				
 			});
@@ -785,7 +805,7 @@ body{
                 <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $civicimg ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
              
             </div>
-            <div class ="Shows">
+            <div class ="Shows1">
                  <h1><?php echo  $playhousecompany?></h1>
                 <h1 class ="one">Civic Playhouse</h1>
                 
