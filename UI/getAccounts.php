@@ -34,7 +34,7 @@ echo "<tr>";
 echo "<td>" . $row['firstname'] . "</td>";
 echo "<td>" . $row['lastname'] . "</td>";
 echo "<td>" . $row['login'] . "</td>";
-switch ($row['AccountType']) {
+switch ($row['accounttype']) {
     case 1:
         echo "<td>Administrator</td>";
         break;
