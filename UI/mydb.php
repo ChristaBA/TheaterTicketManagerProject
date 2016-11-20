@@ -44,7 +44,8 @@ $showTable = "CREATE TABLE IF NOT EXISTS showName (
          startdate VARCHAR(30) NOT NULL, 
          enddate VARCHAR(50), 
          location VARCHAR(50),
-         image LONGBLOB NOT NULL
+         image LONGBLOB NOT NULL,
+         showId VARCHAR(30) NOT NULL
          )";
 if (mysqli_query($linkShow, $showTable)){
     echo "Table showName created successfully. ";
