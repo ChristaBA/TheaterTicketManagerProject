@@ -24,7 +24,7 @@ echo "<table border='1'>
 <th>Last Name</th>
 <th>Account Login</th>
 <th>Account Type</th>
-<th>Edit</th>
+
 <th>Delete</th>
 </tr>";
 
@@ -34,7 +34,7 @@ echo "<tr>";
 echo "<td>" . $row['firstname'] . "</td>";
 echo "<td>" . $row['lastname'] . "</td>";
 echo "<td>" . $row['login'] . "</td>";
-switch ($row['accountType']) {
+switch ($row['AccountType']) {
     case 1:
         echo "<td>Administrator</td>";
         break;
@@ -46,7 +46,7 @@ switch ($row['accountType']) {
         echo "<td>Other</td>";
         break;
 }
-echo "<td><a href='javascript:void(0);' id='editLink'>Edit</a></td>";
+
 echo "<td><a href='javascript:void(0);' id='editLink'>Delete</a></td>";
 echo "</tr>";
 }

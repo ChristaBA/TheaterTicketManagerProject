@@ -197,7 +197,17 @@ input[type=submit]:hover {
     
     
 }
-                  
+ input[type=password], select {
+    width: 70%;
+    margin-left:25%;
+    margin-right:25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}                 
                 </style>   
                 
               
@@ -244,7 +254,7 @@ input[type=submit]:hover {
                     <form action="AccountInsert.php" method="post" id="CreateSuper">
 			<label class ="label">First Name:</label><input type="text" name="firstname"><br>
                         <label class ="label">Last Name:</label><input type="text" name="lastname"><br>
-			<label class ="label">Password:</label><input type="text" name="pass"><br>
+			<label class ="label">Password:</label><input type="password" name="pass"><br>
                         <label class ="label">Username:</label><input type="text" name="log"><br>
                          <label class ="label">Account Type:</label><input type="number" name="accounttype"><br>
                          <label class ="label">Company Name:</label><input type="text" name="companyName"><br>

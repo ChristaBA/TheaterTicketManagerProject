@@ -192,7 +192,7 @@ session_start();
     <body>
          <script>
             $(document).ready(function() {
-                $.post("getSeasonTickets.php", function(response){
+                $.post("getAccounts.php", function(response){
                    $("#AccountDisplay").html(response);
                    //console.log(response);
                 });

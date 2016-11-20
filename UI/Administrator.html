@@ -182,12 +182,7 @@
                 </head>
     <body>
            <script>
-            $(document).ready(function() {
-                $.post("getAccounts.php", function(response){
-                   $("#accountDisplay").html(response);
-                   //console.log(response);
-                });
-            });
+
         </script>
              <ul class ="nav">
                <div class="logo"> 
@@ -215,13 +210,13 @@
 
 
 <button class="button button3" onclick="location='CreateSuper.html'">Create Accounts</button>
-<button class="button button2" onclick="location='ManageAccounts.php'">Manage Accounts</button>
+<button class="button button2" onclick="location='ViewAccounts.php'">Manage Accounts</button>
 
 <button class="button button4" onclick="location='mydb.php'">Create Database</button>
 <br>
 <br>
 <br>
-<button class="button button6" onclick="location='Employeelogin.php'">Cancel</button>
+<button class="button button6" onclick="location='Employeelogin.php'">LogOut</button>
 <br>
 <br>
 <br>
