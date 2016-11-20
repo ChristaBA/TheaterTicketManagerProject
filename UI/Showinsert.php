@@ -47,7 +47,8 @@ $end_Date = mysqli_real_escape_string($link, $endDate);
 $locationDB = mysqli_real_escape_string($link, $location);
 $Company_Name = mysqli_real_escape_string($link, $companyName);
 $imagetmp= addslashes (file_get_contents($_FILES['fileToUpload']['tmp_name']));
-$mysqli_get_users = mysqli_query($link,"SELECT * FROM showname where showName= '$show_name' " );
+$showId =com_createquid();
+$mysqli_get_users = mysqli_query($link,"SELECT * FROM showname where showName= '$showId' " );
 $get_rows = mysqli_affected_rows($link);
 if($get_rows >= 1)
 {
@@ -59,8 +60,8 @@ else
 {
     if ($check !== false)
     {
-        $sql = "INSERT INTO showName (showname, startdate, enddate, location,Company, image)
-        VALUES ('$show_name', '$start_date','$end_Date', '$locationDB','$Company_Name', '$imagetmp')";
+        $sql = "INSERT INTO showName (showname, location,Company, image,showId)
+        VALUES ('$show_name',  '$locationDB','$Company_Name', '$imagetmp','$showId')";
             if ($link->query($sql) === TRUE) 
             {
                 echo "New record created successfully<br>";
