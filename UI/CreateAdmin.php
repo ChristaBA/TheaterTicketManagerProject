@@ -1,4 +1,5 @@
 <?php
+include "mydb.php";
  include "connection.php";
 /* 
  * To change this license header, choose License Headers in Project Properties.
@@ -23,8 +24,10 @@ VALUES ('admin', 'admin', '$passwordlogin' ,'admin', 1, 'admin' )";
 
 if ($link->query($sql) === TRUE) {
     echo "New record created successfully";
+    echo true;
 } else {
     echo "Error: " . $sql . "<br>" . $link->error;
+    echo false;
 }
 }
 $link->close();

@@ -1,10 +1,25 @@
 <DOCTYPE html>
 <html>
 	<head>
+          
 		     
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+                
+              <script>
+    
+//All Jquery is supposed to go inside this function
+	/*$(document).ready(function() {
+                        console.log("ready() called");
+			//Adds an event listener to the Ticket Submit button that waits until it's clicked
+                        $.post("CreateAdmin.php", function(response){
+                            console.log("Foo");
+                           console.log(response);            
+                        });
+                     });*/
+                        </script>
                 <title> Huntsville Civic Center</title>
               <?php
+              include 'CreateAdmin.php';
            session_start();
           $servername = "localhost:3306";
             $username = "root";
@@ -398,12 +413,12 @@ body{
     
 //All Jquery is supposed to go inside this function
 	$(document).ready(function() {
-                        console.log("ready() called");
+                        /*console.log("ready() called");
 			//Adds an event listener to the Ticket Submit button that waits until it's clicked
                         $.post("CreateAdmin.php", function(response){
                             //console.log("Foo");
                            console.log(response); 
-                        });
+                        });*/
                 
 			$("#companya").click(function() {
 			console.log("Log in button clicked");
