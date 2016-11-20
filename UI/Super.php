@@ -186,15 +186,10 @@ session_start();
     <body>
              <ul class ="nav">
                <div class="logo">
-                    <a href ="HomePage.php">Civic Center Entertainment</a>
-                   
-                   
+                    <a href ="HomePage.php">Civic Center Entertainment</a>                
                    
                </div>
-        
-                   
-                   
-             
+
                 <li><a href ="Aboutus.php">About US</a></li>
               <li><a href ="Contact.php">Contact</a></li>
                <li><a href ="helppage.php">Help</a></li>

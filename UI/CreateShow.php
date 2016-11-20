@@ -265,7 +265,7 @@ input[type=submit]:hover {
                 
                 
                 <div class ="Login" >
-                    <form action="ShowInsert.php" method="post" id="createshow" enctype="multipart/form-data" >
+                    <form action="Showinsert.php" method="post" id="createshow" enctype="multipart/form-data" >
 			<label class ="label">Show Name:</label><input type="text" name="showname"><br>
 			<!--<label class ="label">Start Date:</label><input type="text" name="startDate"><br>-->
                        

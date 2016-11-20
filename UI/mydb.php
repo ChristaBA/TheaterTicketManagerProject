@@ -41,11 +41,12 @@ $linkShow = mysqli_connect($servername, $username, $password, $dbname);
  // Attempt create table query execution
 $showTable = "CREATE TABLE IF NOT EXISTS showName (
          showname VARCHAR(30) NOT NULL,
-         startdate VARCHAR(30) NOT NULL, 
-         enddate VARCHAR(50), 
+         date VARCHAR(30) NOT NULL, 
+         time VARCHAR(30) NOT NULL, 
          location VARCHAR(50),
-         image LONGBLOB NOT NULL
-         
+         Company VARCHAR(50),
+         image LONGBLOB NOT NULL,
+         showId VARCHAR(50) NOT NULL
          )";
 if (mysqli_query($linkShow, $showTable)){
     echo "Table showName created successfully. ";
@@ -79,24 +80,21 @@ if (mysqli_query($linkSeasonTicket, $seasonTicketTable)){
 }
 
 // Close connection
-mysqli_close($linkSeasonTicket);
-        // personid INT(4)UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-/*$linkTest = mysqli_connect($servername, $username, $password, $dbname);
+mysqli_close($linkSeasonTicket); 
+$linkTest = mysqli_connect($servername, $username, $password, $dbname);
 
  // Attempt create table query execution
-$linkTestTable = "CREATE TABLE IF NOT EXISTS tablename (
-         item1 VARCHAR(30) NOT NULL, 
-         item2 VARCHAR(30) NOT NULL,  
-         item3 VARCHAR(50), 
-         item4 VARCHAR(50),
-         item5 VARCHAR(50)
+$linkTestTable = "CREATE TABLE IF NOT EXISTS Tickets (
+         seatNumber VARCHAR(30) NOT NULL, 
+         Price VARCHAR(30) NOT NULL,  
+         ShowId VARCHAR(50), 
+         UniqueId VARCHAR(50)
          )";
 if (mysqli_query($linkTest, $linkTestTable)){
-    echo "Table testTable created successfully. ";
+    echo "Ticket Table created successfully. ";
 } else {
     echo "ERROR: Could not able to execute $linkTestTable. " . mysqli_error($linkTest);
 }
 
 // Close connection
-mysqli_close($linkTest);*/
-        // personid INT(4)UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+mysqli_close($linkTest);

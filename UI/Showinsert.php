@@ -48,6 +48,8 @@ $locationDB = mysqli_real_escape_string($link, $location);
 $Company_Name = mysqli_real_escape_string($link, $companyName);
 $imagetmp= addslashes (file_get_contents($_FILES['fileToUpload']['tmp_name']));
 $showId =com_create_guid();
+$someDate = '11/27/2016';
+$someTime = '7:00';
 $mysqli_get_users = mysqli_query($link,"SELECT * FROM showname where showName= '$showId' " );
 $get_rows = mysqli_affected_rows($link);
 if($get_rows >= 1)
@@ -60,11 +62,13 @@ else
 {
     if ($check !== false)
     {
-        $sql = "INSERT INTO showName (showname, location,Company, image,showId)
-        VALUES ('$show_name','$locationDB','$Company_Name', '$imagetmp','$showId')";
+        $sql = "INSERT INTO showName (showname,date, time, location,Company, image,showId)
+        VALUES ('$show_name','$someDate','$someTime','$locationDB','$Company_Name', '$imagetmp','$showId')";
             if ($link->query($sql) === TRUE) 
             {
                 echo "New record created successfully<br>";
+                echo "You are being redirected.";
+                header("refresh:3; url = Super.php");
             }
             else 
             {
