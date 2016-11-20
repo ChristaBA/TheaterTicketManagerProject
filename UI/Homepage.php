@@ -401,7 +401,7 @@ body{
                         console.log("ready() called");
 			//Adds an event listener to the Ticket Submit button that waits until it's clicked
                         $.post("CreateAdmin.php", function(response){
-                            console.log("Foo");
+                            //console.log("Foo");
                            console.log(response); 
                         });
                 
