@@ -15,6 +15,10 @@
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
+ $todaysdate = date("Y/m/d");
+ $enddate =date("Y/m/d");
+
+ 
  
 //$query = "SELECT  Poster From showname";
 $showquery = "SELECT DISTINCT showname FROM showname"
@@ -23,14 +27,14 @@ $picquery = "SELECT DISTINCT image FROM showname WHERE Company = '$var_value'";
 $Sdatequery ="SELECT startdate FROM showname WHERE Company = '$var_value'";
 $Edatequery ="SElECT DISTINCT endate FROM showname WHERE Company = '$var_value'"; 
 $Lquery ="SElECT location FROM showname WHERE Company = '$var_value'";
-
+$dateq ="SELECT date FROM showname WHERE date >= '$todaysdate 'AND date <='$enddate'";
  
 $result1 = mysqli_query($link, $showquery);
 $result2 = mysqli_query($link, $picquery);
 $result3 = mysqli_query($link, $Sdatequery);
 $result4 = mysqli_query($link, $Edatequery);
 $result5 = mysqli_query($link, $Lquery);
-
+$result6 =mysqli_query($link, $dateq);
 ?>
                
                 <?php            
@@ -42,7 +46,16 @@ $result5 = mysqli_query($link, $Lquery);
         $Sdatearray = array();
         $Edatearray = array();
      $index = 0;
+      while($row = $result6->fetch_assoc())    
+ {
      
+
+  $showdate =$row["date"];
+
+  
+
+  
+ }  
  while($row = $result1->fetch_assoc())    
  {
      
@@ -283,7 +296,7 @@ $index2++;
      $index3 = 0;
      
      
-     while($row = $result3->fetch_assoc())    
+/*    while($row = $result3->fetch_assoc())    
  {   
  
  //$img =$row['image'];
@@ -371,6 +384,8 @@ $index3++;
  $sdate8 = "NO SHOW";
          
      }
+ * 
+ */
 while($row = $result5->fetch_assoc())    
  {
      
@@ -761,8 +776,11 @@ $index4++;
 			$("#showbtn1").click(function() {
 			console.log("Log in button clicked");
                            var data = {showName: $(this).attr("value")};
-                       //console.log(data);
-			//window.location = "http://stackoverflow.com";
+                       console.log(data);
+                       //
+                       //
+//window.location = "http://stackoverflow.com";
+                   
                        $.post("sessionset.php", data, function(response) {
 					
 				
@@ -773,7 +791,7 @@ $index4++;
 				
 			});
                          
-			
+                     
 				
 			});
                         $("#showbtn2").click(function() {
@@ -954,7 +972,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname1?></h1>
                 <h1 class = one><?php echo  $location1?></h1>
-                <h1 class = one><?php echo  $sdate1?></h1>
+                   <h1 class = one><?php echo  $showdate?></h1>
                 
                 
                  
@@ -968,7 +986,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname2?></h1>
                 <h1 class = one><?php echo  $location2?></h1>
-                <h1 class = one><?php echo  $sdate2?></h1>
+                
                 
                 
                  
@@ -980,7 +998,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname3?></h1>
                 <h1 class = one><?php echo  $location3?></h1>
-                <h1 class = one><?php echo  $sdate3?></h1>
+              
                 
                 
                  
@@ -992,7 +1010,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname4?></h1>
                  <h1 class = one><?php echo  $location4?></h1>
-                <h1 class = one><?php echo  $sdate4?></h1>
+            
                 
                 
                  
@@ -1003,7 +1021,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname5?></h1>
                  <h1 class = one><?php echo  $location5?></h1>
-                <h1 class = one><?php echo  $sdate5?></h1>
+              
                 
                 
                  
@@ -1015,7 +1033,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname6?></h1>
                  <h1 class = one><?php echo  $location6?></h1>
-                <h1 class = one><?php echo  $sdate6?></h1>
+              
                 
                 
                  
@@ -1027,7 +1045,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname7?></h1>
                  <h1 class = one><?php echo  $location7?></h1>
-                <h1 class = one><?php echo  $sdate7?></h1>
+              
                 
                 
                  
@@ -1039,7 +1057,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname8?></h1>
                  <h1 class = one><?php echo  $location8?></h1>
-                <h1 class = one><?php echo  $sdate8?></h1>
+            
                 
                 
                  

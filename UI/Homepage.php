@@ -33,14 +33,31 @@ $link =  mysqli_connect($servername, $username, $password, $dbname);
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
+$todaysdate = date("Y/m/d");
+ $civiclocation = "Civic Center";
+ $civicplayhouse ="Civic Playhouse";
+  //$endate = strtotime("+1 week", $todaysdate);
 
-//$query = "SELECT  Poster From showname";
 $query = "SELECT DISTINCT Company FROM showname";
+$civicbydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civiclocation'LIMIT 1";
+$civicpicbydate ="SELECT image FROM showname Where date = '$todaysdate ' AND location = '$civiclocation'LIMIT 1";
+$playhousebydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
+$playhousepicbydate= "SELECT image FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
+$civicresult =   mysqli_query($link, $civicbydate);
+$playhouseresult =mysqli_query($link, $playhousebydate);
+$playhousepicresult =mysqli_query($link, $playhousepicbydate);
+$civicpicresult   =  mysqli_query($link, $civicpicbydate);
 $result1 = mysqli_query($link, $query);
+ 
 //echo $result1;          
       $companyarray = array();        
+      $civicarray =array();
+      $playhousearray =array();
+      $playhousepics =array();
+      $civicpic = array();
       
-     $index =0;  
+      
+      $index =0;  
 if (!$result1) {
     echo "Database Error Please add shows for this error to disappear";
 }
@@ -157,16 +174,135 @@ if (!$result1) {
    
 
      }
-   //$companyb=  implode(" ",$companyarray[1]);
-   //$companyc=  implode(" ",$companyarray[2]);
-   //$companyd=   implode(" ",$companyarray[3]);
-   //$companye=   implode(" ",$companyarray[4]);g
-  //$companyf=   implode(" ",$companyarray[5]);
- //session_unset();
-   
-  // $_SESSION['varname'] = $companyd;
-    // $_SESSION['varname'] = $companyd;
-    //$_SESSION['varname'] = $companyd;
+$index2=0;
+  while( $row = $civicresult->fetch_assoc())
+  {
+ 
+  
+
+  /*$showname =$row["showname"];
+  $StartDate =$row["startdate"];
+  $enddate =$row["enddate"];
+  $location =$row["location"];
+  //$img =$row['image'];
+  */
+    $civicarray[$index2]= $row;
+$index2++;
+  
+ }    
+     
+ 
+ 
+ 
+ 
+ if(array_key_exists(0, $civicarray))
+ {
+      $company =  implode(" ",$civicarray[0]);
+     
+ }
+     else 
+     {
+     
+     $company = "NO SHOW";
+     }
+
+  $index3=0;
+  while( $row = $civicpicresult->fetch_assoc())
+  {
+ 
+  
+
+  /*$showname =$row["showname"];
+  $StartDate =$row["startdate"];
+  $enddate =$row["enddate"];
+  $location =$row["location"];
+  //$img =$row['image'];
+  */
+    $civicpic[$index3]= $row;
+$index3++;
+  
+ }    
+     
+ 
+ 
+ 
+ 
+ if(array_key_exists(0, $civicpic))
+ {
+      $civicimg =  implode(" ",$civicpic[0]);
+     
+ }
+     else 
+     {
+     
+     $civicimg= "NO SHOW";
+     }  
+     
+     
+     $index4=0;
+  while( $row = $playhouseresult->fetch_assoc())
+  {
+ 
+  
+
+  /*$showname =$row["showname"];
+  $StartDate =$row["startdate"];
+  $enddate =$row["enddate"];
+  $location =$row["location"];
+  //$img =$row['image'];
+  */
+   $playhousearray [$index4]= $row;
+$index4++;
+  
+ }    
+     
+ 
+ 
+ 
+ 
+ if(array_key_exists(0, $playhousearray))
+ {
+      $playhousecompany =  implode(" ",$playhousearray[0]);
+     
+ }
+     else 
+     {
+     
+    $playhousecompany = "NO SHOW";
+     }
+
+  $index5=0;
+  while( $row = $playhousepicresult->fetch_assoc())
+  {
+ 
+  
+
+  /*$showname =$row["showname"];
+  $StartDate =$row["startdate"];
+  $enddate =$row["enddate"];
+  $location =$row["location"];
+  //$img =$row['image'];
+  */
+$playhousepics[$index5]= $row;
+$index5++;
+  
+ }    
+     
+ 
+ 
+ 
+ 
+ if(array_key_exists(0, $playhousepics))
+ {
+      $playhouseimg =  implode(" ",$playhousepics[0]);
+     
+ }
+     else 
+     {
+     
+        $playhouseimg= "NO SHOW";
+     }  
+     
      ?>          
               
   
@@ -377,7 +513,7 @@ body{
    background-color:#cccccc;
     height:85%;
     display:inline-block;
-     margin-left:5%; 
+     margin-left:2%; 
     opacity:0.2%;
     
     
@@ -425,25 +561,35 @@ body{
                            var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
+                    
+        
+        if ($(this).attr("value") != "NO SHOW")
+        {
+        $.post("sessionset.php", data, function(response) {
 					
 				
-                                //console.log(response);
+                               //console.log(response);
                               window.location = "CompanyA.php";
                        
 			
 				
 			});
                          
-			
+        }
 				
 			});
-                        $("#companyb").click(function() {
+                        $("#companya").click(function() {
 			console.log("Log in button clicked");
                         
                       var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
+                          console.log(data);
+                        
+         
+                        
+                        
+                        
                        $.post("sessionset.php", data, function(response) {
 					
 				
@@ -629,26 +775,25 @@ body{
                
            
             
-            <h1>Showing this week</h1>   
+            <h1>Now Showing</h1>   
           
             
             <div class ="Shows">
-                  <h1>CompanyA</h1>
-                <h1 class="one">Civic Playhouse</h1> 
+                  <h1><?php echo  $company?></h1>
+                <h1 class="one">Civic Concerthall</h1> 
               
-                <img src ="Hamlet (Small).jpg"  style ="float:left; width:60%; height:70%;margin-right:2%;margin-left:20%;border:3px solid black;"/>
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $civicimg ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
              
             </div>
-            <div class ="Shows1">
-                <h1>CompanyB</H1>
-                <h1 class ="one">Civic Concert Hall</h1>
+            <div class ="Shows">
+                 <h1><?php echo  $playhousecompany?></h1>
+                <h1 class ="one">Civic Playhouse</h1>
                 
-                <img src ="macbeth.jpg" style ="float:left; width:60%; height:70%;margin-right:2%;margin-left:20%;border:3px solid black;"/>
+               <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $playhouseimg ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
          
             </div>
             
-            
-          
+         
              
    
                   <p style="clear: both;">

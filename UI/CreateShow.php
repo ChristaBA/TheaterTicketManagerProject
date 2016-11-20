@@ -231,10 +231,13 @@ input[type=submit]:hover {
             <script>
 	$(document).ready(function() {
 			//Adds an event listener to the Ticket Submit button that waits until it's clicked
-		
+		var data = $("#createshow").serializeArray();
 	     $("#btnCreateShow").click(function() {
          $("#createshow").submit();
-              
+      
+      
+      
+      
     });
     });
 		</script>
@@ -269,10 +272,12 @@ input[type=submit]:hover {
 			<label class ="label">Show Name:</label><input type="text" name="showname"><br>
 			<!--<label class ="label">Start Date:</label><input type="text" name="startDate"><br>-->
                        
-                        <label class ="label">Location:</label><input type="text" name="location"><br>
-                        
-   
-    
+                        <label class ="label">Location:</label><select name="location">
+                                    <option value="">location</option>
+                                    <option value="">-----</option>
+                                    <option value ="Civic Playhouse">Civic Center Playhouse</option>
+                                    <option value ="Civic Center">Civic Center Concert Hall</option>       
+                        </select>
    
 
 
