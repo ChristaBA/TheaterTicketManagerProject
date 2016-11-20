@@ -221,12 +221,12 @@ span.seatCharts-legendDescription {
 
 <select id="opts" onchange="showForm()">
     <option value="0">Select Date/Time</option>
-    <option value="1">Week 1, Friday</option>
-    <option value="2">Week 1, Saturday</option>
-    <option value="3">Week 1, Sunday</option>
-    <option value="4">Week 2, Thursday</option>
-    <option value="5">Week 2, Friday</option>
-    <option value="6">Week 2, Saturday</option>
+    <option value="1">Week 1, Friday Evening</option>
+    <option value="2">Week 1, Saturday Evening</option>
+    <option value="3">Week 1, Sunday Matinee</option>
+    <option value="4">Week 2, Thursday Evening</option>
+    <option value="5">Week 2, Friday Evening</option>
+    <option value="6">Week 2, Saturday Evening</option>
 </select>
 
 <div id="schart" style="display:none">
@@ -249,7 +249,7 @@ span.seatCharts-legendDescription {
       <ul id="selected-seats">
       </ul>
       Total: <b>$<span id="total">0</span></b>
-      <button class="checkout-button">Checkout &raquo;</button>
+	  <button id="checkout">Checkout &raquo;</button>
       <div id="legend"></div>
 	  </div>
 
@@ -259,60 +259,63 @@ span.seatCharts-legendDescription {
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="jquery.seat-charts.js"></script> 
 <script>
+var takenseats = [];
+		var $cart = $('#selected-seats'),
+			$counter = $('#counter'),
+			$total = $('#total');
+		function updateSeats(sc) {
+		//takenseats = [];
+		sc.get(takenseats).status('available');
+			var selopt = document.getElementById("opts").value;
+		//console.log("Value of selopt: ");
+		//console.log(selopt);
+		//var takenseats = [];
+		if (selopt == 1) {
+			takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23','11_23',];
+			//document.getElementById("schart").style.display = "block";
+        };
+		if (selopt == 2) {
+			takenseats = ['5_10','5_11','5_12','6_20','6_21','3_33','3_34','3_35','3_36',];
+            //document.getElementById("schart").style.display = "block";
+        };
+		if (selopt == 3) {
+			takenseats = ['4_16','4_18','4_20','4_40','4_41','4_42','1_50','1_51','1_52','10_20','10_21',];
+            //document.getElementById("schart").style.display = "block";
+        };
+		if (selopt == 4) {
+			takenseats = ['7_35','7_36','7_37','7_40','2_15','2_16','2_45','2_46',];
+            //document.getElementById("schart").style.display = "block";
+        };
+		if (selopt == 5) {
+			takenseats = ['9_50','9_52','8_18','8_19','6_37','6_38','3_23','3_24','3_26',];
+            //document.getElementById("schart").style.display = "block";
+        };
+		if (selopt == 6) {
+			takenseats = [];
+            //document.getElementById("schart").style.display = "block";
+        };
+		sc.get(takenseats).status('unavailable');
+		}
+
+
 			var firstSeatLabel = 1;
-		var takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23'];
 			
+		
 			
+		//var takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23','11_23',];
+		var selectedSeats = [];	
+			
+		//var takenseats = ['1_14','1_15',];
 			$(document).ready(function() {
 			
-				var $cart = $('#selected-seats'),
-					$counter = $('#counter'),
-					$total = $('#total'),
-					sc = $('#seat-map').seatCharts({
+			
+				
+				
+		//		var $cart = $('#selected-seats'),
+		//			$counter = $('#counter'),
+		//			$total = $('#total');
+				var	sc = $('#seat-map').seatCharts({
 					map: [
-					/*
-						'_____ff_fffffffffffffff_ff_____',
-						'___ffff_fffffffffffffff_ffff___',
-						'___ffff_fffffffffffffff_ffff___',
-						'__fffff_fffffffffffffff_fffff__',
-						'_ffffff_fffffffffffffff_ffffff_',
-						'_ffffff_fffffffffffffff_ffffff_',
-						'fffffff_fffffffffffffff_fffffff',
-						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
-						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
-						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
-						'_eeeeee_eeeeeeeeeeeeeee_eeeeee_',
-						'_eeeeee_eeeeeeeeeeeeeee_eeeeee_',
-						'',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						*/
-						/*
-						'eeeffffff__________________ffffffeee',
-						'eeeffffff__________________ffffffeee',
-						'eeeffff______________________ffffeee',
-						'eeeff__________________________ffeee',
-						'eee_____fff______________fff_____eee',
-						'e______fffff____________fffff______e',
-						'_____fffffffff________fffffffff_____',
-						'___eeefffffffffff__fffffffffffeee___',
-						'_eeeeeeffffffffff__ffffffffffeeeeee_',
-						'_eeeeeeeeffffffff__ffffffffeeeeeeee_',
-						'_eeeeeeeeeeffffff__ffffffeeeeeeeeee_',
-						'_eeeeeeeeeeefffff__fffffeeeeeeeeeee_',
-						'__eeeeeeeeeeeeeee__eeeeeeeeeeeeeee__',
-						'____eeeeeeeeeeeee__eeeeeeeeeeeee____',
-						'b______eeeeeeeeee__eeeeeeeeee______b',
-						'bb__________eeeee__eeeee__________bb',
-						'bbbbbb________________________bbbbbb',
-						'bbbbbb__bbb______________bbb__bbbbbb',
-						'_bbbbb__bbbbbbbbb__bbbbbbbbb__bbbbb_',
-						'__bbbb__bbbbbbbbb__bbbbbbbbb__bbbb__',
-						'________bbbbbbbbb__bbbbbbbbb________',
-						'___________bbbbbb__bbbbbb___________',
-						*/
 						
 						'_____________ffffffffffffffffff__ffffffffffffffffff_____________',
 						'____________fffffffffffffffffff__fffffffffffffffffff____________',
@@ -361,17 +364,17 @@ span.seatCharts-legendDescription {
 					],
 					seats: {
 						f: {
-							price   : 280,
+							price   : 280, //put a variable here for modification
 							classes : 'premium-orchestra', //your custom CSS class
 							category: 'Premium Orchestra'
 						},
 						e: {
-							price   : 220,
+							price   : 220, //put a variable here for modification
 							classes : 'orchestra', //your custom CSS class
 							category: 'Orchestra'
 						},	
 						b:  {
-							price	: 140,
+							price	: 140, //put a variable here for modification
 							classes	: 'balcony',
 							category: 'Balcony'
 						}
@@ -392,6 +395,8 @@ span.seatCharts-legendDescription {
 							[ 'f', 'unavailable', 'Already Booked']
 					    ]					
 					},
+
+
 					click: function () {
 						if (this.status() == 'available') {
 							//let's create a new <li> which we'll add to the cart items
@@ -399,10 +404,11 @@ span.seatCharts-legendDescription {
 								.attr('id', 'cart-item-'+this.settings.id)
 								.data('seatId', this.settings.id)
 								.appendTo($cart);
+								
 								// 'this.settings.id' is the reference to the seat location, in the '10_22' format 
 								//necessary to modify the taken seat list
-								takenseats.push(this.settings.id);
-								sc.get(takenseats).status('unavailable');
+								 //  takenseats.push(this.settings.id);
+								//   sc.get(takenseats).status('unavailable');
 							
 							/*
 							 * Lets update the counter and total
@@ -434,6 +440,14 @@ span.seatCharts-legendDescription {
 					}
 				});
 				//this will handle "[cancel]" link clicks
+				/*
+				$('checkout-button').on('click', function () {
+					window.alert("Testing");
+					takenseats.push(this.settings.id);
+					sc.get(takenseats).status('unavailable');
+				
+				});
+				*/
 				$('#selected-seats').on('click', '.cancel-cart-item', function () {
 					//let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
 					sc.get($(this).parents('li:first').data('seatId')).click();
@@ -448,7 +462,33 @@ span.seatCharts-legendDescription {
 				sc.get(['1_2','1_3','1_12','1_13','2_15','2_16','2_17','2_18','3_14','4_1', '7_1', '7_2',
 				'11_12','11_12','10_7','10_8','10_9','8_20','12_22','12_23','10_3']).status('unavailable');
 				*/
+			$('#checkout').click(function () {
+				checkOut(sc);
+			});
+			$('#opts').click(function () {
+				updateSeats(sc);
+				//console.log(takenseats);
+			});
 		});
+		function checkOut(sc) {
+		
+			jsonObj = [];
+			
+			sc.find('selected').each(function () {
+			
+				var seatnum = this.settings.id;
+				var price1 = this.data().price;
+			
+				item = {}
+				item ["seat"] = seatnum;
+				item ["price"] = price1;
+
+				jsonObj.push(item);
+			});
+		var json_text = JSON.stringify(jsonObj);
+		console.log(json_text);
+		console.log(jsonObj);
+		}
 		function recalculateTotal(sc) {
 			var total = 0;
 		
@@ -481,6 +521,10 @@ span.seatCharts-legendDescription {
 		if (selopt == 0) {
             document.getElementById("schart").style.display = "none";
         };
+		// 'selopt' is a variable that is storing the value from the select with the id 'opts'
+		// can be used to indicate which showing has been selected, as well as to update the
+		// correct seat chart with the seats that were sold
+		// console.log(selopt);
     }
 </script>
 
