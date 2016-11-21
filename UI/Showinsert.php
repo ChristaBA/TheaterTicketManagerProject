@@ -44,6 +44,7 @@ $location = filter_input(INPUT_POST,"location");
 $month = filter_input(INPUT_POST,"month");
 $day = filter_input(INPUT_POST,"day");
 $year =filter_input(INPUT_POST,"year");
+$showingIN = filter_input(INPUT_POST,"showing");
 
 $show_name = mysqli_real_escape_string($link, $showname);
 $start_date = mysqli_real_escape_string($link, $startDate);
@@ -55,6 +56,7 @@ $Day =mysqli_real_escape_string($link, $day);
 $Year = mysqli_real_escape_string($link, $year);
 $imagetmp= addslashes (file_get_contents($_FILES['fileToUpload']['tmp_name']));
 $showId =com_create_guid();
+$showing = mysqli_real_escape_string($link, $showingIN);
 //$someDate = '11/27/2016';
 $someDate ="$Year/$Month/$Day";
 $someTime = '7:00';
@@ -70,8 +72,8 @@ else
 {
     if ($check !== false)
     {
-        $sql = "INSERT INTO showName (showname,date, time, location,Company, image,showId)
-        VALUES ('$show_name','$someDate','$someTime','$locationDB','$Company_Name', '$imagetmp','$showId')";
+        $sql = "INSERT INTO showName (showname,date, time, location,Company, image,showId, showing)
+        VALUES ('$show_name','$someDate','$someTime','$locationDB','$Company_Name', '$imagetmp','$showId', '$showing')";
             if ($link->query($sql) === TRUE) 
             {
                 echo "New record created successfully<br>";

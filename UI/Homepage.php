@@ -574,7 +574,7 @@ body{
 .Shows{
    width:45%;
    background-color:#cccccc;
-    height:100%;
+    height:105%;
     display:inline-block;
      margin-left:2.5%; 
     opacity:0.2%;

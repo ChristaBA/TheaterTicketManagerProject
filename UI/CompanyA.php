@@ -26,8 +26,21 @@ $showquery = "SELECT DISTINCT showname FROM showname WHERE Company = '$var_value
 $picquery = "SELECT DISTINCT image, MAX(date) FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY image ORDER BY MAX(date) ASC, image";
 
 
-$Lquery ="SElECT location FROM showname WHERE Company = '$var_value'";
+$Lquery ="SELECT location FROM showname WHERE Company = '$var_value'";
+$getLocation = mysqli_query($link, "SELECT DISTINCT location FROM showname WHERE Company= '$var_value'");
 
+$seasonTicketURL = "";
+if($row = $getLocation->fetch_assoc())
+{
+    if($row['location'] == "Civic Playhouse")
+    {
+        $seasonTicketURL .= "SeasonTicketSelector500.php";
+    }
+    if($row['location'] == "Civic Center")
+    {
+        $seasonTicketURL .= "SeasonTicketSelector2000.php";
+    }
+}
  
 $result1 = mysqli_query($link, $showquery);
 $result2 = mysqli_query($link, $picquery);
@@ -1116,7 +1129,7 @@ $index4++;
              
                 <div class ="Footer">
                     
-                   <button class ="button button2" onclick="location='CreateSeasonTicket.hrml'">Get Season Tickets</button>
+                   <button class ="button button2" onclick="location='<?php echo $seasonTicketURL?>'">Get Season Tickets</button>
                     
                     
                 </div>

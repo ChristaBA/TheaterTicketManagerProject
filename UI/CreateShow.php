@@ -346,6 +346,16 @@ input[type=submit]:hover {
 
 </select>
 
+<label class ="label ">Select Showing: </label>
+<select id="showingid" name="showing">
+    <option value="0">Select a Showing</option>
+    <option value="1">First Showing</option>
+    <option value="2">Second Showing</option>
+    <option value="3">Third Showing</option>
+    <option value="4">Fourth Showing</option>
+    <option value="5">Fifth Showing</option>
+    <option value="6">Sixth Showing</option>
+</select>
                         <!--<label class ="label">Poster Img:</label><input type="text" name="PosterUrl"><br>--
                          <label class ="label">Company Name:</label><input type="text" name="Company"><br>-->
                      <label class ="fileContainer">Upload Poster: </label><input type="file" name="fileToUpload"><br>

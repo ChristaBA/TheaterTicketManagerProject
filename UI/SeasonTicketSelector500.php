@@ -7,14 +7,23 @@ and open the template in the editor.
 
 
 <?php
- session_start();
+session_start();
+include "connection.php";
 
-$show_id = $_SESSION['Showid'];   
-echo "Session is set to" . $_SESSION['Showid'];
-$show_name = $_SESSION['showname'];
-echo "Session is set to" . $_SESSION['showname'];
-
-
+$companyName = $_SESSION['varname'];
+if(isset($_SESSION['Showid']))
+{
+    $show_id = $_SESSION['Showid'];   
+    //echo "Session is set to" . $_SESSION['Showid'];
+}
+if(isset($_SESSION['showname']))
+{
+    $show_name = $_SESSION['showname'];
+    
+    $getShows = mysqli_query($link,"Select * FROM showname WHERE Company = '$companyName' AND showname = '$show_name'");
+    
+    //echo "Session is set to" . $_SESSION['showname'];
+}
 ?>
 <!doctype html>
 <html>
@@ -255,7 +264,11 @@ span.seatCharts-legendDescription {
       <ul id="selected-seats">
       </ul>
       Total: <b>$<span id="total">0</span></b>
-	  <button id="checkout">Checkout &raquo;</button>
+	<form id="dataPass" action="SeasonPurchase.php" method="post">
+          <input type="hidden" name="showID" id="showID"/>
+          <input type="hidden" name="strJSON" id="strJSON"/>
+          <button id="checkout">Checkout &raquo;</button>
+      </form>
       <div id="legend"></div>
 	  </div>
 
@@ -272,7 +285,7 @@ span.seatCharts-legendDescription {
 			$total = $('#total');
 		function updateSeats(sc) {
 		//takenseats = [];
-		sc.get(takenseats).status('available');
+		//sc.get(takenseats).status('available');
 			var selopt = document.getElementById("opts").value;
 		//console.log("Value of selopt: ");
 		//console.log(selopt);
@@ -301,7 +314,7 @@ span.seatCharts-legendDescription {
 			takenseats = [];
             //document.getElementById("schart").style.display = "block";
         };
-		sc.get(takenseats).status('unavailable');
+		//sc.get(takenseats).status('unavailable');
 		}
 
 
@@ -472,7 +485,7 @@ span.seatCharts-legendDescription {
 			$('#checkout').click(function () {
 				checkOut(sc);
 			});
-			$('#opts').click(function () {
+			$('#opts').change(function () {
 				updateSeats(sc);
 				//console.log(takenseats);
 			});
