@@ -58,7 +58,7 @@ $result1 = mysqli_query($link, $query);
       $playhousearray =array();
       $playhousepics =array();
       $civicpic = array();
-      $playhoueids =array();
+      $playhouseids =array();
       $civicids =array();
       
       $index =0;  
@@ -337,6 +337,31 @@ $index6++;
      {
      
         $civicid = "NO COMPANY";
+     } 
+     
+     $index7 = 0;
+     while( $row = $playhouseshowresult->fetch_assoc())
+  {
+ 
+  
+$playhouseids[$index7]= $row;
+$index7++;
+  
+ }    
+     
+ 
+ 
+ 
+ 
+ if(array_key_exists(0,$playhouseids))
+ {
+      $playhouseshowid =  implode(" ",$playhouseids[0]);
+     
+ }
+     else 
+     {
+     
+      $playhouseids = "NO COMPANY";
      }  
 
      ?>          
@@ -801,7 +826,7 @@ body{
 					
 				
                                //console.log(response);
-                              window.location = "CompanyA.php";
+                              window.location = "SeatSelector2000.php";
                        
 			
 				
@@ -812,7 +837,31 @@ body{
 				
 			});
     
+                $("#btnPlayhouseticket").click(function() {
+			console.log("Log in button clicked");
+			//window.location = "http://stackoverflow.com";
+                                
+        
+                                   var data = {Btnid: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+           if ($(this).attr("value") != "NO COMPANY")
+        {
+        $.post("sessionset.php", data, function(response) {
+					
+				
+                               //console.log(response);
+                              window.location = "SeatSelector500.php";
+                       
+			
+				
+			});
                          
+        }
+			
+				
+			});
+                 
     
     });
 		</script>
@@ -872,7 +921,7 @@ body{
                 <h1 class ="one">Civic Playhouse</h1>
                 
                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $playhouseimg ) . '"style ="float:left; width:50%; height:70%;margin-right:0%;margin-left:25%;border:3px solid black;" />';?>
-         <button class="button button2"  id="btnPlayhouseticket" value = "<?php echo $playhousecompany?>">Get Tickets</button>
+         <button class="button button2"  id="btnPlayhouseticket" value = "<?php echo $playhouseshowid?>">Get Tickets</button>
             </div>
             
          

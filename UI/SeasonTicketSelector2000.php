@@ -5,12 +5,25 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!doctype html>
+
+
+
+
+<?php
+ session_start();
+
+$show_id = $_SESSION['Showid'];   
+echo "Session is set to" . $_SESSION['Showid']
+
+
+
+?>
 <html>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Theater Manager Ticket Selector</title>
+<title>Theater Manager Ticket Selector </title>
 <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="jquery.seat-charts.css">
 <style>
@@ -83,14 +96,14 @@ a {
     }   
      
 .stage-indicator {
-	width: 440px;
+	width: 475px;
 	margin: 5px 32px 15px 32px;
 	background-color: #00f6f6;	
 	color: #000000;
 	text-align: center;
 	padding: 3px;
 	border-radius: 20px;
-	margin-left: 274px;
+	margin-left: 288px;
 }
 /*.wrapper {
 	width: 100%;
@@ -98,7 +111,7 @@ a {
   margin-top:150px;
 }*/
 .container {
-	width: 1300px;
+	width: 1400px;
 	text-align: left;
 }
 .booking-details {
@@ -119,9 +132,14 @@ a {
 }
 div.seatCharts-cell {
 	color: #182C4E;
-	height: 20px;
-	width: 20px;
-	line-height: 20px;
+	height: 14px;
+	width: 14px;
+	line-height: 15px;
+	margin: 1px;
+	float: left;
+	text-align: center;
+	outline: none;
+	font-size: 8px;
 	
 }
 div.seatCharts-seat {
@@ -129,7 +147,7 @@ div.seatCharts-seat {
 	cursor: pointer;	
 }
 div.seatCharts-row {
-	height: 35px;
+	height: 20px;
 }
 div.seatCharts-seat.available {
 	background-color: #B9DEA0;
@@ -151,7 +169,7 @@ div.seatCharts-seat.unavailable {
 }
 div.seatCharts-container {
 	border-right: 1px dotted #adadad;
-	width: 970px;
+	width: 1040px;
 	padding: 20px;
 	float: left;
 }
@@ -213,15 +231,15 @@ span.seatCharts-legendDescription {
 </div>
 </div>
 
+
 <select id="opts" onchange="showForm()">
     <option value="0">Select Date/Time</option>
-    <option value="1">Opening Friday</option>
-    <option value="2">1st Saturday</option>
-    <option value="3">Sunday Matinee</option>
-    <option value="4">Thursday</option>
-    <option value="5">2nd Friday</option>
-    <option value="6">Closing Saturday</option>
-	
+    <option value="1">Week 1, Friday Evening</option>
+    <option value="2">Week 1, Saturday Evening</option>
+    <option value="3">Week 1, Sunday Matinee</option>
+    <option value="4">Week 2, Thursday Evening</option>
+    <option value="5">Week 2, Friday Evening</option>
+    <option value="6">Week 2, Saturday Evening</option>
 </select>
 
 <div id="schart" style="display:none">
@@ -238,28 +256,23 @@ span.seatCharts-legendDescription {
 
 	<div class="booking-details"> 
 	
-	
+	  <h2>Season Ticket</h2>
       <h2>Booking Details</h2>
       <h3> Selected Seats (<span id="counter">0</span>):</h3>
       <ul id="selected-seats">
       </ul>
       Total: <b>$<span id="total">0</span></b>
 	  <button id="checkout">Checkout &raquo;</button>
-
       <div id="legend"></div>
 	  </div>
 
   </div>
 </div>
 </div>
-
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="jquery.seat-charts.js"></script> 
 <script>
-
-
-
-		var takenseats = [];
+var takenseats = [];
 		var $cart = $('#selected-seats'),
 			$counter = $('#counter'),
 			$total = $('#total');
@@ -316,65 +329,65 @@ span.seatCharts-legendDescription {
 		//			$total = $('#total');
 				var	sc = $('#seat-map').seatCharts({
 					map: [
-					/*
-						'_____ff_fffffffffffffff_ff_____',
-						'___ffff_fffffffffffffff_ffff___',
-						'___ffff_fffffffffffffff_ffff___',
-						'__fffff_fffffffffffffff_fffff__',
-						'_ffffff_fffffffffffffff_ffffff_',
-						'_ffffff_fffffffffffffff_ffffff_',
-						'fffffff_fffffffffffffff_fffffff',
-						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
-						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
-						'eeeeeee_eeeeeeeeeeeeeee_eeeeeee',
-						'_eeeeee_eeeeeeeeeeeeeee_eeeeee_',
-						'_eeeeee_eeeeeeeeeeeeeee_eeeeee_',
+						
+						'_____________ffffffffffffffffff__ffffffffffffffffff_____________',
+						'____________fffffffffffffffffff__fffffffffffffffffff____________',
+						'__________fffffffffffffffffffff__fffffffffffffffffffff__________',
+						'__________fffffffffffffffffffff__fffffffffffffffffffff__________',
+						'_________ffffffffffffffffffffff__ffffffffffffffffffffff_________',
+						'____________fffffffffffffffffff__fffffffffffffffffff____________',
+						'_________________ffffffffffffff__ffffffffffffff_________________',
+						'_________________ffffffffffffff__ffffffffffffff_________________',
+						'_______ffffffffffffffffffffffff__ffffffffffffffffffffffff_______',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
+						'_____eeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeee_____',
+						'_____eeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeee_____',
+						'____eeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeee____',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
+						'____eeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeee____',
+						'___eeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeee___',
+						'___eeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeee___',
+						'___eeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeee___',
+						'___eeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeee___',
+						'_eeeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeeee_',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
+						'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
+						'__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__eeeeeeeeeeeeeeeeeeeeeeeeeeeee__',
 						'',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						'_bbbbbb_bbbbbbbbbbbbbbb_bbbbbb_',
-						*/
-						
-						'eeeffffff__________________ffffffeee',
-						'eeeffffff__________________ffffffeee',
-						'eeeffff______________________ffffeee',
-						'eeeff__________________________ffeee',
-						'eee_____fff______________fff_____eee',
-						'e______fffff____________fffff______e',
-						'_____fffffffff________fffffffff_____',
-						'___eeefffffffffff__fffffffffffeee___',
-						'_eeeeeeffffffffff__ffffffffffeeeeee_',
-						'_eeeeeeeeffffffff__ffffffffeeeeeeee_',
-						'_eeeeeeeeeeffffff__ffffffeeeeeeeeee_',
-						'_eeeeeeeeeeefffff__fffffeeeeeeeeeee_',
-						'__eeeeeeeeeeeeeee__eeeeeeeeeeeeeee__',
-						'____eeeeeeeeeeeee__eeeeeeeeeeeee____',
-						'b______eeeeeeeeee__eeeeeeeeee______b',
-						'bb__________eeeee__eeeee__________bb',
-						'bbbbbb________________________bbbbbb',
-						'bbbbbb__bbb______________bbb__bbbbbb',
-						'_bbbbb__bbbbbbbbb__bbbbbbbbb__bbbbb_',
-						'__bbbb__bbbbbbbbb__bbbbbbbbb__bbbb__',
-						'________bbbbbbbbb__bbbbbbbbb________',
-						'___________bbbbbb__bbbbbb___________',
-						
+						'bbbbbbbb__bbbbbbbbbbbbb__bbbbbbbbbbbbbb__bbbbbbbbbbbbb__bbbbbbbb',
+						'bbbbbbbb__bbbbbbbbbbbbb__bbbbbbbbbbbbbb__bbbbbbbbbbbbb__bbbbbbbb',
+						'bbbbbbbb__bbbbbbbbbbbbb__bbbbbbbbbbbbbb__bbbbbbbbbbbbb__bbbbbbbb',
+						'bbbbbbbb__bbbbbbbbbbbbb__bbbbbbbbbbbbbb__bbbbbbbbbbbbb__bbbbbbbb',
+						'bbbbbbbb__bbbbbbbbbbbbb__bbbbbbbbbbbbbb__bbbbbbbbbbbbb__bbbbbbbb',
+						'__________bbbbbbbbbbbb____________________bbbbbbbbbbbb__________',
+						'__________bbbbbbbbbbbb____________________bbbbbbbbbbbb__________',
+						'',
+						'bbbbbbbb__bbbbbbbbbbbb__bbbbbbbbbbbbbb_______bbbbbbbbb__bbbbbbbb',
+						'bbbbbbbb__bbbbbbbbbbbb__bbbbbbbbbbbbbb_______bbbbbbbbb__bbbbbbbb',
+						'bbbbbbbb__bbbbbbbbbbbb__bbbbbbbbbbbbbb_______bbbbbbbbb__bbbbbbbb',
+						'_bbbbbbb__bbbbbbbbbbbb__bbbbbbbbbbbbbb_______bbbbbbbbb__bbbbbbb_',
+						'_bbbbbbb__bbbbbbbbbbbb__bbbbbbbbbbbbbb_______bbbbbbbbb__bbbbbbb_',
+						'_bbbbbbb__bbbbbbbbbbbb__bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb__bbbbbbb_',
 						
 						
 					],
 					seats: {
 						f: {
-							price   : 70, //put a variable here for modification
+							price   : 280, //put a variable here for modification
 							classes : 'premium-orchestra', //your custom CSS class
 							category: 'Premium Orchestra'
 						},
 						e: {
-							price   : 55, //put a variable here for modification
+							price   : 220, //put a variable here for modification
 							classes : 'orchestra', //your custom CSS class
 							category: 'Orchestra'
 						},	
 						b:  {
-							price	: 35, //put a variable here for modification
+							price	: 140, //put a variable here for modification
 							classes	: 'balcony',
 							category: 'Balcony'
 						}
