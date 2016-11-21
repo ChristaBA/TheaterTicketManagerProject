@@ -85,7 +85,7 @@ if (!$result1) {
  }
      else 
      {
-         $companya = "NO SHOW";
+         $companya = "NO COMPANY";
       
      }
  if(array_key_exists(1, $companyarray))
@@ -95,7 +95,7 @@ if (!$result1) {
  }
      else 
      {
-      $companyb = "NO SHOW";
+      $companyb = "NO COMPANY";
      }
  
      if(array_key_exists(2, $companyarray))
@@ -104,7 +104,7 @@ if (!$result1) {
  }
      else 
      {
-          $companyc = "NO SHOW";
+          $companyc = "NO COMPANY";
      
      }
       
@@ -114,7 +114,7 @@ if (!$result1) {
  }
      else 
      {
-          $companyd = "NO SHOW";
+          $companyd = "NO COMPANY";
     
      }
       
@@ -126,7 +126,7 @@ if (!$result1) {
      else 
      {
         
-      $companye = "NO SHOW";
+      $companye = "NO COMPANY";
      }
      
       if(array_key_exists(5, $companyarray))
@@ -135,7 +135,7 @@ if (!$result1) {
     }
      else 
      {
-          $companyf = "NO SHOW";
+          $companyf = "NO COMPANY";
    
 
      }
@@ -145,7 +145,7 @@ if (!$result1) {
     }
      else 
      {
-          $companyf = "NO SHOW";
+          $companyf = "NO COMPANY";
    
 
      }
@@ -155,7 +155,7 @@ if (!$result1) {
     }
      else 
      {
-          $companyg = "NO SHOW";
+          $companyg = "NO COMPANY";
    
 
      }
@@ -165,7 +165,7 @@ if (!$result1) {
     }
      else 
      {
-          $companyh = "NO SHOW";
+          $companyh = "NO COMPANY";
    
 
      }
@@ -198,7 +198,7 @@ $index2++;
      else 
      {
      
-     $company = "NO SHOW";
+     $company = "NO COMPANY";
      }
 
   $index3=0;
@@ -230,7 +230,7 @@ $index3++;
      else 
      {
      
-     $civicimg= "NO SHOW";
+     $civicimg= "NO COMPANY";
      }  
      
      
@@ -263,7 +263,7 @@ $index4++;
      else 
      {
      
-    $playhousecompany = "NO SHOW";
+    $playhousecompany = "NO COMPANY";
      }
 
   $index5=0;
@@ -295,7 +295,7 @@ $index5++;
      else 
      {
      
-        $playhouseimg= "NO SHOW";
+        $playhouseimg= "NO COMPANY";
      }  
      
      ?>          
@@ -558,7 +558,7 @@ body{
 			//window.location = "http://stackoverflow.com";
                     
         
-        if ($(this).attr("value") != "NO SHOW")
+        if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
@@ -584,7 +584,7 @@ body{
          
                         
                         
-                if ($(this).attr("value") != "NO SHOW")
+                if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
@@ -606,7 +606,7 @@ body{
                                    var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                    if ($(this).attr("value") != "NO SHOW")
+                    if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
@@ -629,7 +629,7 @@ body{
                                    var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-              if ($(this).attr("value") != "NO SHOW")
+              if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
@@ -654,7 +654,7 @@ body{
                                  var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                 if ($(this).attr("value") != "NO SHOW")
+                 if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
@@ -680,7 +680,7 @@ body{
                                   
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-           if ($(this).attr("value") != "NO SHOW")
+           if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
@@ -704,7 +704,7 @@ body{
                                   var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-       if ($(this).attr("value") != "NO SHOW")
+       if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
@@ -728,7 +728,7 @@ body{
                                    var data = {companyName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-           if ($(this).attr("value") != "NO SHOW")
+           if ($(this).attr("value") != "NO COMPANY")
         {
         $.post("sessionset.php", data, function(response) {
 					
