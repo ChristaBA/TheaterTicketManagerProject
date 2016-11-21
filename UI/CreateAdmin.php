@@ -13,7 +13,8 @@ $mysqli_get_users = mysqli_query($link,"SELECT * FROM worker where login= 'admin
 $get_rows = mysqli_affected_rows($link);
 if($get_rows >= 1)
 {
-    echo "User exists: please pick a different username.";
+    echo "<br>";
+    //echo "User exists: please pick a different username.";
     //echo "You are being redirected.";
     //header("refresh:3; url = CreateSuper.html");
 }
