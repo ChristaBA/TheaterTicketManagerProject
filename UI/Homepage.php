@@ -36,8 +36,16 @@ $todaysdate = date("Y/m/d");
 $query = "SELECT DISTINCT Company FROM showname";
 $civicbydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civiclocation'LIMIT 1";
 $civicpicbydate ="SELECT image FROM showname Where date ='$todaysdate ' AND location = '$civiclocation'LIMIT 1";
+$civicshowid= "SELECT showId FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
+
 $playhousebydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
 $playhousepicbydate= "SELECT image FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
+$playhouseshowid= "SELECT showId FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
+
+
+
+$civicshowresult = mysqli_query($link, $civicshowid);
+$playhouseshowresult = mysqli_query($link, $playhouseshowid);
 $civicresult =   mysqli_query($link, $civicbydate);
 $playhouseresult =mysqli_query($link, $playhousebydate);
 $playhousepicresult =mysqli_query($link, $playhousepicbydate);
@@ -50,7 +58,8 @@ $result1 = mysqli_query($link, $query);
       $playhousearray =array();
       $playhousepics =array();
       $civicpic = array();
-      
+      $playhoueids =array();
+      $civicids =array();
       
       $index =0;  
 if (!$result1) {
@@ -297,7 +306,39 @@ $index5++;
      
         $playhouseimg= "NO COMPANY";
      }  
+ 
+     $index6 = 0;
+     while( $row = $civicshowresult->fetch_assoc())
+  {
+ 
+  
+
+  /*$showname =$row["showname"];
+  $StartDate =$row["startdate"];
+  $enddate =$row["enddate"];
+  $location =$row["location"];
+  //$img =$row['image'];
+  */
+$civicids[$index6]= $row;
+$index6++;
+  
+ }    
      
+ 
+ 
+ 
+ 
+ if(array_key_exists(0, $civicids))
+ {
+      $civicid =  implode(" ",$civicids[0]);
+     
+ }
+     else 
+     {
+     
+        $civicid = "NO COMPANY";
+     }  
+
      ?>          
               
   
@@ -436,9 +477,11 @@ body{
     color: white;
 }
 .button2 {
+    width:40%;
    background-color: white;
     color: black;
     border: 2px solid #555555;
+    margin-left:30%;
 }
 .button2:hover {
   background-color: #555555;
@@ -506,9 +549,9 @@ body{
 .Shows{
    width:45%;
    background-color:#cccccc;
-    height:90%;
+    height:100%;
     display:inline-block;
-     margin-left:2%; 
+     margin-left:2.5%; 
     opacity:0.2%;
     
     
@@ -554,7 +597,7 @@ body{
 			$("#companya").click(function() {
 			console.log("Log in button clicked");
                            var data = {companyName: $(this).attr("value")};
-                       //console.log(data);
+                       console.log(data);
 			//window.location = "http://stackoverflow.com";
                     
         
@@ -563,7 +606,7 @@ body{
         $.post("sessionset.php", data, function(response) {
 					
 				
-                               //console.log(response);
+                               console.log(response);
                               window.location = "CompanyA.php";
                        
 			
@@ -744,6 +787,30 @@ body{
 			
 				
 			});
+     $("#btnCivicticket").click(function() {
+			console.log("Log in button clicked");
+			//window.location = "http://stackoverflow.com";
+                                
+        
+                                   var data = {Btnid: $(this).attr("value")};
+                       //console.log(data);
+			//window.location = "http://stackoverflow.com";
+           if ($(this).attr("value") != "NO COMPANY")
+        {
+        $.post("sessionset.php", data, function(response) {
+					
+				
+                               //console.log(response);
+                              window.location = "CompanyA.php";
+                       
+			
+				
+			});
+                         
+        }
+			
+				
+			});
     
                          
     
@@ -794,18 +861,18 @@ body{
           
             
             <div class ="Shows">
-                  <h1><?php echo  $companya?></h1>
+                  <h1><?php echo  $company?></h1>
                 <h1 class="one">Civic Concerthall</h1> 
               
                 <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $civicimg ) . '"style ="float:left; width:50%; height:70%;margin-right:0%;margin-left:25%;border:3px solid black;" />';?>
-             
+             <button class="button button2"  id="btnCivicticket"value = "<?php echo $civicid?>">Get Tickets</button>
             </div>
-            <div class ="Shows1">
+            <div class ="Shows">
                  <h1><?php echo  $playhousecompany?></h1>
                 <h1 class ="one">Civic Playhouse</h1>
                 
                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $playhouseimg ) . '"style ="float:left; width:50%; height:70%;margin-right:0%;margin-left:25%;border:3px solid black;" />';?>
-         
+         <button class="button button2"  id="btnPlayhouseticket" value = "<?php echo $playhousecompany?>">Get Tickets</button>
             </div>
             
          

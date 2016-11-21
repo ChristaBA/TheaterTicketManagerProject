@@ -20,6 +20,12 @@ if(isset($_POST['showName']))
     $_SESSION['showname'] =$showname;
     
 }
+if(isset($_POST['Btnid']))
+{
+    $showid =$_POST['Btnid'];
+    $_SESSION['Showid'] =$showid;
+    
+}
 //echo "value passed in is ".$company;
 
 //echo "Session is set to" . $_SESSION['varname'];

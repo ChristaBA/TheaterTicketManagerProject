@@ -23,15 +23,15 @@ if ($link->connect_error) {
 //$query = "SELECT  Poster From showname";
 $showquery = "SELECT DISTINCT showname FROM showname"
         . " WHERE Company = '$var_value'";
-$picquery = "SELECT DISTINCT image FROM showname WHERE Company = '$var_value'";
-$Sdatequery ="SELECT startdate FROM showname WHERE Company = '$var_value'";
+$picquery = "SELECT DISTINCT image, MAX(date) FROM showname WHERE Company = '$var_value' GROUP BY image ORDER BY MAX(date) DESC, image";
+//$Sdatequery ="SELECT startdate FROM showname WHERE Company = '$var_value' GROUP BY image ORDER BY MAX(date) DESC, image;
 $Edatequery ="SElECT DISTINCT endate FROM showname WHERE Company = '$var_value'"; 
 $Lquery ="SElECT location FROM showname WHERE Company = '$var_value'";
-$dateq ="SELECT date FROM showname WHERE date >= '$todaysdate 'AND date <='$enddate'";
+$dateq  = "SELECT DISTINCT date, MAX(date) FROM showname WHERE Company = '$var_value' GROUP BY date ORDER BY MAX(date) DESC, date";
  
 $result1 = mysqli_query($link, $showquery);
 $result2 = mysqli_query($link, $picquery);
-$result3 = mysqli_query($link, $Sdatequery);
+//$result3 = mysqli_query($link, $Sdatequery);
 $result4 = mysqli_query($link, $Edatequery);
 $result5 = mysqli_query($link, $Lquery);
 $result6 =mysqli_query($link, $dateq);
@@ -296,11 +296,10 @@ $index2++;
      $index3 = 0;
      
      
-/*    while($row = $result3->fetch_assoc())    
+  while($row = $result6->fetch_assoc())    
  {   
  
- //$img =$row['image'];
-  //
+ 
       $Sdatearray[$index3]=$row;
 
 $index3++;
@@ -384,8 +383,7 @@ $index3++;
  $sdate8 = "NO SHOW";
          
      }
- * 
- */
+
 while($row = $result5->fetch_assoc())    
  {
      
@@ -972,7 +970,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname1?></h1>
                 <h1 class = one><?php echo  $location1?></h1>
-                  
+                  <h1 class = one><?php echo  $sdate1?></h1>
                 
                 
                  
