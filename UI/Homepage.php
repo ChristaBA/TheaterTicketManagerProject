@@ -6,16 +6,7 @@
 		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
                 
               <script>
-    
-//All Jquery is supposed to go inside this function
-	/*$(document).ready(function() {
-                        console.log("ready() called");
-			//Adds an event listener to the Ticket Submit button that waits until it's clicked
-                        $.post("CreateAdmin.php", function(response){
-                            console.log("Foo");
-                           console.log(response);            
-                        });
-                     });*/
+
                         </script>
                 <title> Huntsville Civic Center</title>
               <?php
@@ -33,14 +24,18 @@ $link =  mysqli_connect($servername, $username, $password, $dbname);
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
+
+date_default_timezone_set("America/Chicago");
 $todaysdate = date("Y/m/d");
+
+
  $civiclocation = "Civic Center";
  $civicplayhouse ="Civic Playhouse";
   //$endate = strtotime("+1 week", $todaysdate);
 
 $query = "SELECT DISTINCT Company FROM showname";
 $civicbydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civiclocation'LIMIT 1";
-$civicpicbydate ="SELECT image FROM showname Where date = '$todaysdate ' AND location = '$civiclocation'LIMIT 1";
+$civicpicbydate ="SELECT image FROM showname Where date ='$todaysdate ' AND location = '$civiclocation'LIMIT 1";
 $playhousebydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
 $playhousepicbydate= "SELECT image FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
 $civicresult =   mysqli_query($link, $civicbydate);
@@ -799,17 +794,17 @@ body{
           
             
             <div class ="Shows">
-                  <h1><?php echo  $company?></h1>
+                  <h1><?php echo  $companya?></h1>
                 <h1 class="one">Civic Concerthall</h1> 
               
-                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $civicimg ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
+                <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $civicimg ) . '"style ="float:left; width:50%; height:70%;margin-right:0%;margin-left:25%;border:3px solid black;" />';?>
              
             </div>
             <div class ="Shows1">
                  <h1><?php echo  $playhousecompany?></h1>
                 <h1 class ="one">Civic Playhouse</h1>
                 
-               <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $playhouseimg ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
+               <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $playhouseimg ) . '"style ="float:left; width:50%; height:70%;margin-right:0%;margin-left:25%;border:3px solid black;" />';?>
          
             </div>
             
