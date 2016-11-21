@@ -86,7 +86,7 @@ $linkTest = mysqli_connect($servername, $username, $password, $dbname);
  // Attempt create table query execution
 $linkTestTable = "CREATE TABLE IF NOT EXISTS Tickets (
          seatNumber VARCHAR(30) NOT NULL, 
-         Price VARCHAR(30) NOT NULL,  
+         Price DOUBLE,
          ShowId VARCHAR(50), 
          UniqueId VARCHAR(50),
          Status INT(10),
@@ -100,3 +100,36 @@ if (mysqli_query($linkTest, $linkTestTable)){
 
 // Close connection
 mysqli_close($linkTest);
+$ticketPrice = mysqli_connect($servername, $username, $password, $dbname);
+
+ // Attempt create table query execution
+$ticketPriceTable = "CREATE TABLE IF NOT EXISTS TicketPrice (
+         company VARCHAR(50) NOT NULL,
+         SeatType VARCHAR(50), 
+         Price DOUBLE
+         )";
+if (mysqli_query($ticketPrice, $ticketPriceTable)){
+    echo "TicketPrice Table created successfully. ";
+} else {
+    echo "ERROR: Could not able to execute $ticketPriceTable. " . mysqli_error($ticketPrice);
+}
+
+// Close connection
+mysqli_close($ticketPrice);
+
+$Discount = mysqli_connect($servername, $username, $password, $dbname);
+
+ // Attempt create table query execution
+$discountTable = "CREATE TABLE IF NOT EXISTS Discount(
+         code VARCHAR(50) NOT NULL,
+         discount INT(10), 
+         Active BIT(1)
+         )";
+if (mysqli_query($Discount, $discountTable)){
+    echo "Discount Table created successfully. ";
+} else {
+    echo "ERROR: Could not able to execute $discountTable. " . mysqli_error($Discount);
+}
+
+// Close connection
+mysqli_close($Discount);
