@@ -972,7 +972,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname1?></h1>
                 <h1 class = one><?php echo  $location1?></h1>
-                   <h1 class = one><?php echo  $showdate?></h1>
+                  
                 
                 
                  

@@ -213,19 +213,18 @@ span.seatCharts-legendDescription {
 </div>
 </div>
 
+
 <select id="opts" onchange="showForm()">
     <option value="0">Select Date/Time</option>
-    <option value="1">Opening Friday</option>
-    <option value="2">1st Saturday</option>
-    <option value="3">Sunday Matinee</option>
-    <option value="4">Thursday</option>
-    <option value="5">2nd Friday</option>
-    <option value="6">Closing Saturday</option>
-	
+    <option value="1">Week 1, Friday Evening</option>
+    <option value="2">Week 1, Saturday Evening</option>
+    <option value="3">Week 1, Sunday Matinee</option>
+    <option value="4">Week 2, Thursday Evening</option>
+    <option value="5">Week 2, Friday Evening</option>
+    <option value="6">Week 2, Saturday Evening</option>
 </select>
 
 <div id="schart" style="display:none">
-
 
 <div class="wrapper">
   <div class="container">
@@ -238,14 +237,13 @@ span.seatCharts-legendDescription {
 
 	<div class="booking-details"> 
 	
-	
+	  <h2>Season Ticket</h2>
       <h2>Booking Details</h2>
       <h3> Selected Seats (<span id="counter">0</span>):</h3>
       <ul id="selected-seats">
       </ul>
       Total: <b>$<span id="total">0</span></b>
 	  <button id="checkout">Checkout &raquo;</button>
-
       <div id="legend"></div>
 	  </div>
 
@@ -256,9 +254,6 @@ span.seatCharts-legendDescription {
 <script src="http://code.jquery.com/jquery-1.12.4.min.js"></script> 
 <script src="jquery.seat-charts.js"></script> 
 <script>
-
-
-
 		var takenseats = [];
 		var $cart = $('#selected-seats'),
 			$counter = $('#counter'),
@@ -364,17 +359,17 @@ span.seatCharts-legendDescription {
 					],
 					seats: {
 						f: {
-							price   : 70, //put a variable here for modification
+							price   : 280,
 							classes : 'premium-orchestra', //your custom CSS class
 							category: 'Premium Orchestra'
 						},
 						e: {
-							price   : 55, //put a variable here for modification
+							price   : 220,
 							classes : 'orchestra', //your custom CSS class
 							category: 'Orchestra'
 						},	
 						b:  {
-							price	: 35, //put a variable here for modification
+							price	: 140,
 							classes	: 'balcony',
 							category: 'Balcony'
 						}

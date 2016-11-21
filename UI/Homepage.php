@@ -126,7 +126,7 @@ if (!$result1) {
      else 
      {
         
-      $companye = " NO SHOW";
+      $companye = "NO SHOW";
      }
      
       if(array_key_exists(5, $companyarray))
@@ -145,7 +145,7 @@ if (!$result1) {
     }
      else 
      {
-          $companyf = "NO SHOW ";
+          $companyf = "NO SHOW";
    
 
      }
