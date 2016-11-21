@@ -794,8 +794,8 @@ body{
           
             
             <div class ="Shows">
-                  <h1><?php echo  $companya?></h1>
-                <h1 class="one">Civic Concerthall</h1> 
+                  <h1><?php echo  $company?></h1>
+                <h1 class="one">Civic Concert Hall</h1> 
               
                 <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $civicimg ) . '"style ="float:left; width:50%; height:70%;margin-right:0%;margin-left:25%;border:3px solid black;" />';?>
              

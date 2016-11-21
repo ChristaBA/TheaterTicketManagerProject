@@ -14,7 +14,7 @@ if($test === false){
 // Attempt create database query execution
 $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 if(mysqli_query($test, $sql)){
-    echo "Database demo created successfully. ";
+   // echo "Database demo created successfully. ";
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($test);
 }
@@ -30,7 +30,7 @@ $sqlTable = "CREATE TABLE IF NOT EXISTS worker (
          companyName VARCHAR(30)
          )";
 if (mysqli_query($link, $sqlTable)){
-    echo "Table worker created successfully. ";
+  //  echo "Table worker created successfully. ";
 } else {
     echo "ERROR: Could not able to execute $sqlTable. " . mysqli_error($link);
 }
@@ -49,7 +49,7 @@ $showTable = "CREATE TABLE IF NOT EXISTS showName (
          showId VARCHAR(50) NOT NULL
          )";
 if (mysqli_query($linkShow, $showTable)){
-    echo "Table showName created successfully. ";
+  //  echo "Table showName created successfully. ";
 } else {
     echo "ERROR: Could not able to execute $showTable. " . mysqli_error($linkShow);
 }
@@ -73,7 +73,7 @@ $seasonTicketTable = "CREATE TABLE IF NOT EXISTS seasonTicket (
          company VARCHAR(50)
          )";
 if (mysqli_query($linkSeasonTicket, $seasonTicketTable)){
-    echo "Table seasonTicket created successfully. ";
+  //  echo "Table seasonTicket created successfully. ";
     
 } else {
     echo "ERROR: Could not able to execute $seasonTicketTable. " . mysqli_error($linkSeasonTicket);
@@ -93,7 +93,7 @@ $linkTestTable = "CREATE TABLE IF NOT EXISTS Tickets (
          Pickup INT(10)
          )";
 if (mysqli_query($linkTest, $linkTestTable)){
-    echo "Ticket Table created successfully. ";
+  //  echo "Ticket Table created successfully. ";
 } else {
     echo "ERROR: Could not able to execute $linkTestTable. " . mysqli_error($linkTest);
 }
@@ -109,7 +109,7 @@ $ticketPriceTable = "CREATE TABLE IF NOT EXISTS TicketPrice (
          Price DOUBLE
          )";
 if (mysqli_query($ticketPrice, $ticketPriceTable)){
-    echo "TicketPrice Table created successfully. ";
+  //  echo "TicketPrice Table created successfully. ";
 } else {
     echo "ERROR: Could not able to execute $ticketPriceTable. " . mysqli_error($ticketPrice);
 }
@@ -126,7 +126,7 @@ $discountTable = "CREATE TABLE IF NOT EXISTS Discount(
          Active BIT(1)
          )";
 if (mysqli_query($Discount, $discountTable)){
-    echo "Discount Table created successfully. ";
+ //   echo "Discount Table created successfully. ";
 } else {
     echo "ERROR: Could not able to execute $discountTable. " . mysqli_error($Discount);
 }

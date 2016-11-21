@@ -73,9 +73,9 @@ else
         VALUES ('$show_name','$someDate','$someTime','$locationDB','$Company_Name', '$imagetmp','$showId')";
             if ($link->query($sql) === TRUE) 
             {
-                echo "New record created successfully<br>";
+                echo "The Show has been created.<br>";
                 echo "You are being redirected.";
-                header("refresh:3; url = Super.php");
+                header("refresh:2; url = Super.php");
             }
             else 
             {
