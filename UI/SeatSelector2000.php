@@ -504,7 +504,7 @@ span.seatCharts-legendDescription {
 				var seatnum = this.settings.id;
 				var price1 = this.data().price;
 			
-				item = {}
+				item = {};
 				item ["seat"] = seatnum;
 				item ["price"] = price1;
 
@@ -514,8 +514,6 @@ span.seatCharts-legendDescription {
 		var show_ID = $(opts).val();
                 $("#showID").attr('value', show_ID);
                 $("#strJSON").attr('value', json_text);
-		//console.log(json_text);
-		//console.log(jsonObj);
 		}
             });
 		function recalculateTotal(sc) {

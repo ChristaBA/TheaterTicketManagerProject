@@ -518,8 +518,8 @@ span.seatCharts-legendDescription {
 			});
 		var json_text = JSON.stringify(jsonObj);
                 
-                var showing = $(opts).val();
-                $("#showing").attr('value', showing);
+                var showID = $(opts).val();
+                $("#showing").attr('value', showID);
                 $("#strJSON").attr('value', json_text);
 		//console.log(json_text);
 		//console.log(jsonObj);

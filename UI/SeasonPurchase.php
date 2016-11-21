@@ -10,13 +10,10 @@ and open the template in the editor.
     $var_value =  $_SESSION['varname']; 
     
     
-    $showID = $_POST["showID"];
+    $showing = $_POST["showing"];
     $seatSTR = $_POST["strJSON"];
     $seatArray = json_decode($_POST["strJSON"]);
-  
-    $query = "SELECT showname FROM showname WHERE showID ='$showID'";
     
-    $result1 = mysqli_query($link, $query);
 ?>
 <html>
     <head>
@@ -245,8 +242,8 @@ input[type=submit]:hover {
             <script>
 	$(document).ready(function() {
             
-            var show_ID = "<?php echo $showID ?>";
-            var seatArray = <?php echo $seatSTR?>;
+            var showing = "<?php echo $showing ?>";
+            var seatArray = <?php echo $seatSTR ?>;
             var type;
             //console.log(show_ID);
             //console.log(seatArray);
@@ -277,9 +274,12 @@ input[type=submit]:hover {
             $("#btnPurchaseTickets").click(function (){
                 var seatString = JSON.stringify(seatArray);
                 var type = $("#PaymentType").val();
-                var data = {showID: show_ID , strJSON: seatString, payType: type};//$("#buyTicket").serializeArray();
-                
-                $.post("ProcessPurchase.php", data, function(response) {
+                var data = $("#buyTicket").serializeArray();
+                data.push({name: "showing", value: showing});
+                data.push({name: "strJSON", value : seatString});
+                data.push({name: "payType", value : type});//$("#buyTicket").serializeArray();
+                console.log(data);
+                $.post("ProcessSeason.php", data, function(response) {
                     if(response != "ERROR")
                     {
                         var message = "<p>Your Tickets have been successfully purchased. Please keep the following ticket numbers for your records.</p><br/>";
@@ -318,11 +318,10 @@ input[type=submit]:hover {
               
           </div>
                 
-                <h1>Purchase Season Tickets</h1>  
+                <h1>Purchase Tickets</h1>  
                 
                 
                 <div id="mainPanel" class ="Login" >
-    
                     <form id="buyTicket">
                         <?php 
                         //echo "<input type=\"hidden\" name=\"ticketArray\" id=\"TicketJSON\" value=\"".$_POST["strJSON"]."\" />";
@@ -338,12 +337,26 @@ input[type=submit]:hover {
                        
                         //Payment info
                          ?>
-                        <label class ="label">First Name:</label><input type="text" name="Firstname"><br>
-                         <label class ="label">Last Name:</label><input type="text" name="Lastname"><br>
-                         <label class ="label">Email:</label><input type="text" name="Email"><br>
-                          <label class ="label">Phone Number:</label><input type="text" name="Phonenumber"><br>
-                           <label class ="label">Adress:</label><input type="text" name="Address"><br>
-                        
+    <p>
+        <label class ="label">First Name:</label>
+        <input type="text" name="firstname" id="firstName">
+    </p>
+    <p>
+        <label class="label">Last Name:</label>
+        <input type="text" name="lastname" id="lastName">
+    </p>
+    <p>
+        <label class="label">Email:</label>
+        <input type="text" name="email" id="email">
+    </p>
+     <p>
+        <label class="label">Phone Number:</label>
+        <input type="number" name="phoneNumber" id="phoneNumber">
+    </p>
+    <p>
+        <label class="label">Address:</label>
+        <input type="text" name="address" id="address">
+    </p>
                         <select id="PaymentType" namne="PayType">
                             <option value="1">Cash</option>
                             <option value="2">Check</option>
@@ -366,11 +379,3 @@ input[type=submit]:hover {
                 </div>
     </body>
 </html>
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-

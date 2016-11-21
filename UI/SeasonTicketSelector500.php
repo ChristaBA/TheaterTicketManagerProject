@@ -265,7 +265,7 @@ span.seatCharts-legendDescription {
       </ul>
       Total: <b>$<span id="total">0</span></b>
 	<form id="dataPass" action="SeasonPurchase.php" method="post">
-          <input type="hidden" name="showID" id="showID"/>
+          <input type="hidden" name="showing" id="showing"/>
           <input type="hidden" name="strJSON" id="strJSON"/>
           <button id="checkout">Checkout &raquo;</button>
       </form>
@@ -477,19 +477,19 @@ span.seatCharts-legendDescription {
 				//Setting up procedure for passing-in taken seats, creating an array, and then using sc.get on that array,
 				//with an unavailable status marker 
 			//	var takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23'];
-				sc.get(takenseats).status('unavailable');
+				//sc.get(takenseats).status('unavailable');
 				/*
 				sc.get(['1_2','1_3','1_12','1_13','2_15','2_16','2_17','2_18','3_14','4_1', '7_1', '7_2',
 				'11_12','11_12','10_7','10_8','10_9','8_20','12_22','12_23','10_3']).status('unavailable');
 				*/
-			$('#checkout').click(function () {
+			$('#dataPass').submit(function () {
 				checkOut(sc);
 			});
 			$('#opts').change(function () {
 				updateSeats(sc);
 				//console.log(takenseats);
 			});
-		});
+		
 		function checkOut(sc) {
 		
 			jsonObj = [];
@@ -506,9 +506,14 @@ span.seatCharts-legendDescription {
 				jsonObj.push(item);
 			});
 		var json_text = JSON.stringify(jsonObj);
-		console.log(json_text);
-		console.log(jsonObj);
+                var showing = $(opts).val();
+                $("#showing").attr('value', showing);
+                $("#strJSON").attr('value', json_text);
+		//console.log(json_text);
+                //
+		//console.log(jsonObj);
 		}
+                });
 		function recalculateTotal(sc) {
 			var total = 0;
 		
