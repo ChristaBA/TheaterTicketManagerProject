@@ -7,11 +7,16 @@ and open the template in the editor.
 <?php
  session_start();
 
-$show_id = $_SESSION['Showid'];   
-echo "Session is set to" . $_SESSION['Showid'];
-$show_name = $_SESSION['showname'];
-echo "Session is set to" . $_SESSION['showname'];
-
+if(isset($_SESSION['Showid']))
+{
+    $show_id = $_SESSION['Showid'];   
+    //echo "Session is set to" . $_SESSION['Showid'];
+}
+if(isset($_SESSION['showname']))
+{
+    $show_name = $_SESSION['showname'];
+    //echo "Session is set to" . $_SESSION['showname'];
+}
 
 ?>
 <html>

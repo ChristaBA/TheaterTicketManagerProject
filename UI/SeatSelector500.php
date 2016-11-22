@@ -4,15 +4,25 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<!doctype html>
 
 <?php
- session_start();
+session_start();
+include "connection.php";
 
-$show_id = $_SESSION['Showid'];   
-echo "Session is set to" . $_SESSION['Showid'];
-$show_name = $_SESSION['showname'];
-echo "Session is set to" . $_SESSION['showname'];
+$companyName = $_SESSION['varname'];
+if(isset($_SESSION['Showid']))
+{
+    $show_id = $_SESSION['Showid'];   
+    //echo "Session is set to" . $_SESSION['Showid'];
+}
+if(isset($_SESSION['showname']))
+{
+    $show_name = $_SESSION['showname'];
+    
+    $getShows = mysqli_query($link,"Select * FROM showname WHERE Company = '$companyName' AND showname = '$show_name'");
+    
+    //echo "Session is set to" . $_SESSION['showname'];
+}
 
 ?>
 <html>
@@ -224,14 +234,18 @@ span.seatCharts-legendDescription {
 </div>
 
 <select id="opts" onchange="showForm()">
-    <option value="0">Select Date/Time</option>
-    <option value="1">Opening Friday</option>
-    <option value="2">1st Saturday</option>
-    <option value="3">Sunday Matinee</option>
-    <option value="4">Thursday</option>
-    <option value="5">2nd Friday</option>
-    <option value="6">Closing Saturday</option>
-	
+    <option value="0">Select a Show Time</option>
+    <?php 
+    while ($row = $getShows->fetch_assoc())
+    {
+        $optOut = "<option value=\"".$row['showId']."\">";
+        $splitDate = array_reverse(explode("/", $row['date']));
+        $dateOut = implode("/",$splitDate);
+        $optOut .= $dateOut." ".$row['time']."</option>";
+        echo $optOut;
+    }
+    ?>
+    
 </select>
 
 <div id="schart" style="display:none">
@@ -254,7 +268,11 @@ span.seatCharts-legendDescription {
       <ul id="selected-seats">
       </ul>
       Total: <b>$<span id="total">0</span></b>
-	  <button id="checkout">Checkout &raquo;</button>
+      <form id="dataPass" action="Purchase.php" method="post">
+          <input type="hidden" name="showID" id="showID"/>
+          <input type="hidden" name="strJSON" id="strJSON"/>
+          <button id="checkout">Checkout &raquo;</button>
+      </form>
 
       <div id="legend"></div>
 	  </div>
@@ -275,7 +293,7 @@ span.seatCharts-legendDescription {
 			$total = $('#total');
 		function updateSeats(sc) {
 		//takenseats = [];
-		sc.get(takenseats).status('available');
+		//sc.get(takenseats).status('available');
 			var selopt = document.getElementById("opts").value;
 		//console.log("Value of selopt: ");
 		//console.log(selopt);
@@ -304,7 +322,7 @@ span.seatCharts-legendDescription {
 			takenseats = [];
             //document.getElementById("schart").style.display = "block";
         };
-		sc.get(takenseats).status('unavailable');
+		//sc.get(takenseats).status('unavailable');
 		}
 
 
@@ -467,19 +485,22 @@ span.seatCharts-legendDescription {
 				//Setting up procedure for passing-in taken seats, creating an array, and then using sc.get on that array,
 				//with an unavailable status marker 
 			//	var takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23'];
-				sc.get(takenseats).status('unavailable');
+				//sc.get(takenseats).status('unavailable');
 				/*
 				sc.get(['1_2','1_3','1_12','1_13','2_15','2_16','2_17','2_18','3_14','4_1', '7_1', '7_2',
 				'11_12','11_12','10_7','10_8','10_9','8_20','12_22','12_23','10_3']).status('unavailable');
 				*/
-			$('#checkout').click(function () {
+			/*$('#checkout').click(function () {
 				checkOut(sc);
-			});
-			$('#opts').click(function () {
+			});*/
+                        $("#dataPass").submit(function (){
+                            checkOut(sc);
+                        });
+			$('#opts').change(function () {
 				updateSeats(sc);
 				//console.log(takenseats);
 			});
-		});
+		
 		function checkOut(sc) {
 		
 			jsonObj = [];
@@ -496,9 +517,15 @@ span.seatCharts-legendDescription {
 				jsonObj.push(item);
 			});
 		var json_text = JSON.stringify(jsonObj);
-		console.log(json_text);
-		console.log(jsonObj);
+                
+                var show_ID = $(opts).val();
+                $("#showID").attr('value', show_ID);
+                $("#strJSON").attr('value', json_text);
+		//console.log(json_text);
+		//console.log(jsonObj);
 		}
+                
+                });
 		function recalculateTotal(sc) {
 			var total = 0;
 		

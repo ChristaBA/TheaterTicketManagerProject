@@ -1,13 +1,8 @@
 <?php
           
-          $servername = "localhost:3306";
-            $username = "root";
-            $password = "";
-            $dbname = "testdatabase";
-$link =  mysqli_connect($servername, $username, $password, $dbname);
-if ($link->connect_error) {
-    die("Connection failed: " . $link->connect_error);
-} 
+include "connection.php";
+session_start();
+    $var_value =  $_SESSION['varname']; 
 $query = "SELECT * FROM showname";
 $result1 = mysqli_query($link, $query);
 ?>
@@ -351,8 +346,8 @@ input[type=submit]:hover {
 
 </select>
 
-                        <!--<label class ="label">Poster Img:</label><input type="text" name="PosterUrl"><br>-->
-                         <label class ="label">Company Name:</label><input type="text" name="Company"><br>
+                        <!--<label class ="label">Poster Img:</label><input type="text" name="PosterUrl"><br>--
+                         <label class ="label">Company Name:</label><input type="text" name="Company"><br>-->
                      <label class ="fileContainer">Upload Poster: </label><input type="file" name="fileToUpload"><br>
                         
                     

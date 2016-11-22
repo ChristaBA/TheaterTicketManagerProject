@@ -1,4 +1,5 @@
 <?php
+session_start();
 $servername = "localhost:3306";
 $username = "root";
 $password = "";
@@ -39,7 +40,7 @@ $showname = filter_input(INPUT_POST,"showname");
 $startDate = filter_input(INPUT_POST,"startDate");
 $endDate = filter_input(INPUT_POST,"endDate");
 $location = filter_input(INPUT_POST,"location");
-$companyName =filter_input(INPUT_POST,"Company");
+//$companyName =filter_input(INPUT_POST,"Company");
 $month = filter_input(INPUT_POST,"month");
 $day = filter_input(INPUT_POST,"day");
 $year =filter_input(INPUT_POST,"year");
@@ -48,7 +49,7 @@ $show_name = mysqli_real_escape_string($link, $showname);
 $start_date = mysqli_real_escape_string($link, $startDate);
 $end_Date = mysqli_real_escape_string($link, $endDate);
 $locationDB = mysqli_real_escape_string($link, $location);
-$Company_Name = mysqli_real_escape_string($link, $companyName);
+$Company_Name = $_SESSION['varname'];//mysqli_real_escape_string($link, $companyName);
 $Month = mysqli_real_escape_string($link, $month);
 $Day =mysqli_real_escape_string($link, $day);
 $Year = mysqli_real_escape_string($link, $year);

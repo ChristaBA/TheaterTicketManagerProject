@@ -34,6 +34,7 @@ while($row = $queryResult2->fetch_assoc())
  } 
 if(mysqli_num_rows($queryResult) > 0)
 {
+    $_SESSION['varname'] =$company;
     $accountType = $queryResult->fetch_object()->accounttype;
     
     if($accountType == 1)
@@ -53,7 +54,7 @@ if(mysqli_num_rows($queryResult) > 0)
         
         
         echo "<script> window.location = 'Super.php';</script>";
-        $_SESSION['Companyname'] =$company;
+        
         
         
     }

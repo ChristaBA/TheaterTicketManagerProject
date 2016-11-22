@@ -1,7 +1,7 @@
 <?php 
  include "connection.php";
 session_start();
-    $var_value =  $_SESSION['Companyname'];
+    $var_value =  $_SESSION['varname'];
 
 
 

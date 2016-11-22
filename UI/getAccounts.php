@@ -5,7 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+session_start();
+$var_value =  $_SESSION['varname'];
+    
 $servername = "localhost:3306";
 $username = "root";
 $password = "";
@@ -15,9 +17,14 @@ $link =  mysqli_connect($servername, $username, $password, $dbname);
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
-
-$result = mysqli_query($link,"SELECT * FROM worker");
-
+if($var_value == "admin" | $var_value == "ADMIN")
+{
+    $result = mysqli_query($link,"SELECT * FROM worker");
+}
+else
+{
+    $result = mysqli_query($link,"SELECT * FROM worker WHERE companyName = '$var_value'");
+}
 echo "<table border='1'>
 <tr>
 <th>First Name</th>
