@@ -27,16 +27,22 @@ if ($link->connect_error) {
 
 date_default_timezone_set("America/Chicago");
 $todaysdate = date("Y/m/d");
-
+ 
+//$date = implode(' /',$year);
+//$month = explode('/',$todaysdate);
+///$date1 = implode(' /',$month);
+//$date1 =date("Y/m/d ",strtotime($todaysdate)); 
 
  $civiclocation = "Civic Center";
  $civicplayhouse ="Civic Playhouse";
+ 
+ 
   //$endate = strtotime("+1 week", $todaysdate);
 
 $query = "SELECT DISTINCT Company FROM showname";
 $civicbydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civiclocation'LIMIT 1";
 $civicpicbydate ="SELECT image FROM showname Where date ='$todaysdate ' AND location = '$civiclocation'LIMIT 1";
-$civicshowid= "SELECT showId FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
+$civicshowid= "SELECT showId FROM showname Where date = '$todaysdate ' AND location = '$civiclocation'LIMIT 1";
 
 $playhousebydate ="SELECT Company FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
 $playhousepicbydate= "SELECT image FROM showname Where date = '$todaysdate ' AND location = '$civicplayhouse'LIMIT 1";
@@ -46,6 +52,7 @@ $playhouseshowid= "SELECT showId FROM showname Where date = '$todaysdate ' AND l
 
 $civicshowresult = mysqli_query($link, $civicshowid);
 $playhouseshowresult = mysqli_query($link, $playhouseshowid);
+
 $civicresult =   mysqli_query($link, $civicbydate);
 $playhouseresult =mysqli_query($link, $playhousebydate);
 $playhousepicresult =mysqli_query($link, $playhousepicbydate);
