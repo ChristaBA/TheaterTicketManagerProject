@@ -4,6 +4,16 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<?php
+ session_start();
+
+$show_id = $_SESSION['Showid'];   
+echo "Session is set to" . $_SESSION['Showid'];
+$show_name = $_SESSION['showname'];
+echo "Session is set to" . $_SESSION['showname'];
+
+
+?>
 <html>
 <head>
 <meta charset="utf-8">

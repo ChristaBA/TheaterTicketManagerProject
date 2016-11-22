@@ -20,26 +20,25 @@ date_default_timezone_set("America/Chicago");
  $enddate =date("Y/m/d");
 
  
+
+$showquery = "SELECT DISTINCT showname FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY showname ORDER BY MAX(date) ASC";
  
-//$query = "SELECT  Poster From showname";
-$showquery = "SELECT DISTINCT showname FROM showname"
-        . " WHERE Company = '$var_value'";
 $picquery = "SELECT DISTINCT image, MAX(date) FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY image ORDER BY MAX(date) ASC, image";
-//$Sdatequery ="SELECT startdate FROM showname WHERE Company = '$var_value' GROUP BY image ORDER BY MAX(date) DESC, image;
-$Edatequery ="SElECT DISTINCT endate FROM showname WHERE Company = '$var_value'"; 
+
+
 $Lquery ="SElECT location FROM showname WHERE Company = '$var_value'";
-$dateq  = "SELECT date FROM showname WHERE Company = '$var_value'";
+
  
 $result1 = mysqli_query($link, $showquery);
 $result2 = mysqli_query($link, $picquery);
-//$result3 = mysqli_query($link, $Sdatequery);
-$result4 = mysqli_query($link, $Edatequery);
+
+
 $result5 = mysqli_query($link, $Lquery);
-$result6 = mysqli_query($link, $dateq);
+
 ?>
                
                 <?php            
-              //while($row =  mysqli_fetch_array($result1))
+             
        $showarray = array();
        $picturearray =array();
        $locationarray =array();
@@ -47,26 +46,14 @@ $result6 = mysqli_query($link, $dateq);
         $Sdatearray = array();
         $Edatearray = array();
      $index = 0;
-      while($row = $result6->fetch_assoc())    
- {
-     
 
-  $showdate =$row["date"];
-
-  
-
-  
- }  
+   
  while($row = $result1->fetch_assoc())    
  {
      
 
-  /*$showname =$row["showname"];
-  $StartDate =$row["startdate"];
-  $enddate =$row["enddate"];
-  $location =$row["location"];
-  //$img =$row['image'];
-  */
+  
+ 
     $showarray[$index]= $row;
 $index++;
   
@@ -206,15 +193,7 @@ $index++;
 $index2++;
   
  }     
-   //echo "id: " . $row["showname"]. " - Name: " . $row["startdate"]. " " . $row["enddate"]. "<br>";
-   //$companyname =$row["Company"];
-    //echo'<img  src=' . $row["$Poster"] . ' width="60" height="60" alt="word" />';
-  ///echo "img src='",$row['Poster'],"' width='175' height='200' />";
- 
-   //$_SESSION['date'] = $companyb;
-    //$_SESSION['location'] = $companyb;
-     //$_SESSION['startdate'] = $companyb;
-      //$_SESSION['varname'] = $companyb;
+
  $index4 =0;
  if(array_key_exists(0, $picturearray))
  {
@@ -294,21 +273,56 @@ $index2++;
      $img8 = "NO SHOW";
      }  
      
-     $index3 = 0;
      
-     
+    $show1 = $showname1;
+    $show2 = $showname2;
+    $show3 = $showname3;
+    $show4 = $showname4;
+    $show5 = $showname5;
+    $show6 = $showname6;
+    
+     $dateq1 ="SELECT DISTINCT MIN(date),MAX(date) FROM showname WHERE Company = '$var_value'  AND showname ='$show1' GROUP BY showname ORDER BY MAX(date) ASC";
+     $dateq2 ="SELECT DISTINCT MIN(date),MAX(date) FROM showname WHERE Company = '$var_value'  AND showname ='$show2' GROUP BY showname ORDER BY MAX(date) ASC";
+     $dateq3 ="SELECT DISTINCT MIN(date),MAX(date) FROM showname WHERE Company = '$var_value'  AND showname ='$show3' GROUP BY showname ORDER BY MAX(date) ASC";
+     $dateq4 ="SELECT DISTINCT MIN(date),MAX(date) FROM showname WHERE Company = '$var_value'  AND showname ='$show4' GROUP BY showname ORDER BY MAX(date) ASC";
+     $dateq5 ="SELECT DISTINCT MIN(date),MAX(date) FROM showname WHERE Company = '$var_value'  AND showname ='$show5' GROUP BY showname ORDER BY MAX(date) ASC";
+     $dateq6 ="SELECT DISTINCT MIN(date),MAX(date) FROM showname WHERE Company = '$var_value'  AND showname ='$show6' GROUP BY showname ORDER BY MAX(date) ASC";
+
+     //$dateq = "SELECT DISTINCT MIN(date),MAX(date) FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' AND showname ='$showname1' GROUP BY showname ORDER BY MAX(date) ASC";       
+     $result6 = mysqli_query($link, $dateq1);
+      $result7 = mysqli_query($link, $dateq2);
+       $result8 = mysqli_query($link, $dateq3);
+        $result9 = mysqli_query($link, $dateq4);
+         $result10 = mysqli_query($link, $dateq5);
+          $result11 = mysqli_query($link, $dateq6);
+          
+          $datearray1 = array();
+          $datearray2 = array();
+          $datearray3 = array();
+          $datearray4 = array();
+          $datearray5 = array();
+          $datearray6 = array();
+         $index3 = 0;
+         $index5 = 0;
+         $index6 = 0;
+         $index7 = 0;
+         $index8 = 0;
+         $index9 = 0;
+          
+          
+          
   while($row = $result6->fetch_assoc())    
  {   
+      
  
- 
-      $Sdatearray[$index3]=$row;
+      $datearray1[$index3]=$row;
 
 $index3++;
   
  }         
-   if(array_key_exists(0, $Sdatearray))
+   if(array_key_exists(0, $datearray1))
  {
-      $sdate1=  implode(" ",$Sdatearray[0]);
+      $sdate1=  implode(" ",$datearray1[0]);
      
  }
      else 
@@ -316,76 +330,106 @@ $index3++;
      
      $sdate1= "NO SHOW";
      }
- if(array_key_exists(1, $Sdatearray))
- {
-    
-    $sdate2 = implode(" ",$Sdatearray[1]);
- }
-     else 
-     {
-    $sdate2 = "NO SHOW";
-     }
-  if(array_key_exists(2, $Sdatearray))
- {
-      $sdate3 =  implode(" ",$Sdatearray[2]);
-     
- }
-     else 
-     {
-     
-     $sdate3 = "NO SHOW";
-     }
- if(array_key_exists(3, $Sdatearray))
- {
-    
-      $sdate4 = implode(" ",$Sdatearray[3]);
- }
-     else 
-     {
-    $sdate4 = "NO SHOW";
-     }
-    if(array_key_exists(4, $Sdatearray))
- {
-      $sdate5 =  implode(" ",$Sdatearray[4]);
-     
- }
-     else 
-     {
-     
-     $sdate5 = "NO SHOW";
-     }
- if(array_key_exists(5, $Sdatearray))
- {
-    
-    $sdate6= implode(" ",$Sdatearray[5]);
- }
-     else 
-     {
-    $sdate6 = "NO SHOW";
-     }
-     
-   if(array_key_exists(6, $Sdatearray))
- {
-     $sdate7 =  implode(" ",$Sdatearray[6]);
-     
- }
-     else 
-     {
-     
-   $sdate7 = "NO SHOW";
-     }
- if(array_key_exists(7, $Sdatearray))
- {
-    
-   $sdate8 = implode(" ",$Sdatearray[7]);
- }
-     else 
-     {
- $sdate8 = "NO SHOW";
-         
-     }
+  while($row = $result7->fetch_assoc())    
+ {   
+      
+ 
+      $datearray2[$index5]=$row;
 
-while($row = $result5->fetch_assoc())    
+$index5++;
+  
+ }         
+   if(array_key_exists(0, $datearray2))
+ {
+      $sdate2=  implode(" ",$datearray2[0]);
+     
+ }
+     else 
+     {
+     
+     $sdate2= "NO SHOW";
+     }
+  while($row = $result8->fetch_assoc())    
+ {   
+      
+ 
+      $datearray3[$index6]=$row;
+
+$index6++;
+  
+ }         
+   if(array_key_exists(0, $datearray3))
+ {
+      $sdate3=  implode(" ",$datearray3[0]);
+     
+ }
+     else 
+     {
+     
+     $sdate3= "NO SHOW";
+     }
+      while($row = $result9->fetch_assoc())    
+ {   
+      
+ 
+      $datearray4[$index7]=$row;
+
+$index7++;
+  
+ }         
+   if(array_key_exists(0, $datearray4))
+ {
+      $sdate4=  implode(" ",$datearray4[0]);
+     
+ }
+     else 
+     {
+     
+     $sdate4= "NO SHOW";
+     }
+          while($row = $result10->fetch_assoc())    
+ {   
+      
+ 
+      $datearray4[$index8]=$row;
+
+$index8++;
+  
+ }         
+   if(array_key_exists(0, $datearray5))
+ {
+      $sdate5=  implode(" ",$datearray5[0]);
+     
+ }
+     else 
+     {
+     
+     $sdate5= "NO SHOW";
+     }
+           while($row = $result11->fetch_assoc())    
+ {   
+      
+ 
+      $datearray4[$index9]=$row;
+
+$index9++;
+  
+ }         
+   if(array_key_exists(0, $datearray6))
+ {
+      $sdate6=  implode(" ",$datearray6[0]);
+     
+ }
+     else 
+     {
+     
+     $sdate6= "NO SHOW";
+     } 
+     
+     
+     
+     
+     while($row = $result5->fetch_assoc())    
  {
      
 
@@ -985,15 +1029,15 @@ $index4++;
               
               </div>
             <h1><?php echo  $var_value?></h1><br>
-            <h1>Showing this Season</h1>
+            <h1>Upcoming Shows</h1>
             
             
             <div class ="Shows">
                 
                 <h1 class = one><?php echo  $showname1?></h1>
                 <h1 class = one><?php echo  $location1?></h1>
-                  <h1 class = one><?php echo  $sdate1?></h1>
-                0
+                    <h1 class = one><?php echo  $sdate1?></h1>
+                
                 
                  
             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $img ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
@@ -1006,7 +1050,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname2?></h1>
                 <h1 class = one><?php echo  $location2?></h1>
-                
+                 <h1 class = one><?php echo  $sdate2?></h1>
                 
                 
                  
@@ -1018,7 +1062,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname3?></h1>
                 <h1 class = one><?php echo  $location3?></h1>
-              
+              <h1 class = one><?php echo  $sdate3?></h1>
                 
                 
                  
@@ -1030,7 +1074,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname4?></h1>
                  <h1 class = one><?php echo  $location4?></h1>
-            
+                 <h1 class = one><?php echo  $sdate4?></h1>
                 
                 
                  
@@ -1041,7 +1085,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname5?></h1>
                  <h1 class = one><?php echo  $location5?></h1>
-              
+              <h1 class = one><?php echo  $sdate5?></h1>
                 
                 
                  
@@ -1053,7 +1097,7 @@ $index4++;
                 
                 <h1 class = one><?php echo  $showname6?></h1>
                  <h1 class = one><?php echo  $location6?></h1>
-              
+                 <h1 class = one><?php echo  $sdate6?></h1>
                 
                 
                  
@@ -1061,30 +1105,7 @@ $index4++;
            <button class="button button1"  id="showbtn6"value = "<?php echo $showname6?>">Click For Show Times</button>
             
             </div>
-            <div class ="Shows">
-                
-                <h1 class = one><?php echo  $showname7?></h1>
-                 <h1 class = one><?php echo  $location7?></h1>
-              
-                
-                
-                 
-            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $img7 ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
-         <button class="button button1"  id="showbtn7"value = "<?php echo $showname7?>">Click For Show Times</button>
-            
-            </div>
-            <div class ="Shows">
-                
-                <h1 class = one><?php echo  $showname8?></h1>
-                 <h1 class = one><?php echo  $location8?></h1>
-            
-                
-                
-                 
-            <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $img8 ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
-<button class="button button1"  id="showbtn8"value = "<?php echo $showname9?>">Click For Show Times</button>
-            
-            </div>
+  
             
           
            
