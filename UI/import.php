@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 
         echo "<div style ='font:11px/21px Arial,tahoma,sans-serif;color:#ff0000'> Import Done </div>";
         echo "<div style ='font:11px/21px Arial,tahoma,sans-serif;color:#ff0000'> You are being redirected.</div>";
-        header("refresh:3; url = Super.html");
+        header("refresh:3; url = Super.php");
         //javin edit this. 
 
 	//view upload form
