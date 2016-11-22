@@ -15,6 +15,7 @@
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
+date_default_timezone_set("America/Chicago");
  $todaysdate = date("Y/m/d");
  $enddate =date("Y/m/d");
 
@@ -23,18 +24,18 @@ if ($link->connect_error) {
 //$query = "SELECT  Poster From showname";
 $showquery = "SELECT DISTINCT showname FROM showname"
         . " WHERE Company = '$var_value'";
-$picquery = "SELECT DISTINCT image, MAX(date) FROM showname WHERE Company = '$var_value' GROUP BY image ORDER BY MAX(date) DESC, image";
+$picquery = "SELECT DISTINCT image, MAX(date) FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY image ORDER BY MAX(date) ASC, image";
 //$Sdatequery ="SELECT startdate FROM showname WHERE Company = '$var_value' GROUP BY image ORDER BY MAX(date) DESC, image;
 $Edatequery ="SElECT DISTINCT endate FROM showname WHERE Company = '$var_value'"; 
 $Lquery ="SElECT location FROM showname WHERE Company = '$var_value'";
-$dateq  = "SELECT DISTINCT date, MAX(date) FROM showname WHERE Company = '$var_value' GROUP BY date ORDER BY MAX(date) DESC, date";
+$dateq  = "SELECT date FROM showname WHERE Company = '$var_value'";
  
 $result1 = mysqli_query($link, $showquery);
 $result2 = mysqli_query($link, $picquery);
 //$result3 = mysqli_query($link, $Sdatequery);
 $result4 = mysqli_query($link, $Edatequery);
 $result5 = mysqli_query($link, $Lquery);
-$result6 =mysqli_query($link, $dateq);
+$result6 = mysqli_query($link, $dateq);
 ?>
                
                 <?php            
@@ -992,7 +993,7 @@ $index4++;
                 <h1 class = one><?php echo  $showname1?></h1>
                 <h1 class = one><?php echo  $location1?></h1>
                   <h1 class = one><?php echo  $sdate1?></h1>
-                
+                0
                 
                  
             <?php echo '<img src="data:image/jpeg;base64,' . base64_encode( $img ) . '"style ="float:left; width:70%; height:65%;margin-right:0%;margin-left:15%;border:3px solid black;" />';?>
