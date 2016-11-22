@@ -78,6 +78,10 @@
         text-decoration:none;
         color:black;
     }     
+	.mainWindow{
+		margin-left: 10%;
+		width: 60%;
+	}
     </style>
     <body>
       <ul class ="nav">
