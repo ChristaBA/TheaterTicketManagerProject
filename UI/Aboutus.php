@@ -105,11 +105,22 @@
             <h1>CS 499 Senior Project</h1>
              <h2>Theater Ticket Manager</h2>
              
-             <p>This software manages tickets and their sales. </p>
+             	<p>
+		The purpose of this application is to allow for control and management <br>
+		over theatrical productions, including a sales point allowing customers to <br>
+		select and purchase their own seats online. Shows can be manually <br>
+		created, with artwork uploaded and displayed online, creating a pleasing <br>
+		and user friendly environment for navigation and ticket selection. <br>
+		<br>
+		Ultimately the aim of this software is to enhance the online presence of <br>
+		local companies, increasing their revenue potential, while also working <br>
+		to better serve customers, thus increasing satisfaction and likelihood of <br>
+		repeat business. 
+		</p>
             <h3>Group Members</h3>
             <p>Vatsal Patel </p>
              <p>Javin Langley </p>
-             <p>Ben Christad </p>
+             <p>Ben Christa </p>
              <p>Kyle Wagner</p>
         
         </div>
