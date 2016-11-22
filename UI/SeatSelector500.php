@@ -10,9 +10,9 @@ and open the template in the editor.
  session_start();
 
 $show_id = $_SESSION['Showid'];   
-echo "Session is set to" . $_SESSION['Showid']
-
-
+echo "Session is set to" . $_SESSION['Showid'];
+$show_name = $_SESSION['showname'];
+echo "Session is set to" . $_SESSION['showname'];
 
 ?>
 <html>

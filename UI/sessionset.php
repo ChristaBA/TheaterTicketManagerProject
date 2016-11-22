@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 
+
 session_start();
 
 if(isset($_POST['companyName']))
@@ -18,6 +19,25 @@ if(isset($_POST['showName']))
 {
     $showname =$_POST['showName'];
     $_SESSION['showname'] =$showname;
+    
+    $servername = "localhost:3306";
+    $username = "root";
+    $password = "";
+    $dbname = "testdatabase";
+    $link =  mysqli_connect($servername, $username, $password, $dbname);
+    if ($link->connect_error) {
+        die("Connection failed: " . $link->connect_error);
+    }
+    
+    $companyName = $_SESSION['varname'];
+    
+    //echo $companyName;
+    $locationQuery = "SELECT DISTINCT location FROM showname WHERE Company ='$companyName' LIMIT 1";
+    $queryResult = mysqli_query($link, $locationQuery);
+    
+    $result = $queryResult->fetch_assoc();
+    
+        echo $result["location"];
     
 }
 if(isset($_POST['Btnid']))

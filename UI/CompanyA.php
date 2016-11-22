@@ -772,22 +772,25 @@ $index4++;
 		
                 
 			$("#showbtn1").click(function() {
-			console.log("Log in button clicked");
+			//console.log("Log in button clicked");
                            var data = {showName: $(this).attr("value")};
-                       console.log(data);
+                       //console.log(data);
                        //
                        //
 //window.location = "http://stackoverflow.com";
                    
                        $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location ="Seatselector.php";
-                       
-			
-				
-			});
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
                          
                      
 				
@@ -798,15 +801,18 @@ $index4++;
                       var data = {showName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location = "Seatselector.php";
-                       
-			
-				
-			});
+                    $.post("sessionset.php", data, function(response) {
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
                     });
                          $("#showbtn3").click(function() {
 			console.log("Log in button clicked");
@@ -816,15 +822,18 @@ $index4++;
                                    var data = {showName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location = "Seatselector.php";
-                       
-			
-				
-			});
+                             $.post("sessionset.php", data, function(response) {
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
                          
 			
 				
@@ -837,15 +846,18 @@ $index4++;
                                    var data = {showName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location = "Seatselector.php";
-                       
-			
-				
-			});
+                             $.post("sessionset.php", data, function(response) {
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
                          
 			
 				
@@ -858,15 +870,18 @@ $index4++;
                                  var data = {showName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location = "Seatselector.php";
-                       
-			
-				
-			});
+                             $.post("sessionset.php", data, function(response) {
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
                          
 			
 				
@@ -882,16 +897,18 @@ $index4++;
                                   
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location = "Seatselector.php";
-                       
-			
-				
-			});
-                         
+                             $.post("sessionset.php", data, function(response) {
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
                               
 				
 			});
@@ -903,16 +920,18 @@ $index4++;
                                   var data = {showName: $(this).attr("value")};
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
-                       $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location = "Seatselector.php";
-                       
-			
-				
-			});
-                         
+                             $.post("sessionset.php", data, function(response) {
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
 			
 				
 			});
@@ -925,15 +944,17 @@ $index4++;
                        //console.log(data);
 			//window.location = "http://stackoverflow.com";
                        $.post("sessionset.php", data, function(response) {
-					
-				
-                                //console.log(response);
-                              window.location = "SeatSelector.html";
-                       
-			
-				
-			});
-                         
+			//console.log("Response: "+response);		
+			if(response === "Civic Center")
+                        {
+                              //console.log(response);
+                              window.location ="Seatselector2000.php";	
+			}
+                        else if(response === "Civic Playhouse")
+                        {
+                            window.location ="Seatselector500.php";
+                        }
+                    });
 			
 				
 			});
