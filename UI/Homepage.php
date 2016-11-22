@@ -906,7 +906,7 @@ body{
                
            
             
-            <h1>Now Showing</h1>   
+            <h1>Now Showing - - - <?php echo $todaysdate?></h1>   
           
             
             <div class ="Shows">

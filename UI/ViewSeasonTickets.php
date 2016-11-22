@@ -1,8 +1,16 @@
 <?php 
- include "connection.php";
+ //include "connection.php";
 session_start();
-    $var_value =  $_SESSION['Companyname'];
+    $var_value = $_SESSION['varname'] ;//$_SESSION['Companyname'];
+$servername = "localhost:3306";
+$username = "root";
+$password = "";
+$dbname = "testdatabase";
 
+$link =  mysqli_connect($servername, $username, $password, $dbname);
+if ($link->connect_error) {
+    die("Connection failed: " . $link->connect_error);
+} 
 
 
 ?>

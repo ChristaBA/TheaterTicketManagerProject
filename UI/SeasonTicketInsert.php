@@ -37,7 +37,7 @@ if($get_rows >= 1)
 {
     echo "email exists: please pick a different email.";
     echo "You are be redirected.";
-    header("refresh:3, url = ManageSeasonTicket.php");
+    header("refresh:3, url = ManageSeasonTickets.php");
 }
 else{
 $sql = "INSERT INTO seasonticket (firstname, lastname,  ticketnumber, email, phonenumber, seat, day, time, address, company)
@@ -45,7 +45,7 @@ VALUES ('$first_name', '$last_name','$ticket_Number', '$email_sql', $phone_Numbe
 if ($link->query($sql) === TRUE) {
     echo "New record created successfully";
     echo "You are be redirected.";
-    header("refresh:3, url = ManageSeasonTicket.php");
+    header("refresh:3, url = ManageSeasonTickets.php");
 } else {
     echo "Error: " . $sql . "<br>" . $link->error;
 }
