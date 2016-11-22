@@ -141,7 +141,7 @@
     color: white;
 }
 .button3 {
-    margin-left:10%;
+    margin-left:30%;
     background-color: white;
     color: black;
     border: 2px solid yellow;
@@ -206,6 +206,7 @@
 
 <button class="button button2" onclick="location='ManageShow.php'">Manage Show</button>
 <button class="button button5" onclick="location='ManageSeasonTickets.php'">Manage Season Tickets</button>
+<button class="button button3" onclick="location='PriceChange.php'">Change Prices</button>
 <br>
 <br>
 <button class="button button6" onclick="location='Employeelogin.php'">Log out</button>

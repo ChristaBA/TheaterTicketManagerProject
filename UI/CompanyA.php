@@ -21,9 +21,9 @@ date_default_timezone_set("America/Chicago");
 
  
 
-$showquery = "SELECT DISTINCT showname FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY showname ORDER BY MAX(date) DESC";
+$showquery = "SELECT DISTINCT showname FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY showname ORDER BY MAX(date) ASC";
  
-$picquery = "SELECT DISTINCT image, MAX(date) FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY image ORDER BY MAX(date) DESC, image";
+$picquery = "SELECT DISTINCT image, MAX(date) FROM showname WHERE Company = '$var_value'AND date>= '$todaysdate' GROUP BY image ORDER BY MAX(date) ASC, image";
 
 
 $Lquery ="SElECT location FROM showname WHERE Company = '$var_value'";
