@@ -47,7 +47,7 @@ $showTable = "CREATE TABLE IF NOT EXISTS showName (
          Company VARCHAR(50),
          image LONGBLOB NOT NULL,
          showId VARCHAR(50) NOT NULL,
-         showing INT(10), 
+         showing INT(10)
          )";
 if (mysqli_query($linkShow, $showTable)){
     //echo "Table showName created successfully. ";

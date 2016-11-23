@@ -277,7 +277,7 @@ span.seatCharts-legendDescription {
           <input type="hidden" name="strJSON" id="strJSON"/>
           <button id="checkout">Checkout &raquo;</button>
       </form>
-      <button id="ncheckout">TEST</button>
+     <!-- <button id="ncheckout">TEST</button>  -->
       <div id="legend"></div>
 	  </div>
 
