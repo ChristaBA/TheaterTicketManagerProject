@@ -20,12 +20,46 @@ if(isset($_SESSION['showname']))
 {
     $show_name = $_SESSION['showname'];
     
-    $getShows = mysqli_query($link,"Select * FROM showname WHERE Company = '$companyName' AND showname = '$show_name'");
+    $getShows = mysqli_query($link,"Select * FROM seasonticket WHERE Company = '$companyName'");
+    $array1 = array();
+    $array2 = array();
+    $array3 = array();
+    $array4 = array();
+    $array5 = array();
+    $array6 = array();
+    
+    while($row = $getShows->fetch_assoc())
+    {
+        if($row['day'] == 1)
+        {
+            array_push($array1, $row['seat']);
+        }
+        if($row['day'] == 2)
+        {
+            array_push($array2, $row['seat']);
+        }
+        if($row['day'] == 3)
+        {
+            array_push($array3, $row['seat']);
+        }
+        if($row['day'] == 4)
+        {
+            array_push($array4, $row['seat']);
+        }
+        if($row['day'] == 5)
+        {
+            array_push($array5, $row['seat']);
+        }
+        if($row['day'] == 6)
+        {
+            array_push($array6, $row['seat']);
+        }
+    }
     
     //echo "Session is set to" . $_SESSION['showname'];
 }
 ?>
-<!doctype html>
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -285,36 +319,36 @@ span.seatCharts-legendDescription {
 			$total = $('#total');
 		function updateSeats(sc) {
 		//takenseats = [];
-		//sc.get(takenseats).status('available');
+		sc.get(takenseats).status('available');
 			var selopt = document.getElementById("opts").value;
 		//console.log("Value of selopt: ");
 		//console.log(selopt);
 		//var takenseats = [];
 		if (selopt == 1) {
-			takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23','11_23',];
+			takenseats = <?php echo json_encode($array1)?>;
 			//document.getElementById("schart").style.display = "block";
         };
 		if (selopt == 2) {
-			takenseats = ['5_10','5_11','5_12','6_20','6_21','3_33','3_34','3_35','3_36',];
+			takenseats = <?php echo json_encode($array2)?>;
             //document.getElementById("schart").style.display = "block";
         };
 		if (selopt == 3) {
-			takenseats = ['4_16','4_18','4_20','4_40','4_41','4_42','1_50','1_51','1_52','10_20','10_21',];
+			takenseats = <?php echo json_encode($array3)?>;
             //document.getElementById("schart").style.display = "block";
         };
 		if (selopt == 4) {
-			takenseats = ['7_35','7_36','7_37','7_40','2_15','2_16','2_45','2_46',];
+			takenseats = <?php echo json_encode($array4)?>;
             //document.getElementById("schart").style.display = "block";
         };
 		if (selopt == 5) {
-			takenseats = ['9_50','9_52','8_18','8_19','6_37','6_38','3_23','3_24','3_26',];
+			takenseats = <?php echo json_encode($array5)?>;
             //document.getElementById("schart").style.display = "block";
         };
 		if (selopt == 6) {
-			takenseats = [];
+			takenseats = <?php echo json_encode($array6)?>;
             //document.getElementById("schart").style.display = "block";
         };
-		//sc.get(takenseats).status('unavailable');
+		sc.get(takenseats).status('unavailable');
 		}
 
 

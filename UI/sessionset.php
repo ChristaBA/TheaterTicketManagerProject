@@ -6,28 +6,23 @@
  * and open the template in the editor.
  */
 
-
+include "connection.php";
 session_start();
 
 if(isset($_POST['companyName']))
 {
-    $company =$_POST['companyName'];
+    unset($_SESSION['Showid']);
+    
+    $company = $_POST['companyName'];
     $_SESSION['varname'] = $company;
 } 
 
 if(isset($_POST['showName']))
 {
+    unset($_SESSION['Showid']);
+    
     $showname =$_POST['showName'];
     $_SESSION['showname'] =$showname;
-    
-    $servername = "localhost:3306";
-    $username = "root";
-    $password = "";
-    $dbname = "testdatabase";
-    $link =  mysqli_connect($servername, $username, $password, $dbname);
-    if ($link->connect_error) {
-        die("Connection failed: " . $link->connect_error);
-    }
     
     $companyName = $_SESSION['varname'];
     
@@ -42,9 +37,17 @@ if(isset($_POST['showName']))
 }
 if(isset($_POST['Btnid']))
 {
-    $showid =$_POST['Btnid'];
-    $_SESSION['Showid'] =$showid;
+    $showid = $_POST['Btnid'];
+    $_SESSION['Showid'] = $showid;
     
+    $companyQuery = "SELECT DISTINCT * FROM showname WHERE showId ='$showid' LIMIT 1";
+    $companyResult = mysqli_query($link, $companyQuery);
+    
+    if($row = $companyResult->fetch_assoc())
+    {
+        $_SESSION['varname'] = $row['Company'];
+        $_SESSION['showname'] = $row['showname'];
+    }
 }
 //echo "value passed in is ".$company;
 

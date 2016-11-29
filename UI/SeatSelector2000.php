@@ -12,17 +12,59 @@ $companyName = $_SESSION['varname'];
 if(isset($_SESSION['Showid']))
 {
     $show_id = $_SESSION['Showid'];   
-    //echo "Session is set to" . $_SESSION['Showid'];
+    $script_str = "document.getElementById(\"opts\").value = \"".$show_id."\";"
+            . "document.getElementById(\"schart\").style.display = \"block\";"
+            . "updateSeats(sc);";
 }
+
+date_default_timezone_set("America/Chicago");
+$today = date("Y/m/d");
+
 if(isset($_SESSION['showname']))
 {
     $show_name = $_SESSION['showname'];
     
-    $getShows = mysqli_query($link,"Select * FROM showname WHERE Company = '$companyName' AND showname = '$show_name'");
-    
-    //echo "Session is set to" . $_SESSION['showname'];
-}
+    $getShows = mysqli_query($link,"Select * FROM showname WHERE Company = '$companyName' AND showname = '$show_name' AND date >= '$today'");
 
+}
+$optOut = "";
+$showing = 0;
+$seatsJS = "";
+
+while ($row = $getShows->fetch_assoc())
+    {
+        $tempSeats = array();
+        $id = $row['showId'];
+        $optOut .= "<option value=\"".$row['showId']."\">";
+        $splitDate = array_reverse(explode("/", $row['date']));
+        $dateOut = implode("/",$splitDate);
+        $optOut .= $dateOut." ".$row['time']."</option>";
+    
+        $ticketQuery = "SELECT seatNumber FROM tickets WHERE ShowId = '$id'";
+        $ticketResult = mysqli_query($link, $ticketQuery);
+        $showingQuery = "SELECT showing FROM showname WHERE showId = '$id' LIMIT 1";
+        $showingresult = mysqli_query($link, $showingQuery);
+        if($row1 = $showingresult->fetch_assoc())
+        {
+            $showing = $row1['showing'];
+        }
+        $seasonQuery = "SELECT seat FROM seasonticket WHERE company = '$companyName' AND day = '$showing'";
+        $seasonResult = mysqli_query($link, $seasonQuery);
+
+        while($row2 = $ticketResult->fetch_assoc())
+        {
+            array_push($tempSeats, $row2['seatNumber']);
+        }
+        while($row3 = $seasonResult->fetch_assoc())
+        {
+            array_push($tempSeats, $row3['seat']);
+        }
+        
+        $seatsJS .= "if (selopt == \"".$id."\" )"
+                . "{"
+                . "     takenseats = ".json_encode($tempSeats).";"
+                . "}";
+    }
 ?>
 <html>
 <head>
@@ -111,11 +153,7 @@ a {
 	border-radius: 20px;
 	margin-left: 288px;
 }
-/*.wrapper {
-	width: 100%;
-	text-align: center;
-  margin-top:150px;
-}*/
+
 .container {
 	width: 1400px;
 	text-align: left;
@@ -226,26 +264,12 @@ span.seatCharts-legendDescription {
                
            </ul>
          
-
-<!--
-<div id="jquery-script-menu">
-<div class="jquery-script-center">
--->
-<!--<ul>
-</ul> -->
 <div class="jquery-script-clear"></div>
 
 <select id="opts" onchange="showForm()">
     <option value="0">Select a Show Time</option>
     <?php 
-    while ($row = $getShows->fetch_assoc())
-    {
-        $optOut = "<option value=\"".$row['showId']."\">";
-        $splitDate = array_reverse(explode("/", $row['date']));
-        $dateOut = implode("/",$splitDate);
-        $optOut .= $dateOut." ".$row['time']."</option>";
         echo $optOut;
-    }
     ?>
 </select>
 
@@ -254,7 +278,6 @@ span.seatCharts-legendDescription {
 
 <div class="wrapper">
   <div class="container">
-  <!--<h2>Theater Manager Ticket Selector</h2> -->
     <div id="seat-map">
       <div class="stage-indicator">Stage</div>
     </div>
@@ -289,56 +312,24 @@ span.seatCharts-legendDescription {
 			$counter = $('#counter'),
 			$total = $('#total');
 		function updateSeats(sc) {
-		//takenseats = [];
-		//sc.get(takenseats).status('available');
+
+		sc.get(takenseats).status('available');
 			var selopt = document.getElementById("opts").value;
-		//console.log("Value of selopt: ");
-		//console.log(selopt);
-		//var takenseats = [];
-		if (selopt == 1) {
-			takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23','11_23',];
-			//document.getElementById("schart").style.display = "block";
-        };
-		if (selopt == 2) {
-			takenseats = ['5_10','5_11','5_12','6_20','6_21','3_33','3_34','3_35','3_36',];
-            //document.getElementById("schart").style.display = "block";
-        };
-		if (selopt == 3) {
-			takenseats = ['4_16','4_18','4_20','4_40','4_41','4_42','1_50','1_51','1_52','10_20','10_21',];
-            //document.getElementById("schart").style.display = "block";
-        };
-		if (selopt == 4) {
-			takenseats = ['7_35','7_36','7_37','7_40','2_15','2_16','2_45','2_46',];
-            //document.getElementById("schart").style.display = "block";
-        };
-		if (selopt == 5) {
-			takenseats = ['9_50','9_52','8_18','8_19','6_37','6_38','3_23','3_24','3_26',];
-            //document.getElementById("schart").style.display = "block";
-        };
-		if (selopt == 6) {
-			takenseats = [];
-            //document.getElementById("schart").style.display = "block";
-        };
-		//sc.get(takenseats).status('unavailable');
+
+                 <?php 
+                    echo $seatsJS;
+                ?>
+                        
+		sc.get(takenseats).status('unavailable');
 		}
 
 
 			var firstSeatLabel = 1;
 			
-		
-			
-		//var takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23','11_23',];
 		var selectedSeats = [];	
 			
-		//var takenseats = ['1_14','1_15',];
 			$(document).ready(function() {
 			
-			
-				
-				
-		//		var $cart = $('#selected-seats'),
-		//			$counter = $('#counter'),
-		//			$total = $('#total');
 				var	sc = $('#seat-map').seatCharts({
 					map: [
 						
@@ -430,10 +421,6 @@ span.seatCharts-legendDescription {
 								.data('seatId', this.settings.id)
 								.appendTo($cart);
 								
-								// 'this.settings.id' is the reference to the seat location, in the '10_22' format 
-								//necessary to modify the taken seat list
-								 //  takenseats.push(this.settings.id);
-								//   sc.get(takenseats).status('unavailable');
 							
 							/*
 							 * Lets update the counter and total
@@ -443,7 +430,7 @@ span.seatCharts-legendDescription {
 							 */
 							$counter.text(sc.find('selected').length+1);
 							$total.text(recalculateTotal(sc)+this.data().price);
-							//$window.alert(Testing);
+							
 							return 'selected';
 						} else if (this.status() == 'selected') {
 							//update the counter
@@ -464,35 +451,17 @@ span.seatCharts-legendDescription {
 						}
 					}
 				});
-				//this will handle "[cancel]" link clicks
-				/*
-				$('checkout-button').on('click', function () {
-					window.alert("Testing");
-					takenseats.push(this.settings.id);
-					sc.get(takenseats).status('unavailable');
-				
-				});
-				*/
+
 				$('#selected-seats').on('click', '.cancel-cart-item', function () {
 					//let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
 					sc.get($(this).parents('li:first').data('seatId')).click();
 				});
-				//let's pretend some seats have already been booked
-				
-				//Setting up procedure for passing-in taken seats, creating an array, and then using sc.get on that array,
-				//with an unavailable status marker 
-			//	var takenseats = ['1_16','1_17','1_18','1_19','1_20','1_22','1_23','3_16','4_17','5_18','6_19','7_20','8_22','9_23'];
-				//sc.get(takenseats).status('unavailable');
-				/*
-				sc.get(['1_2','1_3','1_12','1_13','2_15','2_16','2_17','2_18','3_14','4_1', '7_1', '7_2',
-				'11_12','11_12','10_7','10_8','10_9','8_20','12_22','12_23','10_3']).status('unavailable');
-				*/
+
 			$("#dataPass").submit(function (){
                             checkOut(sc);
                         });
-			$('#opts').click(function () {
+			$('#opts').change(function () {
 				updateSeats(sc);
-				//console.log(takenseats);
 			});
 		
 		function checkOut(sc) {
@@ -511,10 +480,19 @@ span.seatCharts-legendDescription {
 				jsonObj.push(item);
 			});
 		var json_text = JSON.stringify(jsonObj);
+                
 		var show_ID = $(opts).val();
                 $("#showID").attr('value', show_ID);
                 $("#strJSON").attr('value', json_text);
 		}
+                
+                <?php 
+                            if(isset($show_id))
+                            {
+                                echo $script_str;
+                            }
+                ?>
+                                
             });
 		function recalculateTotal(sc) {
 			var total = 0;
