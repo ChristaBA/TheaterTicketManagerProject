@@ -194,7 +194,20 @@ session_start();
             $(document).ready(function() {
                 $.post("getShows.php", function(response){
                    $("#ShowDisplay").html(response);
-                   //console.log(response);
+                });
+                
+                $("#ShowDisplay").on('click', 'a', function(event){
+                    event.preventDefault();
+                   var item = $(this).closest('tr')
+                           .find(".uniqueID")
+                           .text();
+                   
+                   var data = {id: item};
+                   
+                    
+                   $.post("getShows.php", data, function(response){
+                        $("#ShowDisplay").html(response);
+                    });
                 });
             });
             

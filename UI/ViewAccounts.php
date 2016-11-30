@@ -194,7 +194,19 @@ session_start();
             $(document).ready(function() {
                 $.post("getAccounts.php", function(response){
                    $("#AccountDisplay").html(response);
-                   //console.log(response);
+                });
+                
+                $("#AccountDisplay").on('click', 'a', function(event){
+                    event.preventDefault();
+                   var item = $(this).closest('tr')
+                           .find(".uniqueID")
+                           .text();
+                   
+                   var data = {id: item};
+                    
+                   $.post("getAccounts.php", data, function(response){
+                        $("#AccountDisplay").html(response);
+                    });
                 });
             });
             
@@ -227,7 +239,7 @@ session_start();
             <h1>Account Manager</h1> 
        
            
-        <div class="Login" id ="AccountDisplay">
+        <div class="Login" id="AccountDisplay">
     
     </div>
         

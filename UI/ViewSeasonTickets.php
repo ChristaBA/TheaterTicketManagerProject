@@ -202,7 +202,19 @@ if ($link->connect_error) {
             $(document).ready(function() {
                 $.post("getSeasonTickets.php", function(response){
                    $("#seasonTicketDisplay").html(response);
-                   //console.log(response);
+                });
+                
+                $("#seasonTicketDisplay").on('click', 'a', function(event){
+                    event.preventDefault();
+                   var item = $(this).closest('tr')
+                           .find(".uniqueID")
+                           .text();
+                   
+                   var data = {id: item};
+                    
+                   $.post("getSeasonTickets.php", data, function(response){
+                        $("#seasonTicketDisplay").html(response);
+                    });
                 });
             });
             

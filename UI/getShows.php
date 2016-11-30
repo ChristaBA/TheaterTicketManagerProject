@@ -18,15 +18,25 @@ if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
 
-$result =  mysqli_query($link, "SELECT  showname,  date, time ,location, Company FROM showname WHERE Company = '$var_value'");
+if(isset($_POST['id']))
+{
+    $unique = $_POST['id'];
+    if(mysqli_query($link,"DELETE FROM showname WHERE showId = '$unique'"))
+    {
+        echo "";
+    }
+    
+}
+
+$result =  mysqli_query($link, "SELECT  showname,  date, time ,location, Company, showId FROM showname WHERE Company = '$var_value'");
 
 //mysqli_query($link,"SELECT * FROM seasonticket WHERE CompanyName ='$var_value' ");
 
 echo "<table border='1'>
 <tr>
+<th hidden></th>
 <th>Showname</th>
 <th>Date</th>
-<th>Time</th>
 <th>Location</th>
 <th>Company</th>
 
@@ -38,14 +48,12 @@ echo "<table border='1'>
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
+echo "<td hidden class=\"uniqueID\">" . $row['showId'] . "</td>";
 echo "<td>" . $row['showname'] . "</td>";
 echo "<td>" . $row['date'] . "</td>";
-echo "<td>" . $row['time'] . "</td>";
 echo "<td>" . $row['location'] . "</td>";
 echo "<td>" . $row['Company'] . "</td>";
-
-
-echo "<td><a href='javascript:void(0);' id='editLink'>Delete</a></td>";
+echo "<td><a href='' id='editLink'>Delete</a></td>";
 echo "</tr>";
 }
 echo "</table>";

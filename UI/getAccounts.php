@@ -6,8 +6,7 @@
  * and open the template in the editor.
  */
 session_start();
-$var_value =  $_SESSION['varname'];
-    
+
 $servername = "localhost:3306";
 $username = "root";
 $password = "";
@@ -17,6 +16,18 @@ $link =  mysqli_connect($servername, $username, $password, $dbname);
 if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
+
+if(isset($_POST['id']))
+{
+    $unique = $_POST['id'];
+    if(mysqli_query($link,"DELETE FROM worker WHERE login = '$unique'"))
+    {
+        echo "";
+    }
+    
+}
+$var_value =  $_SESSION['varname'];
+    
 if($var_value == "admin" | $var_value == "ADMIN")
 {
     $result = mysqli_query($link,"SELECT * FROM worker");
@@ -31,7 +42,6 @@ echo "<table border='1'>
 <th>Last Name</th>
 <th>Account Login</th>
 <th>Account Type</th>
-
 <th>Delete</th>
 </tr>";
 
@@ -40,7 +50,7 @@ while($row = mysqli_fetch_array($result))
 echo "<tr>";
 echo "<td>" . $row['firstname'] . "</td>";
 echo "<td>" . $row['lastname'] . "</td>";
-echo "<td>" . $row['login'] . "</td>";
+echo "<td class=\"uniqueID\">" . $row['login'] . "</td>";
 switch ($row['accounttype']) {
     case 1:
         echo "<td>Administrator</td>";
@@ -54,7 +64,7 @@ switch ($row['accounttype']) {
         break;
 }
 
-echo "<td><a href='javascript:void(0);' id='editLink'>Delete</a></td>";
+echo "<td><a href='' id='editLink'>Delete</a></td>";
 echo "</tr>";
 }
 echo "</table>";

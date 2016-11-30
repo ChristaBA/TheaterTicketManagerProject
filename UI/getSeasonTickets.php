@@ -18,8 +18,18 @@ if ($link->connect_error) {
     die("Connection failed: " . $link->connect_error);
 } 
 
+if(isset($_POST['id']))
+{
+    $unique = $_POST['id'];
+    if(mysqli_query($link,"DELETE FROM seasonticket WHERE ticketnumber = '$unique'"))
+    {
+        echo "";
+    }
+    
+}
+
 $result =  mysqli_query($link, "SELECT firstname, lastname,  ticketnumber, email, phonenumber, seat, day, "
-        . "time, address, company FROM seasonticket WHERE company = '$var_value'");
+        . "address, company FROM seasonticket WHERE company = '$var_value'");
 //mysqli_query($link,"SELECT * FROM seasonticket WHERE CompanyName ='$var_value' ");
 
 echo "<table border='1'>
@@ -31,9 +41,7 @@ echo "<table border='1'>
 <th>Address</th>
 <th>Ticket #</th>
 <th>Seat #</th>
-<th>Day</th>
-<th>Time</th>
-<th>Edit</th>
+<th>Showing</th>
 <th>Delete</th>
 </tr>";
 
@@ -45,12 +53,10 @@ echo "<td>" . $row['lastname'] . "</td>";
 echo "<td>" . $row['email'] . "</td>";
 echo "<td>" . $row['phonenumber'] . "</td>";
 echo "<td>" . $row['address'] . "</td>";
-echo "<td>" . $row['ticketnumber'] . "</td>";
+echo "<td class=\"uniqueID\">" . $row['ticketnumber'] . "</td>";
 echo "<td>" . $row['seat'] . "</td>";
 echo "<td>" . $row['day'] . "</td>";
-echo "<td>" . $row['time'] . "</td>";
-echo "<td><a href='javascript:void(0);' id='editLink'>Edit</a></td>";
-echo "<td><a href='javascript:void(0);' id='editLink'>Delete</a></td>";
+echo "<td><a href='' id='editLink'>Delete</a></td>";
 echo "</tr>";
 }
 echo "</table>";
