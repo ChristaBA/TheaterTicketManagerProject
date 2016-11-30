@@ -228,7 +228,7 @@ session_start();
             <button class="button button1" id ="exportbtn"value="Import File" onclick="location='import.php'">Import Season Ticket list</button>
 
 <button class="button button2" id ="importbtn" value="Export File" onclick="location='export.php'">Export Season Ticket List</button>  
-  <button class="button button1" id ="importbtn" value="Seasonticket" onclick="location='CreateSeasonTicket.php'">Create Season Ticket</button>            
+ <!-- <button class="button button1" id ="importbtn" value="Seasonticket" onclick="location='CreateSeasonTicket.php'">Create Season Ticket</button>       -->     
       <button class="button button2" id ="viewseasontickets" value="viewSeasonticket"onclick="location='ViewSeasonTickets.php'">View Season Tickets</button>          
             
        
